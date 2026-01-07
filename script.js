@@ -2,6 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Render Events ---
     const eventsGrid = document.getElementById('events-grid');
 
+    // --- Sound Logic ---
+    const clickSound = document.getElementById('ui-click');
+    function playClickSound() {
+        if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(e => console.log("Audio play blocked", e));
+        }
+    }
+
     // Render Event Cards
     eventData.forEach(event => {
         const card = document.createElement('div');
@@ -19,7 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         card.addEventListener('click', () => {
-            window.location.href = `rules.html?id=${event.id}`;
+            playClickSound();
+            // Small delay to ensure sound starts before navigation
+            setTimeout(() => {
+                window.location.href = `rules.html?id=${event.id}`;
+            }, 150);
         });
         eventsGrid.appendChild(card);
     });
@@ -146,15 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('doomsday-theme');
 
     // Create Toggle Button
-    const nav = document.querySelector('.cyber-nav');
     const soundBtn = document.createElement('button');
     soundBtn.className = 'sound-toggle';
     soundBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
     soundBtn.title = "Initialize Audio Protocol";
-    nav.appendChild(soundBtn);
+    document.body.appendChild(soundBtn); // Append to body for fixed positioning
 
     let isPlaying = false;
-    audio.volume = 0.5;
+    audio.volume = 0.6;
 
     // Browser Autoplay Policy Workaround: Start on first user interaction
     function initAudio() {

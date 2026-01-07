@@ -161,31 +161,38 @@ body {
 }
 
 .sound-toggle {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid var(--text-secondary);
     color: var(--text-secondary);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
+
+    /* Fixed Positioning */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
 }
 
 .sound-toggle:hover {
     color: var(--accent);
     border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+    transform: scale(1.1);
 }
 
 .sound-toggle.active {
     color: var(--accent);
     border-color: var(--accent);
-    box-shadow: 0 0 15px var(--accent);
+    box-shadow: 0 0 20px var(--accent);
     animation: pulse-green 2s infinite;
 }
 
@@ -195,7 +202,7 @@ body {
     }
 
     70% {
-        box-shadow: 0 0 0 10px rgba(0, 255, 65, 0);
+        box-shadow: 0 0 0 15px rgba(0, 255, 65, 0);
     }
 
     100% {
@@ -205,10 +212,10 @@ body {
 
 @media (max-width: 768px) {
     .sound-toggle {
-        margin-left: 0;
-        position: absolute;
-        top: 20px;
+        bottom: 20px;
         right: 20px;
+        width: 45px;
+        height: 45px;
     }
 }
 
