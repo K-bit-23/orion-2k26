@@ -105,15 +105,18 @@ const eventData = [
     {
         id: "fix-and-flex",
         title: "Fix and Flex",
-        icon: "fa-wrench",
-        description: "On-spot multitasking and adaptability challenge. (Description based on provided text which mirrors BrandIt - subject to update if unique rules apply).",
-        teamSize: "1 - 3 Members",
+        icon: "fa-bug",
+        description: "Project Debugging is a fun-filled technical event where debugging meets web design. Participants will be given a broken website (HTML, CSS, JavaScript) filled with bugs, alignment issues, and missing features. Mission: Find bugs, fix issues, and complete missing features.",
+        teamSize: "Individual Participation",
         rules: [
-            "Topic/Task given on the spot.",
-            "Only on-spot ideas allowed.",
-            "Performance/Task must be completed within time limit.",
-            "No offensive content.",
-            "Judges' decision is final."
+            "Internet access will not be allowed.",
+            "Each bug fix = 5 points, successful feature implementation = 10 points.",
+            "Partial fixes earn partial points.",
+            "Plagiarism or unfair practice leads to instant disqualification.",
+            "Strict time limit: 1 hour.",
+            "Judges' decision is final.",
+            "Round 1: The Filter (Prelims) - MCQ (30 Mins). Top 30 advance.",
+            "Round 2: The Fix-It Felix (Finals) - Debugging & Feature Building (1 Hour)."
         ],
         coordinators: [
             "Balaji Hariharan S: 87548 87575",
