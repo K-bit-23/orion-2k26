@@ -3,9 +3,11 @@
     --card-bg: #0e0e0e;
     --text-primary: #e0e0e0;
     --text-secondary: #a0a0a0;
-    --accent: #ff2a2a; /* Doomsday Red */
-    --accent-dim: #5a1111;
-    --highlight: #ffee00; /* Hazard Yellow */
+    --accent: #00ff41;
+    /* Matrix Green */
+    --accent-dim: #003300;
+    --highlight: #ccff00;
+    /* Biohazard Lime */
     --font-head: 'Orbitron', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
     --font-body: 'Rajdhani', sans-serif;
@@ -35,13 +37,11 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 1px,
-        rgba(0, 0, 0, 0.1) 2px,
-        rgba(0, 0, 0, 0.1) 3px
-    );
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(0, 0, 0, 0.1) 3px);
     z-index: 999;
 }
 
@@ -51,7 +51,7 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background: rgba(255, 42, 42, 0.1);
+    background: rgba(0, 255, 65, 0.1);
     opacity: 0.4;
     animation: scan 6s linear infinite;
     pointer-events: none;
@@ -59,17 +59,24 @@ body {
 }
 
 @keyframes scan {
-    0% { top: -10%; }
-    100% { top: 110%; }
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--bg-color);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--accent);
 }
@@ -131,7 +138,7 @@ body {
 
 .nav-item:hover {
     color: var(--accent);
-    text-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .register-btn {
@@ -149,7 +156,7 @@ body {
 .register-btn:hover {
     background: var(--accent);
     color: #000;
-    box-shadow: 0 0 20px rgba(255, 42, 42, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
 }
 
 /* Hero Section */
@@ -160,7 +167,7 @@ body {
     align-items: center;
     text-align: center;
     /* Optional: Add a dark, grungy background image here */
-    background: radial-gradient(circle at center, #1a0505 0%, #000000 100%);
+    background: radial-gradient(circle at center, #051a05 0%, #000000 100%);
     position: relative;
 }
 
@@ -239,7 +246,7 @@ h1.glitch-large {
 .cta-button:hover {
     background: transparent;
     color: var(--accent);
-    box-shadow: 0 0 30px rgba(255, 42, 42, 0.4);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
 }
 
 /* Events Section */
@@ -286,7 +293,7 @@ h1.glitch-large {
 .event-card:hover {
     border-color: var(--accent);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .event-card::before {
@@ -347,7 +354,7 @@ h1.glitch-large {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 2000;
     justify-content: center;
     align-items: center;
@@ -363,7 +370,7 @@ h1.glitch-large {
     border: 1px solid var(--accent);
     padding: 40px;
     position: relative;
-    box-shadow: 0 0 50px rgba(255, 42, 42, 0.2);
+    box-shadow: 0 0 50px rgba(0, 255, 65, 0.2);
 }
 
 .close-modal {
@@ -396,7 +403,8 @@ h1.glitch-large {
     text-transform: uppercase;
 }
 
-.modal-section p, .modal-section li {
+.modal-section p,
+.modal-section li {
     color: #ddd;
     font-size: 1rem;
 }
@@ -428,9 +436,10 @@ footer {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .nav-links {
-        display: none; /* Simplification for mobile */
+        display: none;
+        /* Simplification for mobile */
     }
 
     h1.glitch-large {
