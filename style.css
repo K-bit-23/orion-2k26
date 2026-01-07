@@ -416,20 +416,199 @@ h1.glitch-large {
     text-transform: uppercase;
 }
 
-.modal-section p,
-.modal-section li {
-    color: #ddd;
-    font-size: 1rem;
+/* Protocols Section */
+.protocols-section {
+    padding: 80px 50px;
+    background: #080808;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
 }
 
-.modal-section ul {
-    list-style-type: none;
-    padding-left: 0;
+.protocols-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
-.modal-section li::before {
-    content: '> ';
+.protocol-card {
+    background: rgba(14, 14, 14, 0.9);
+    border: 1px solid #333;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.protocol-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+    transition: 0.3s;
+}
+
+.protocol-card:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.protocol-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.protocol-card i {
+    font-size: 2.5rem;
+    color: var(--highlight);
+    margin-bottom: 20px;
+}
+
+.protocol-card h3 {
+    font-family: var(--font-head);
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.protocol-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Contact Section Redesign */
+.contact-section {
+    padding: 80px 20px;
+    background: #020202;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-terminal {
+    width: 100%;
+    max-width: 800px;
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.05);
+}
+
+.terminal-header {
+    background: #111;
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    font-family: var(--font-mono);
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-bottom: 1px solid #222;
+    transition: 0.3s;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item:hover {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: #444;
+    transition: 0.3s;
+}
+
+.contact-item:hover i {
     color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.contact-item h4 {
+    font-family: var(--font-mono);
+    color: var(--highlight);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.contact-item p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.contact-item.highlight {
+    background: rgba(0, 255, 65, 0.02);
+}
+
+.contact-item.highlight i {
+    color: var(--accent);
+}
+
+.map-link {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    background: #0a0a0a;
+}
+
+.cyber-link {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.cyber-link:hover {
+    letter-spacing: 4px;
+    text-shadow: 0 0 8px var(--accent);
 }
 
 /* Footer */
