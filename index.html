@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION 2k26 - Doomsday Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="scanline"></div>
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="logo glitch" data-text="ORION 2K26">ORION 2K26</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-item">HOME</a>
+            <a href="#events" class="nav-item">OPERATIONS</a>
+            <a href="#rules" class="nav-item">PROTOCOLS</a>
+            <a href="#contact" class="nav-item">COMMUNICATIONS</a>
+        </div>
+        <button class="register-btn" onclick="window.location.href='#register'">INITIATE REGISTRATION</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="sub-hero">KONGU ENGINEERING COLLEGE PRESENTS</h2>
+            <h1 class="glitch-large" data-text="ORION 2K26">ORION 2K26</h1>
+            <p class="hero-date">30.01.2026 // DOOMSDAY CLOCK TICKING</p>
+            <div class="countdown-container">
+                <div class="time-segment">
+                    <span id="days">00</span>
+                    <span class="label">DAYS</span>
+                </div>
+                <div class="time-segment">
+                    <span id="hours">00</span>
+                    <span class="label">HRS</span>
+                </div>
+                <div class="time-segment">
+                    <span id="minutes">00</span>
+                    <span class="label">MIN</span>
+                </div>
+                <div class="time-segment">
+                    <span id="seconds">00</span>
+                    <span class="label">SEC</span>
+                </div>
+            </div>
+            <a href="#events" class="cta-button">SURVIVE THE DAY</a>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="section-header">
+            <h2 class="section-title">ACTIVE OPERATIONS</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="events-grid" id="events-grid">
+            <!-- Events will be injected by JS -->
+        </div>
+    </section>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">EVENT NAME</h2>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>MISSION BRIEF</h3>
+                    <p id="modal-desc">Description goes here.</p>
+                </div>
+                <div class="modal-section">
+                    <h3>ROSTER SIZE</h3>
+                    <p id="modal-team">Individual / Team</p>
+                </div>
+                <div class="modal-section">
+                    <h3>PROTOCOL (RULES)</h3>
+                    <ul id="modal-rules"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3>MISSION COMMANDERS</h3>
+                    <ul id="modal-coordinators"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 class="section-title">BASE COMMAND</h2>
+        </div>
+        <div class="contact-info">
+            <p>Department of Computer Applications</p>
+            <p>Kongu Engineering College, Perundurai</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ORION. SYSTEM ONLINE.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
