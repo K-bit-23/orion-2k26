@@ -133,19 +133,20 @@ const eventData = [
         title: "Lock & Seek",
         subtitle: "(Treasure Hunt)",
         icon: "fa-lock",
-        description: "A thrilling mystery-solving event where participants decipher clues, unlock riddles, and race against time to find the hidden treasure. Test your logic and observation skills.",
+        description: "Lock & Seek is a high-energy technical treasure hunt at ORION 2K26 that challenges participants to decode their way to victory. Unlike a traditional hunt, every clue is encrypted with technical puzzles ranging from binary code and bug fixing to data structure traversal and logic gates. Participants must use their technical knowledge to unlock \"digital locks\" and find physical locations. This event tests presence of mind, technical basics, and physical agility.",
         teamSize: "2 - 3 Members",
         rules: [
-            "Teams must solve riddles to progress to the next stage.",
-            "Time limits will be strictly enforced for each clue.",
-            "No use of mobile phones unless specified.",
-            "Fair play is mandatory; malpractice leads to disqualification.",
-            "Judges' decisions are final."
+            "Participation: Team of 2 to 3 members.",
+            "Device Usage: Use of mobile phones is allowed only for scanning QR codes or accessing specific tools approved by coordinators. Calling friends for help is prohibited.",
+            "Time Limit: The entire hunt must be completed within the stipulated time (60 minutes).",
+            "Fair Play: Tampering with clues, misleading other teams, or destroying property will lead to immediate disqualification.",
+            "Safety: Participants must follow campus safety rules while moving between checkpoints.",
+            "Decisions: Judges' and Coordinators' decisions will be final and binding."
         ],
         coordinators: [
-            "Pooja",
-            "Bhuvaneshwari G",
-            "Lakshitha M G"
+            "Pooja E: 93630 90781",
+            "Bhuvaneshwari G: 87782 73869",
+            "Lakshitha MG: 94895 60164"
         ]
     },
     {
