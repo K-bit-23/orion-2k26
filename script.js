@@ -161,46 +161,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start typing after a short delay
     setTimeout(typeText, 500);
 
-    // --- Doomsday Sound Control ---
-    const audio = document.getElementById('theme.mpeg');
+    // --- Background Audio Persistence ---
+    // Ensure the ID matches the HTML element
+    const audio = document.getElementById('doomsday-theme');
 
-    // Create Toggle Button
-    const soundBtn = document.createElement('button');
-    soundBtn.className = 'sound-toggle';
-    soundBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-    soundBtn.title = "Initialize Audio Protocol";
-    document.body.appendChild(soundBtn); // Append to body for fixed positioning
+    if (audio) {
+        audio.volume = 0.5; // Set a reasonable background volume
 
-    let isPlaying = false;
-    audio.volume = 0.6;
-
-    // Browser Autoplay Policy Workaround: Start on first user interaction
-    function initAudio() {
-        audio.play().then(() => {
-            isPlaying = true;
-            soundBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            soundBtn.classList.add('active');
-        }).catch(err => {
-            console.log("Audio autoplay blocked, waiting for interaction.");
-        });
-        document.removeEventListener('click', initAudio);
-    }
-
-    document.addEventListener('click', initAudio, { once: true });
-
-    soundBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent re-triggering initAudio if clicked first
-        if (isPlaying) {
-            audio.pause();
-            soundBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            soundBtn.classList.remove('active');
-            isPlaying = false;
-        } else {
-            audio.play();
-            soundBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            soundBtn.classList.add('active');
-            isPlaying = true;
+        // 1. Restore Playback Position from LocalStorage
+        const savedTime = localStorage.getItem('audio_time');
+        if (savedTime) {
+            audio.currentTime = parseFloat(savedTime);
         }
-    });
+
+        // 2. Play Function (Handles persistence state)
+        const startAudio = () => {
+            audio.play().then(() => {
+                // If successful, we are "playing"
+                localStorage.setItem('audio_playing', 'true');
+            }).catch(error => {
+                console.log("Autoplay blocked:", error);
+                // If blocked, wait for interaction (which is handled by the global click listener below)
+            });
+        };
+
+        // 3. Try to play immediately (Works if "audio_playing" was true and browser allows, or just try anyway)
+        // Note: Browsers usually block this unless there was a previous interaction on the domain, 
+        // but restoring context might help in some browsers or if the user refreshed.
+        startAudio();
+
+        // 4. Global fallback: Start audio on ANY first interaction if not playing
+        const interactionStart = () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    localStorage.setItem('audio_playing', 'true');
+                }).catch(e => console.log("Still blocked", e));
+            }
+            // Once interacted, we can likely remove this listener or let it be harmless
+            document.removeEventListener('click', interactionStart);
+            document.removeEventListener('keydown', interactionStart);
+        };
+
+        document.addEventListener('click', interactionStart);
+        document.addEventListener('keydown', interactionStart);
+
+        // 5. Save Playback Position on Unload (Refresh/Navigate)
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('audio_time', audio.currentTime);
+        });
+    }
 
 });
