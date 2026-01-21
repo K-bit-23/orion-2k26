@@ -115,7 +115,7 @@ const eventData = [
     {
         id: "reboot-the-waste",
         title: "Reboot The Waste()",
-        subtitle: "(Waste Management)",
+        subtitle: "(Art from Waste)",
         icon: "fa-dumpster-fire",
         description: "An innovative and awareness-driven event that challenges participants to rethink waste management using creativity and technology. Analyze real-world waste problems and propose smart, sustainable solutions.",
         teamSize: "1 - 3 Members",
