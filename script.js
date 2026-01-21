@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Countdown Timer ---
     // Target Date: January 30, 2026, 09:00:00 (Assuming start time)
-    const eventDate = new Date('January 30, 2026 09:00:00').getTime();
+    const eventDate = new Date('February 20, 2026 08:00:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
