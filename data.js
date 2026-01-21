@@ -47,7 +47,7 @@ const eventData = [
         title: "Reel Rush",
         subtitle: "(Short Film)",
         icon: "fa-video",
-        description: "Short film competition. Themes: 'Digital Silence', 'Ctrl+Alt+Reset', '404: Dreams Not Found', 'The Parallel Universe', 'Dark Mode'.",
+        description: "Short film competition. Themes: 'Campus Diaries – youth & college life', 'Tradition vs Tomorrow – Culture & Change', 'Village Dreams, City Rush - Village Life vs City Life', 'When Skills Go Silent - Technology & Unemployment', 'Chalk to Change – power of education'.",
         teamSize: "Max 5 Members",
         rules: [
             "Duration: 5 minutes only.",
