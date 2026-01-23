@@ -1,17 +1,17 @@
 :root {
-    --bg-color: #050505;
-    --card-bg: #0e0e0e;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --accent: #00ff41;
-    /* Matrix Green */
-    --accent-dim: #003300;
-    --highlight: #ccff00;
-    /* Biohazard Lime */
+    --bg-color: #f0f4f8;
+    --card-bg: #ffffff;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --accent: #10b981;
+    /* Lighter Green */
+    --accent-dim: #a7f3d0;
+    --highlight: #84cc16;
+    /* Lighter Lime */
     --font-head: 'Orbitron', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
     --font-body: 'Rajdhani', sans-serif;
-    --border-color: #333;
+    --border-color: #cbd5e0;
 }
 
 * {
@@ -87,14 +87,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     border-bottom: 2px solid var(--accent);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    box-shadow: 0 5px 20px rgba(0, 255, 65, 0.1);
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.15);
 }
 
 /* Scanner Line on Border */
@@ -142,11 +142,11 @@ body {
     font-family: var(--font-head);
     font-size: 1.8rem;
     font-weight: 900;
-    color: #fff;
+    color: var(--text-primary);
     letter-spacing: 2px;
     position: relative;
     cursor: pointer;
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+    text-shadow: 0 0 5px rgba(16, 185, 129, 0.2);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -186,7 +186,7 @@ body {
 .register-btn {
     background: var(--accent);
     border: 2px solid var(--accent);
-    color: #000;
+    color: #ffffff;
     padding: 10px 30px;
     font-family: var(--font-head);
     cursor: pointer;
@@ -201,9 +201,9 @@ body {
 }
 
 .register-btn:hover {
-    background: #000;
+    background: #ffffff;
     color: var(--accent);
-    box-shadow: 0 0 25px rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
 }
 
 /* Glitch hover effect for button */
@@ -288,7 +288,7 @@ body {
     align-items: center;
     text-align: center;
     /* Optional: Add a dark, grungy background image here */
-    background: radial-gradient(circle at center, #051a05 0%, #000000 100%);
+    background: radial-gradient(circle at center, #e0f2fe 0%, #bae6fd 100%);
     position: relative;
     padding-top: 120px;
     /* Navbar offset */
@@ -320,7 +320,7 @@ body {
 h1.glitch-large {
     font-family: var(--font-head);
     font-size: 5rem;
-    color: #fff;
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-bottom: 10px;
@@ -365,7 +365,7 @@ h1.glitch-large {
     display: inline-block;
     padding: 15px 40px;
     background: var(--accent);
-    color: black;
+    color: white;
     text-decoration: none;
     font-family: var(--font-head);
     font-weight: bold;
@@ -455,7 +455,7 @@ h1.glitch-large {
     font-family: var(--font-head);
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .card-desc {
@@ -495,7 +495,7 @@ h1.glitch-large {
 }
 
 .modal-content {
-    background: #111;
+    background: #ffffff;
     width: 90%;
     max-width: 700px;
     max-height: 90vh;
@@ -503,7 +503,7 @@ h1.glitch-large {
     border: 1px solid var(--accent);
     padding: 40px;
     position: relative;
-    box-shadow: 0 0 50px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.3);
 }
 
 .close-modal {
@@ -539,8 +539,8 @@ h1.glitch-large {
 /* Protocols Section */
 .protocols-section {
     padding: 80px 50px;
-    background: #080808;
-    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 65, .03) 25%, rgba(0, 255, 65, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, .03) 75%, rgba(0, 255, 65, .03) 76%, transparent 77%, transparent);
+    background: #f9fafb;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, .05) 25%, rgba(16, 185, 129, .05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .05) 75%, rgba(16, 185, 129, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(16, 185, 129, .05) 25%, rgba(16, 185, 129, .05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .05) 75%, rgba(16, 185, 129, .05) 76%, transparent 77%, transparent);
     background-size: 50px 50px;
 }
 
@@ -551,8 +551,8 @@ h1.glitch-large {
 }
 
 .protocol-card {
-    background: rgba(14, 14, 14, 0.9);
-    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-color);
     padding: 30px;
     text-align: center;
     transition: 0.3s;
@@ -590,7 +590,7 @@ h1.glitch-large {
 
 .protocol-card h3 {
     font-family: var(--font-head);
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
@@ -603,7 +603,7 @@ h1.glitch-large {
 /* Contact Section (Holographic HUD) */
 .contact-section {
     padding: 80px 20px;
-    background: #020202;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -618,14 +618,14 @@ h1.glitch-large {
 }
 
 .hud-card {
-    background: rgba(0, 20, 0, 0.6);
-    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 5px;
     backdrop-filter: blur(5px);
     overflow: hidden;
     position: relative;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.08);
 }
 
 .hud-card:hover {
@@ -635,11 +635,11 @@ h1.glitch-large {
 }
 
 .hud-header {
-    background: rgba(0, 255, 65, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     padding: 15px 20px;
     font-family: var(--font-mono);
     color: var(--accent);
-    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.2);
     font-size: 1.1rem;
     letter-spacing: 1px;
     display: flex;
@@ -660,7 +660,7 @@ h1.glitch-large {
 }
 
 .hud-val {
-    color: #fff;
+    color: var(--text-primary);
     font-size: 1rem;
     margin-bottom: 20px;
     line-height: 1.4;
@@ -668,7 +668,7 @@ h1.glitch-large {
 
 /* Specific Node Styles */
 .venue-highlight {
-    background: rgba(0, 255, 65, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     border: 1px dashed var(--accent);
     padding: 10px;
     color: var(--highlight);
@@ -695,7 +695,7 @@ h1.glitch-large {
 
 .hud-btn:hover {
     background: var(--accent);
-    color: #000;
+    color: #ffffff;
     box-shadow: 0 0 15px var(--accent);
 }
 
@@ -769,10 +769,10 @@ h1.glitch-large {
 
 /* Footer */
 footer {
-    background: #090909;
+    background: #f9fafb;
     padding: 40px;
     text-align: center;
-    border-top: 1px solid #222;
+    border-top: 1px solid var(--border-color);
     font-family: var(--font-mono);
     color: var(--text-secondary);
 }
