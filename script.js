@@ -62,6 +62,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
+    // MAGICAL CURSOR TRAIL EFFECT
+    // =============================================
+    const cursorTrailContainer = document.createElement('div');
+    cursorTrailContainer.className = 'cursor-trail-container';
+    document.body.appendChild(cursorTrailContainer);
+
+    const trailSymbols = ['✦', '✧', '★', '⋆', '✴', '❋', '✵'];
+    const trailColors = ['#ffd700', '#ff8c00', '#ff6b35', '#b8860b', '#daa520'];
+    let mouseX = 0;
+    let mouseY = 0;
+    let lastTrailTime = 0;
+
+    function createTrailParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'cursor-trail-particle';
+
+        // Random symbol and color
+        const symbol = trailSymbols[Math.floor(Math.random() * trailSymbols.length)];
+        const color = trailColors[Math.floor(Math.random() * trailColors.length)];
+
+        particle.textContent = symbol;
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        particle.style.color = color;
+        particle.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+
+        // Random size variation
+        const size = 12 + Math.random() * 12;
+        particle.style.fontSize = size + 'px';
+
+        // Random movement direction
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 50 + Math.random() * 50;
+        const dx = Math.cos(angle) * velocity;
+        const dy = Math.sin(angle) * velocity;
+
+        particle.style.setProperty('--dx', dx + 'px');
+        particle.style.setProperty('--dy', dy + 'px');
+
+        cursorTrailContainer.appendChild(particle);
+
+        // Remove particle after animation
+        setTimeout(() => {
+            particle.remove();
+        }, 1000);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        const now = Date.now();
+        // Create trail particles every 50ms
+        if (now - lastTrailTime > 50) {
+            createTrailParticle(mouseX, mouseY);
+            lastTrailTime = now;
+        }
+    });
+
+    // Create extra sparkles on click
+    document.addEventListener('click', (e) => {
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => {
+                createTrailParticle(e.clientX, e.clientY);
+            }, i * 30);
+        }
+    });
+
+    // =============================================
     // SCROLL ANIMATIONS (Intersection Observer)
     // =============================================
     function triggerScrollAnimations() {
