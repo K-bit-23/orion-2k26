@@ -1,5 +1,98 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Render Events ---
+    // =============================================
+    // PAGE LOADER
+    // =============================================
+    const pageLoader = document.getElementById('pageLoader');
+
+    // Hide loader after content is ready (with minimum display time)
+    const minLoadTime = 2000; // Minimum 2 seconds to show animation
+    const startTime = Date.now();
+
+    window.addEventListener('load', () => {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+
+        setTimeout(() => {
+            if (pageLoader) {
+                pageLoader.classList.add('hidden');
+                // Trigger initial animations after loader hides
+                setTimeout(triggerScrollAnimations, 100);
+            }
+        }, remainingTime);
+    });
+
+    // =============================================
+    // THEME TOGGLE (Dark/Light Mode)
+    // =============================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeIcon) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            playClickSound();
+            body.classList.toggle('dark-mode');
+
+            // Update icon with animation
+            if (themeIcon) {
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            // Add transition effect
+            body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+        });
+    }
+
+    // =============================================
+    // SCROLL ANIMATIONS (Intersection Observer)
+    // =============================================
+    function triggerScrollAnimations() {
+        const animateElements = document.querySelectorAll('.event-card, .protocol-card, .hud-card, .section-header');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for cards
+                    const delay = index * 100;
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // =============================================
+    // RENDER EVENTS
+    // =============================================
     const eventsGrid = document.getElementById('events-grid');
 
     // --- Sound Logic ---
@@ -43,7 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         eventsGrid.appendChild(card);
     });
 
-    // --- Countdown Timer ---
+    // =============================================
+    // COUNTDOWN TIMER
+    // =============================================
     // Target Date: March 05, 2026 08:00:00 (Assuming start time)
     const eventDate = new Date('March 05 , 2026 08:00:00').getTime();
 
@@ -61,16 +156,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        // Animate countdown numbers on change
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        updateCountElement(daysEl, days);
+        updateCountElement(hoursEl, hours);
+        updateCountElement(minutesEl, minutes);
+        updateCountElement(secondsEl, seconds);
+    }
+
+    function updateCountElement(element, value) {
+        const formattedValue = value < 10 ? '0' + value : value;
+        if (element.innerText !== String(formattedValue)) {
+            element.style.transform = 'scale(1.2)';
+            element.style.color = '#84cc16';
+            element.innerText = formattedValue;
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+                element.style.color = 'var(--accent)';
+            }, 150);
+        }
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // --- Glitch Text Effect (Optional Randomizer) ---
+    // =============================================
+    // GLITCH TEXT EFFECT (Optional Randomizer)
+    // =============================================
     const glitchElement = document.querySelector('.glitch-large');
     setInterval(() => {
         const original = glitchElement.getAttribute('data-text');
@@ -95,7 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 2000);
 
-    // --- Matrix Rain Effect ---
+    // =============================================
+    // MATRIX RAIN EFFECT
+    // =============================================
     const canvas = document.getElementById('matrix-rain');
     const ctx = canvas.getContext('2d');
 
@@ -116,7 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        // Adjust matrix color based on theme
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(240, 244, 248, 0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = '#0F0'; // Green text
@@ -141,7 +261,9 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = window.innerHeight;
     });
 
-    // --- Typing Effect for Sub-Hero ---
+    // =============================================
+    // TYPING EFFECT FOR SUB-HERO
+    // =============================================
     const subHero = document.querySelector('.sub-hero');
     const textToType = "KONGU ENGINEERING COLLEGE";
     subHero.textContent = "";
@@ -158,10 +280,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Start typing after a short delay
-    setTimeout(typeText, 500);
+    // Start typing after loader finishes
+    setTimeout(typeText, 2500);
 
-    // --- Background Audio Persistence ---
+    // =============================================
+    // BACKGROUND AUDIO PERSISTENCE
+    // =============================================
     // Ensure the ID matches the HTML element
     const audio = document.getElementById('doomsday-theme');
 
@@ -210,5 +334,39 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('audio_time', audio.currentTime);
         });
     }
+
+    // =============================================
+    // ENHANCED HOVER EFFECTS
+    // =============================================
+    // Add tilt effect on cards
+    const cards = document.querySelectorAll('.event-card, .protocol-card, .hud-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+        });
+    });
+
+    // =============================================
+    // PARALLAX EFFECT ON SCROLL
+    // =============================================
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+        }
+    });
 
 });

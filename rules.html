@@ -202,6 +202,37 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-logo">ORION</div>
+            <div class="loader-text">
+                <span class="loader-char">L</span>
+                <span class="loader-char">O</span>
+                <span class="loader-char">A</span>
+                <span class="loader-char">D</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">N</span>
+                <span class="loader-char">G</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+        <div class="theme-toggle-glow"></div>
+    </button>
+
     <div class="noise-overlay"></div>
     <div class="scanline"></div>
     <canvas id="matrix-rain"></canvas>
@@ -234,7 +265,62 @@
     <script src="data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Matrix Rain Effect (Simplified for this page)
+            // =============================================
+            // PAGE LOADER
+            // =============================================
+            const pageLoader = document.getElementById('pageLoader');
+            const minLoadTime = 1500;
+            const startTime = Date.now();
+
+            window.addEventListener('load', () => {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+
+                setTimeout(() => {
+                    if (pageLoader) {
+                        pageLoader.classList.add('hidden');
+                    }
+                }, remainingTime);
+            });
+
+            // =============================================
+            // THEME TOGGLE
+            // =============================================
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    if (themeIcon) {
+                        if (body.classList.contains('dark-mode')) {
+                            themeIcon.classList.remove('fa-moon');
+                            themeIcon.classList.add('fa-sun');
+                            localStorage.setItem('theme', 'dark');
+                        } else {
+                            themeIcon.classList.remove('fa-sun');
+                            themeIcon.classList.add('fa-moon');
+                            localStorage.setItem('theme', 'light');
+                        }
+                    }
+                    body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+                });
+            }
+
+            // =============================================
+            // MATRIX RAIN EFFECT
+            // =============================================
             const canvas = document.getElementById('matrix-rain');
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
@@ -245,7 +331,8 @@
             const rainDrops = Array(Math.ceil(columns)).fill(1);
 
             function draw() {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(240, 244, 248, 0.05)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = '#0F0';
                 ctx.font = fontSize + 'px monospace';
@@ -262,7 +349,9 @@
                 canvas.height = window.innerHeight;
             });
 
-            // Parse URL Parameter
+            // =============================================
+            // PARSE URL AND RENDER CONTENT
+            // =============================================
             const urlParams = new URLSearchParams(window.location.search);
             const eventId = urlParams.get('id');
             const event = eventData.find(e => e.id === eventId);

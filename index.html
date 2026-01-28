@@ -81,6 +81,42 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-logo">ORION</div>
+            <div class="loader-text">
+                <span class="loader-char">I</span>
+                <span class="loader-char">N</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">T</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">A</span>
+                <span class="loader-char">L</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">Z</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">N</span>
+                <span class="loader-char">G</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+        <div class="theme-toggle-glow"></div>
+    </button>
+
     <div class="noise-overlay"></div>
     <div class="scanline"></div>
     <canvas id="matrix-rain"></canvas>

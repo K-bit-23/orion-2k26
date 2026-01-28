@@ -139,7 +139,7 @@ const eventData = [
         title: "Reel Rush",
         subtitle: "(Short Film)",
         icon: "fa-video",
-        description: "Short film competition. Themes: 'Campus Diaries – youth & college life', 'Tradition vs Tomorrow – Culture & Change', 'Village Dreams, City Rush - Village Life vs City Life', 'When Skills Go Silent - Technology & Unemployment', 'Chalk to Change – power of education'.",
+        description: "Short film competition.<br><br><strong>Themes:</strong><ul style='margin-top: 10px; margin-left: 20px;'><li>Campus Diaries – youth & college life</li><li>Tradition vs Tomorrow – Culture & Change</li><li>Village Dreams, City Rush - Village Life vs City Life</li><li>When Skills Go Silent - Technology & Unemployment</li><li>Chalk to Change – power of education</li></ul>",
         teamSize: "Max 5 Members",
         rules: [
             "Duration: 5 minutes only.",
