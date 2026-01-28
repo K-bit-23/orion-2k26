@@ -65,6 +65,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // SCROLL ANIMATIONS (Intersection Observer)
     // =============================================
     function triggerScrollAnimations() {
+        // Section-level animations
+        const sections = document.querySelectorAll('.events-section, .protocols-section, .contact-section, footer');
+
+        const sectionObserverOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-animated');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, sectionObserverOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Card-level animations (for additional effects)
         const animateElements = document.querySelectorAll('.event-card, .protocol-card, .hud-card, .section-header');
 
         const observerOptions = {
@@ -220,37 +242,56 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const nums = '0123456789';
-    const alphabet = katakana + latin + nums;
+    // Magical Runes and Symbols
+    const magicRunes = '✦✧★☆✴✵❋❖⚝⚹⋆✶✷✸✹☄⍟✺⁂⁎⁑';
+    const wizardSymbols = '᛭ᛮᛯᛰ᚛᚜ᚠᚡᚢᚣᚤᚥᚦᚧᚨᚩᚪᚫᚬ';
+    const alphabet = magicRunes + wizardSymbols;
 
-    const fontSize = 16;
+    const fontSize = 18;
     const columns = canvas.width / fontSize;
 
     const rainDrops = [];
     for (let i = 0; i < columns; i++) {
-        rainDrops[i] = 1;
+        rainDrops[i] = Math.random() * canvas.height / fontSize;
     }
 
     const draw = () => {
-        // Adjust matrix color based on theme
         const isDarkMode = document.body.classList.contains('dark-mode');
-        ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(240, 244, 248, 0.05)';
+
+        // Background fade - adapts to theme
+        if (isDarkMode) {
+            ctx.fillStyle = 'rgba(26, 10, 46, 0.08)'; // Dark purple for dark mode
+        } else {
+            ctx.fillStyle = 'rgba(245, 235, 224, 0.1)'; // Parchment cream for light mode
+        }
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = '#0F0'; // Green text
-        ctx.font = fontSize + 'px monospace';
+        // Golden magical text - darker for light mode, brighter for dark
+        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        if (isDarkMode) {
+            gradient.addColorStop(0, '#ffd700');
+            gradient.addColorStop(0.5, '#ff8c00');
+            gradient.addColorStop(1, '#ff4500');
+        } else {
+            gradient.addColorStop(0, '#b8860b'); // Dark gold for light mode
+            gradient.addColorStop(0.5, '#8b4513'); // Saddle brown
+            gradient.addColorStop(1, '#654321'); // Dark brown
+        }
+        ctx.fillStyle = gradient;
+        ctx.font = fontSize + 'px serif';
+        ctx.shadowColor = isDarkMode ? '#ffd700' : '#b8860b';
+        ctx.shadowBlur = isDarkMode ? 10 : 5;
 
         for (let i = 0; i < rainDrops.length; i++) {
             const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
             ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
 
-            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.98) {
                 rainDrops[i] = 0;
             }
-            rainDrops[i]++;
+            rainDrops[i] += 0.5; // Slower, more magical fall
         }
+        ctx.shadowBlur = 0;
     };
 
     setInterval(draw, 30);

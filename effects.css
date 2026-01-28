@@ -11,6 +11,472 @@
     /* Subtle enough to not distract */
 }
 
+/* =============================================
+   CONTINUOUS MOVING ANIMATIONS
+   ============================================= */
+
+/* Floating Particles Container */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background: linear-gradient(to bottom, #ffd700, #ff8c00, #ff4500);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.8;
+    animation: floatParticle 15s infinite ease-in-out;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ff8c00, 0 0 30px #ff4500;
+}
+
+/* Candle flame effect */
+.particle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background: radial-gradient(ellipse at bottom, #fff 0%, #ffd700 40%, #ff8c00 70%, transparent 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flameFlicker 0.3s infinite alternate;
+}
+
+@keyframes flameFlicker {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.1, 1.2);
+        opacity: 0.8;
+    }
+}
+
+.particle:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(2) {
+    left: 15%;
+    animation-delay: 2s;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(3) {
+    left: 25%;
+    animation-delay: 4s;
+    animation-duration: 22s;
+}
+
+.particle:nth-child(4) {
+    left: 35%;
+    animation-delay: 1s;
+    animation-duration: 16s;
+}
+
+.particle:nth-child(5) {
+    left: 45%;
+    animation-delay: 3s;
+    animation-duration: 19s;
+}
+
+.particle:nth-child(6) {
+    left: 55%;
+    animation-delay: 5s;
+    animation-duration: 21s;
+}
+
+.particle:nth-child(7) {
+    left: 65%;
+    animation-delay: 2.5s;
+    animation-duration: 17s;
+}
+
+.particle:nth-child(8) {
+    left: 75%;
+    animation-delay: 0.5s;
+    animation-duration: 23s;
+}
+
+.particle:nth-child(9) {
+    left: 85%;
+    animation-delay: 3.5s;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(10) {
+    left: 95%;
+    animation-delay: 1.5s;
+    animation-duration: 18s;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Magical Twinkling Stars */
+.particles::before,
+.particles::after {
+    content: '✦';
+    position: absolute;
+    font-size: 24px;
+    color: #ffd700;
+    animation: twinkleStar 2s infinite;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #fff, 0 0 30px #ffd700;
+}
+
+.particles::before {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particles::after {
+    top: 35%;
+    right: 12%;
+    animation-delay: 1s;
+    content: '★';
+}
+
+@keyframes twinkleStar {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(180deg);
+    }
+}
+
+/* Moving Gradient Border for Cards - Magical Gold Theme */
+.event-card,
+.protocol-card,
+.hud-card {
+    position: relative;
+    background-clip: padding-box;
+}
+
+.event-card::before,
+.hud-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            #ffd700,
+            transparent,
+            #7b2cbf,
+            transparent,
+            #ffd700);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    animation: gradientBorder 3s ease infinite;
+    transition: opacity 0.3s ease;
+}
+
+.event-card:hover::before,
+.hud-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Orbiting Dots around Logo */
+.logo {
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(16, 185, 129, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbitRotate 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes orbitRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Pulsing Glow on Section Titles */
+.section-title {
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--accent);
+    animation: pulseWidth 2s ease-in-out infinite;
+}
+
+@keyframes pulseWidth {
+
+    0%,
+    100% {
+        width: 50px;
+        opacity: 1;
+    }
+
+    50% {
+        width: 150px;
+        opacity: 0.5;
+    }
+}
+
+/* Moving Scan Line on Cards */
+.event-card .card-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+    animation: scanCard 3s ease-in-out infinite;
+}
+
+@keyframes scanCard {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Continuous Wave Animation for Section Lines */
+.section-line {
+    position: relative;
+    overflow: visible;
+}
+
+.section-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: moveDot 2s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+}
+
+@keyframes moveDot {
+    0% {
+        left: 0;
+    }
+
+    50% {
+        left: calc(100% - 10px);
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+/* Breathing Animation for Protocol Icons */
+.protocol-card i {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Glowing Border Animation for CTA Button */
+.cta-button {
+    position: relative;
+    overflow: visible;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, var(--accent), var(--highlight), var(--accent), var(--highlight));
+    background-size: 300% 300%;
+    z-index: -1;
+    filter: blur(8px);
+    animation: glowingBorder 3s ease infinite;
+    opacity: 0.7;
+}
+
+@keyframes glowingBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Rotating Register Button Border */
+.register-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.register-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: slideShine 2s ease-in-out infinite;
+}
+
+@keyframes slideShine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Countdown Number Pulse */
+.time-segment span:first-child {
+    animation: countPulse 1s ease-in-out infinite;
+}
+
+@keyframes countPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px var(--accent);
+    }
+
+    50% {
+        text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent);
+    }
+}
+
+/* HUD Card Data Stream Effect */
+.hud-card .hud-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(16, 185, 129, 0.1) 2px,
+            rgba(16, 185, 129, 0.1) 4px);
+    animation: dataStream 1s linear infinite;
+}
+
+@keyframes dataStream {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 20px;
+    }
+}
+
 /* CRT Flicker */
 body {
     animation: flicker 0.15s infinite;
@@ -475,57 +941,66 @@ body {
 }
 
 /* =============================================
-   DARK MODE STYLES
+   DARK MODE STYLES - Mystical Hogwarts Night Theme
    ============================================= */
 body.dark-mode {
-    --bg-color: #0a0a0f;
-    --card-bg: #1a1a2e;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --border-color: #2a2a4a;
+    --bg-color: #1a0a2e;
+    /* Deep mystical purple */
+    --card-bg: rgba(30, 15, 50, 0.95);
+    /* Dark purple */
+    --text-primary: #f5e6d3;
+    /* Warm parchment */
+    --text-secondary: #c9b8a5;
+    /* Aged parchment */
+    --accent: #ffd700;
+    /* Magical Gold */
+    --highlight: #ff6b35;
+    /* Phoenix orange */
+    --border-color: #4a2c6a;
+    /* Purple border */
 }
 
 body.dark-mode .cyber-nav {
-    background: rgba(10, 10, 15, 0.95);
+    background: rgba(26, 10, 46, 0.98);
     border-bottom-color: var(--accent);
 }
 
 body.dark-mode .hero {
-    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+    background: radial-gradient(circle at center, #2d1b4e 0%, #1a0a2e 100%);
 }
 
 body.dark-mode .protocols-section {
-    background: #0f0f1a;
-    background-image: linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, .08) 25%, rgba(16, 185, 129, .08) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .08) 75%, rgba(16, 185, 129, .08) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(16, 185, 129, .08) 25%, rgba(16, 185, 129, .08) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .08) 75%, rgba(16, 185, 129, .08) 76%, transparent 77%, transparent);
+    background: #150820;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(255, 215, 0, .05) 25%, rgba(255, 215, 0, .05) 26%, transparent 27%, transparent 74%, rgba(255, 215, 0, .05) 75%, rgba(255, 215, 0, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 215, 0, .05) 25%, rgba(255, 215, 0, .05) 26%, transparent 27%, transparent 74%, rgba(255, 215, 0, .05) 75%, rgba(255, 215, 0, .05) 76%, transparent 77%, transparent);
 }
 
 body.dark-mode .contact-section {
-    background: #0a0a0f;
+    background: #1a0a2e;
 }
 
 body.dark-mode footer {
-    background: #0f0f1a;
-    border-top-color: #2a2a4a;
+    background: #150820;
+    border-top-color: #4a2c6a;
 }
 
 body.dark-mode .protocol-card {
-    background: rgba(26, 26, 46, 0.9);
+    background: rgba(45, 27, 78, 0.9);
 }
 
 body.dark-mode .hud-card {
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(45, 27, 78, 0.95);
 }
 
 body.dark-mode .modal-content {
-    background: #1a1a2e;
+    background: #2d1b4e;
 }
 
 body.dark-mode .noise-overlay {
     background: repeating-linear-gradient(0deg,
             transparent,
             transparent 1px,
-            rgba(255, 255, 255, 0.03) 2px,
-            rgba(255, 255, 255, 0.03) 3px);
+            rgba(255, 215, 0, 0.02) 2px,
+            rgba(255, 215, 0, 0.02) 3px);
 }
 
 body.dark-mode .glitch-large::before,
@@ -891,4 +1366,171 @@ body.dark-mode .glitch-large::after {
 
 .cta-button {
     animation: fadeInUp 0.8s ease-out 1s backwards;
+}
+
+/* =============================================
+   SECTION SCROLL ANIMATIONS
+   ============================================= */
+
+/* Additional keyframe animations */
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-5deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* All sections start hidden */
+.events-section,
+.protocols-section,
+.contact-section {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animated state for sections */
+.events-section.section-animated,
+.protocols-section.section-animated,
+.contact-section.section-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Different animation styles for section headers */
+.events-section.section-animated .section-header {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.protocols-section.section-animated .section-header {
+    animation: scaleIn 0.8s ease-out forwards;
+}
+
+.contact-section.section-animated .section-header {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Staggered card animations - Events */
+.events-section.section-animated .event-card:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(4) {
+    animation: fadeInUp 0.6s ease-out 0.4s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(5) {
+    animation: fadeInUp 0.6s ease-out 0.5s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(6) {
+    animation: fadeInUp 0.6s ease-out 0.6s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(7) {
+    animation: fadeInUp 0.6s ease-out 0.7s backwards;
+}
+
+.events-section.section-animated .event-card:nth-child(8) {
+    animation: fadeInUp 0.6s ease-out 0.8s backwards;
+}
+
+/* Staggered card animations - Protocols (alternating left/right) */
+.protocols-section.section-animated .protocol-card:nth-child(1) {
+    animation: fadeInLeft 0.6s ease-out 0.1s backwards;
+}
+
+.protocols-section.section-animated .protocol-card:nth-child(2) {
+    animation: fadeInRight 0.6s ease-out 0.2s backwards;
+}
+
+.protocols-section.section-animated .protocol-card:nth-child(3) {
+    animation: fadeInLeft 0.6s ease-out 0.3s backwards;
+}
+
+.protocols-section.section-animated .protocol-card:nth-child(4) {
+    animation: fadeInRight 0.6s ease-out 0.4s backwards;
+}
+
+/* Staggered card animations - Contact (mixed effects) */
+.contact-section.section-animated .hud-card:nth-child(1) {
+    animation: fadeInLeft 0.7s ease-out 0.1s backwards;
+}
+
+.contact-section.section-animated .hud-card:nth-child(2) {
+    animation: zoomBounce 0.7s ease-out 0.2s backwards;
+}
+
+.contact-section.section-animated .hud-card:nth-child(3) {
+    animation: fadeInRight 0.7s ease-out 0.3s backwards;
+}
+
+/* Footer animation */
+footer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+footer.section-animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero section subtle pulse */
+.hero {
+    animation: heroPulse 4s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+
+    0%,
+    100% {
+        background-size: 100% 100%;
+    }
+
+    50% {
+        background-size: 105% 105%;
+    }
 }
