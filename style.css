@@ -27,8 +27,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    selection-background: var(--accent-cyan);
-    selection-color: #000;
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: var(--accent-cyan);
+    color: #000;
 }
 
 body {
@@ -125,6 +129,7 @@ button {
     font-weight: 900;
     letter-spacing: 2px;
     background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
@@ -217,6 +222,7 @@ h1.glitch-large {
             #d8b4fe 40%,
             #a855f7 60%,
             #7e22ce 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -230,6 +236,7 @@ h1.glitch-large span.year {
     font-size: 3rem;
     color: var(--accent-cyan);
     background: linear-gradient(180deg, #fff 0%, var(--accent-cyan) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 15px;
@@ -373,6 +380,7 @@ h1.glitch-large span.year {
     margin-bottom: 15px;
     text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
     background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -795,6 +803,7 @@ h1.glitch-large span.year {
     /* Center in hex */
 
     background: linear-gradient(180deg, #fff, var(--accent-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
