@@ -207,40 +207,52 @@ button {
 }
 
 /* LOGO IMAGE STYLE */
-.hero-logo-container {
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
+/* HERO TITLE STYLES */
+h1.glitch-large {
+    font-family: var(--font-head);
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+
+    background: linear-gradient(180deg, #fff 20%, #e0e7ff 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.6)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
+
+    animation: textPulse 3s ease-in-out infinite alternate;
 }
 
-.hero-logo-img {
-    max-width: 100%;
-    width: 350px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), 0 0 60px rgba(126, 34, 206, 0.2);
-    /* Soft glow border */
-    border: 2px solid rgba(0, 240, 255, 0.1);
-    animation: floatingLogo 4s ease-in-out infinite;
-    transition: transform 0.3s ease;
-}
+@keyframes textPulse {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.6));
+    }
 
-.hero-logo-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(0, 240, 255, 0.5), 0 0 80px rgba(126, 34, 206, 0.4);
-}
-
-@keyframes floatingLogo {
-
-    0%,
     100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
+        filter: drop-shadow(0 0 25px rgba(192, 132, 252, 0.8)) drop-shadow(0 0 50px rgba(129, 140, 248, 0.4));
     }
 }
+
+h1.glitch-large span.year {
+    display: block;
+    font-size: 4rem;
+    color: var(--accent-cyan);
+    letter-spacing: 20px;
+    margin-top: -10px;
+    background: linear-gradient(90deg, #22d3ee, #06b6d4, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+}
+
+
 
 .hero-date {
     font-family: var(--font-mono);
