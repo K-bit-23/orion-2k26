@@ -92,17 +92,9 @@ button,
 }
 
 /* Candle flame effect */
+/* Candle flame effect removed */
 .particle::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 15px;
-    background: radial-gradient(ellipse at bottom, #fff 0%, #ffd700 40%, #ff8c00 70%, transparent 100%);
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    animation: flameFlicker 0.3s infinite alternate;
+    display: none;
 }
 
 @keyframes flameFlicker {
