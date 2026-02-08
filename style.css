@@ -698,6 +698,40 @@ h1.glitch-large span.year {
     transform: translateY(-2px);
 }
 
+
+/* HUD Uplink Specifics */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.hud-text {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.uplink-email {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.uplink-email:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-cyan);
+    transform: translateX(5px);
+}
+
 /* ========================
    LOADER (CLEAN TITANIUM)
    ======================== */
@@ -788,20 +822,162 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    h1.glitch-large {
-        font-size: 3rem;
+@media (max-width: 900px) {
+    .h1.glitch-large {
+        font-size: 4rem;
     }
 
-    h1.glitch-large span.year {
-        font-size: 2rem;
+    .h1.glitch-large span.year {
+        font-size: 2.5rem;
+        letter-spacing: 10px;
+    }
+
+    .countdown-container {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cyber-nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(3, 0, 20, 0.95);
+    }
+
+    .register-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 0.9rem;
     }
 
     .hero {
-        padding-top: 100px;
+        padding-top: 140px;
+        /* Account for taller nav */
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+
+    h1.glitch-large {
+        font-size: 3rem;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+    }
+
+    h1.glitch-large span.year {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+        margin-top: 0;
+    }
+
+    .sub-hero {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .countdown-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .time-segment {
+        padding: 10px;
+        min-width: 70px;
+    }
+
+    .time-segment span:first-child {
+        font-size: 1.8rem;
+    }
+
+    .time-segment .label {
+        font-size: 0.7rem;
+    }
+
+    .workshop-details {
+        gap: 30px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .events-section,
+    .protocols-section,
+    .contact-section {
+        padding: 50px 20px;
+    }
+
+    .workshop-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cyber-nav {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    h1.glitch-large {
+        font-size: 2.2rem;
+    }
+
+    h1.glitch-large span.year {
+        font-size: 1.4rem;
+    }
+
+    .hero-content {
+        padding: 15px;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
     }
 
     .workshop-card {
-        padding: 30px;
+        padding: 25px 15px;
+    }
+
+    .workshop-details {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-item {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .detail-item i {
+        font-size: 1.5rem;
+    }
+
+    .events-grid,
+    .protocols-container,
+    .hud-grid {
+        grid-template-columns: 1fr;
+        /* Force single column */
+    }
+
+    .hud-header {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+
+    .hud-body {
+        padding: 15px;
     }
 }
