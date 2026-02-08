@@ -26,9 +26,9 @@
             margin: 120px auto 60px;
             /* Offset for fixed nav */
             padding: 40px;
-            background: rgba(14, 14, 14, 0.95);
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+            background: rgba(13, 10, 30, 0.95);
+            border: 1px solid var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
             position: relative;
             min-height: 60vh;
         }
@@ -163,7 +163,7 @@
         .rules-list li:hover {
             color: #fff;
             transform: translateX(8px);
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
+            text-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .rules-list li:hover::before {
@@ -178,9 +178,9 @@
 
         .coordinator-card:hover {
             transform: translateX(10px) scale(1.02);
-            background: rgba(0, 255, 65, 0.15);
-            border-left-color: var(--highlight);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 65, 0.1);
+            background: rgba(0, 240, 255, 0.1);
+            border-left-color: var(--accent-cyan);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 240, 255, 0.1);
         }
 
         /* Loading Blink */
@@ -233,11 +233,7 @@
         </div>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
-        <i class="fas fa-moon" id="themeIcon"></i>
-        <div class="theme-toggle-glow"></div>
-    </button>
+    <!-- Theme Toggle Removed -->
 
     <div class="noise-overlay"></div>
     <div class="scanline"></div>
@@ -306,40 +302,8 @@
                 }, remainingTime);
             });
 
-            // =============================================
-            // THEME TOGGLE
-            // =============================================
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = document.getElementById('themeIcon');
-            const body = document.body;
+            // Theme Toggle Removed
 
-            // Check for saved theme
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                body.classList.add('dark-mode');
-                if (themeIcon) {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                }
-            }
-
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    body.classList.toggle('dark-mode');
-                    if (themeIcon) {
-                        if (body.classList.contains('dark-mode')) {
-                            themeIcon.classList.remove('fa-moon');
-                            themeIcon.classList.add('fa-sun');
-                            localStorage.setItem('theme', 'dark');
-                        } else {
-                            themeIcon.classList.remove('fa-sun');
-                            themeIcon.classList.add('fa-moon');
-                            localStorage.setItem('theme', 'light');
-                        }
-                    }
-                    body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
-                });
-            }
 
             // =============================================
             // MATRIX RAIN EFFECT
@@ -354,10 +318,9 @@
             const rainDrops = Array(Math.ceil(columns)).fill(1);
 
             function draw() {
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(240, 244, 248, 0.05)';
+                ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(3, 0, 20, 0.05)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#0F0';
+                ctx.fillStyle = '#00f0ff'; /* Cyan for Cosmic Theme */
                 ctx.font = fontSize + 'px monospace';
                 for (let i = 0; i < rainDrops.length; i++) {
                     const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
@@ -439,7 +402,7 @@
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form" target="_blank" class="back-btn" style="border-style: solid; background: rgba(0, 255, 65, 0.1);">
                             <i class="fas fa-file-signature"></i> INITIATE REGISTRATION
                         </a>
-                        <a href="https://www.google.com/maps/place/Kongu+Engineering+College/@11.2741632,77.6070222,17z" target="_blank" class="back-btn" style="border-style: dashed;">
+                        <a href="https://www.google.com/maps/place/Kongu+Engineering+College/@11.2741632,77.6070222,17z" target="_blank" class="back-btn" style="border-style: dashed; border-color: var(--accent-cyan); color: var(--accent-cyan);">
                             <i class="fas fa-map-marker-alt"></i> LOCATE BASE STATION
                         </a>
                     </div>

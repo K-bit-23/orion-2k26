@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Bootcamp - ORION 2K26</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .page-container {
+            padding-top: 100px;
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
+
+        .workshop-hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(3, 0, 20, 0) 0%, rgba(3, 0, 20, 0.8) 100%);
+        }
+
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .info-card {
+            background: rgba(13, 10, 30, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-title {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .info-text {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .coordinator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .coord-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .coord-card:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .coord-name {
+            font-family: var(--font-head);
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .coord-role {
+            font-family: var(--font-mono);
+            color: var(--accent-purple);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .coord-contact {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: bold;
+            display: block;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        .feature-list li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="noise-overlay"></div>
+    <div class="scanline"></div>
+    <canvas id="matrix-rain"></canvas>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="logo glitch" data-text="ORION 2K26" onclick="window.location.href='index.html'"
+            style="cursor: pointer;">
+            ORION 2K26
+        </div>
+        <button class="register-btn"
+            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form', '_blank')">
+            REGISTER NOW
+        </button>
+    </nav>
+
+    <div class="page-container">
+        <!-- Hero -->
+        <div class="workshop-hero">
+            <h1 class="glitch-large" style="font-size: 3.5rem; margin-bottom: 10px;" data-text="CYBER SECURITY">CYBER
+                SECURITY</h1>
+            <h2 style="font-family: var(--font-mono); color: var(--accent-cyan); letter-spacing: 3px;">CAREER BOOTCAMP
+            </h2>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- About Section -->
+            <div class="info-card">
+                <h3 class="info-title">MISSION BRIEF</h3>
+                <p class="info-text">
+                    Join the elite ranks of cyber operatives in this intensive bootcamp designed to launch your career
+                    in information security.
+                    This workshop covers the fundamental protocols of defense, ethical hacking methodologies, and
+                    real-world threat analysis.
+                </p>
+
+                <h3 class="info-title" style="margin-top: 30px; font-size: 1.5rem;">KEY MODULES</h3>
+                <ul class="feature-list">
+                    <li><strong>Ethical Hacking Fundamentals:</strong> Learn the mindset of an attacker to better defend
+                        systems.</li>
+                    <li><strong>Network Security:</strong> Securing headers, protocols, and infrastructure.</li>
+                    <li><strong>Penetration Testing:</strong> Hands-on experience with industry-standard tools.</li>
+                    <li><strong>Career Guidance:</strong> Pathways to certifications (CEH, CISSP) and job roles.</li>
+                </ul>
+            </div>
+
+            <!-- Student Coordinators -->
+            <div class="info-card">
+                <h3 class="info-title">UNIT COMMANDERS (COORDINATORS)</h3>
+                <p class="info-text">For tactical inquiries and registration regarding this specific module, contact:
+                </p>
+
+                <div class="coordinator-grid">
+                    <!-- Coordinator 1 -->
+                    <div class="coord-card">
+                        <i class="fas fa-user-shield"
+                            style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 15px;"></i>
+                        <div class="coord-name">S. Hariharan</div>
+                        <div class="coord-role">Lead Operative</div>
+                        <a href="tel:8754887575" class="coord-contact">87548 87575</a>
+                    </div>
+
+                    <!-- Coordinator 2 -->
+                    <div class="coord-card">
+                        <i class="fas fa-user-lock"
+                            style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 15px;"></i>
+                        <div class="coord-name">K. Kaliswary</div>
+                        <div class="coord-role">Logistics Officer</div>
+                        <a href="tel:7092503705" class="coord-contact">70925 03705</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="index.html" class="cta-button" style="text-decoration: none;">RETURN TO BASE</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ORION 2K26. Department of Computer Applications, Kongu Engineering College.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
