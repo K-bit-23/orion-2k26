@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(cursorTrailContainer);
 
     const trailSymbols = ['✦', '✧', '★', '⋆', '✴', '❋', '✵'];
-    const trailColors = ['#ffd700', '#ff8c00', '#ff6b35', '#b8860b', '#daa520'];
+    const trailColors = ['#ff0000', '#cc0000', '#ff4500', '#800000'];
     let mouseX = 0;
     let mouseY = 0;
     let lastTrailTime = 0;
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formattedValue = value < 10 ? '0' + value : value;
         if (element.innerText !== String(formattedValue)) {
             element.style.transform = 'scale(1.2)';
-            element.style.color = '#84cc16';
+            element.style.color = '#ff0000';
             element.innerText = formattedValue;
             setTimeout(() => {
                 element.style.transform = 'scale(1)';
@@ -269,14 +269,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Background fade - adapts to theme
         // Always dark background for new theme
-        ctx.fillStyle = 'rgba(3, 0, 20, 0.1)';
+        ctx.fillStyle = 'rgba(5, 0, 0, 0.15)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Golden magical text - darker for light mode, brighter for dark
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#00f0ff'); // Neon Cyan
-        gradient.addColorStop(0.5, '#0aff0a'); // Matrix Green
-        gradient.addColorStop(1, '#d946ef'); // Neon Purple
+        gradient.addColorStop(0, '#ff0000'); // CRITICAL RED
+        gradient.addColorStop(0.5, '#cc0000'); // DARK RED
+        gradient.addColorStop(1, '#800000'); // BLOOD RED
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px serif';
         ctx.shadowColor = isDarkMode ? '#ffd700' : '#b8860b';
