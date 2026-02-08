@@ -1,25 +1,25 @@
 :root {
-    /* DOOMSDAY / HAZARD THEME */
-    --bg-color: #050000;
-    --card-bg: rgba(15, 0, 0, 0.9);
-    --text-primary: #e0e0e0;
-    --text-secondary: #b05050;
+    /* COSMIC / ORION 2K26 THEME */
+    --bg-color: #030014;
+    /* Deep Space */
+    --card-bg: rgba(13, 10, 30, 0.85);
 
-    --accent: #ff0000;
-    /* CRITICAL RED */
-    --accent-dim: #660000;
-    --highlight: #ff3300;
-    /* FLARE ORANGE */
-    --hazard: #ffaa00;
-    /* CAUTION YELLOW */
+    --text-primary: #ffffff;
+    --text-secondary: #a5b4fc;
 
-    --border-color: #400000;
+    /* GRADIENT COLORS */
+    --accent-cyan: #00f0ff;
+    --accent-purple: #d946ef;
+    --accent-blue: #3b82f6;
+
+    /* BORDERS & GLOWS */
+    --border-color: #4c1d95;
+    --glow-cyan: rgba(0, 240, 255, 0.6);
+    --glow-purple: rgba(217, 70, 239, 0.6);
 
     --font-head: 'Orbitron', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
     --font-body: 'Rajdhani', sans-serif;
-
-    --scanline-color: rgba(255, 0, 0, 0.1);
 }
 
 * {
@@ -27,7 +27,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    selection-background: var(--accent);
+    selection-background: var(--accent-cyan);
     selection-color: #000;
 }
 
@@ -37,64 +37,61 @@ body {
     font-family: var(--font-body);
     overflow-x: hidden;
     line-height: 1.6;
-    background-image:
-        radial-gradient(circle at center, #200000 0%, #000000 100%);
+    /* Space Background */
+    background:
+        radial-gradient(circle at 10% 20%, rgba(76, 29, 149, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at center, #0f0c29 0%, #030014 100%);
 }
 
 /* ========================
-   UTILITIES & EFFECTS
+   UTILITIES
    ======================== */
-
-/* CRT Scanline - Red Tint */
 .scanline {
+    /* Subtle Blue Scanline */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-            rgba(255, 0, 0, 0),
-            rgba(255, 0, 0, 0) 50%,
-            rgba(0, 0, 0, 0.2) 50%,
-            rgba(0, 0, 0, 0.2));
-    background-size: 100% 4px;
+            rgba(0, 240, 255, 0),
+            rgba(0, 240, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1));
+    background-size: 100% 3px;
     pointer-events: none;
     z-index: 999;
-    opacity: 0.6;
+    opacity: 0.2;
 }
 
-/* Vignette */
 .noise-overlay {
+    /* Subtle Grain */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 60%, #000000 100%);
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
+    /* Simple transparent noise */
+    opacity: 0.03;
     pointer-events: none;
     z-index: 998;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #111;
-    border-left: 1px solid #333;
+    background: #050510;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent-dim);
-    border: 1px solid var(--accent);
+    background: linear-gradient(tb, var(--accent-purple), var(--accent-cyan));
+    border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
-}
-
-/* Buttons */
 button {
     cursor: pointer;
 }
@@ -106,67 +103,61 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(10, 0, 0, 0.95);
-    border-bottom: 2px solid var(--accent);
+    padding: 15px 50px;
+    background: rgba(3, 0, 20, 0.9);
+    border-bottom: 1px solid rgba(217, 70, 239, 0.3);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
     font-family: var(--font-head);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
-    color: var(--accent);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px var(--accent);
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .logo::before {
-    content: '⚠';
+    content: '✦';
     font-size: 1.5rem;
-    color: var(--hazard);
-    animation: flash 1s infinite;
+    color: var(--accent-purple);
+    -webkit-text-fill-color: initial;
+    /* Reset for symbol */
 }
 
-@keyframes flash {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.3;
-    }
-}
-
+/* Register Button (Neon Gradient) */
 .register-btn {
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, var(--accent-purple), var(--accent-cyan)) 1;
+    color: #fff;
+    padding: 10px 30px;
     font-family: var(--font-head);
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: 0.3s;
     position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.2);
 }
 
 .register-btn:hover {
-    background: var(--accent);
-    color: #000;
-    box-shadow: 0 0 20px var(--accent);
+    background: linear-gradient(45deg, rgba(217, 70, 239, 0.2), rgba(0, 240, 255, 0.2));
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    text-shadow: 0 0 5px #fff;
+    transform: scale(1.05);
 }
 
 /* ========================
@@ -185,59 +176,80 @@ button {
 .hero-content {
     z-index: 10;
     max-width: 900px;
-    padding: 20px;
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
 }
 
 .sub-hero {
     font-family: var(--font-mono);
-    color: var(--hazard);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    opacity: 0.9;
 }
 
 .association {
     font-family: var(--font-mono);
     color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
+/* LOGO TITLE STYLE (MATCHING IMAGE) */
 h1.glitch-large {
     font-family: var(--font-head);
-    font-size: 6rem;
-    color: #fff;
-    /* White core */
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1.1;
     text-transform: uppercase;
-    letter-spacing: 10px;
-    margin-bottom: 20px;
-    text-shadow:
-        0 0 10px var(--accent),
-        0 0 40px var(--accent),
-        4px 4px 0px rgba(255, 0, 0, 0.5);
-    /* Glitch shadow */
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+
+    /* Metallic Gradient */
+    background: linear-gradient(180deg,
+            #ffffff 10%,
+            #d8b4fe 40%,
+            #a855f7 60%,
+            #7e22ce 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Glowing Stroke (Simulated) */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 30px rgba(126, 34, 206, 0.3));
+}
+
+/* 2K26 Subtitle Style */
+h1.glitch-large span.year {
+    display: block;
+    font-size: 3rem;
+    color: var(--accent-cyan);
+    background: linear-gradient(180deg, #fff 0%, var(--accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 15px;
+    margin-top: -10px;
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
 }
 
 .hero-date {
-    font-family: var(--font-head);
-    color: var(--accent);
-    font-size: 1.8rem;
+    font-family: var(--font-mono);
+    color: #fff;
+    font-size: 1.2rem;
     margin-bottom: 40px;
-    border-top: 2px solid var(--accent);
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
 }
 
 /* Countdown */
 .countdown-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     margin-bottom: 50px;
 }
 
@@ -245,46 +257,66 @@ h1.glitch-large {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(20, 0, 0, 0.8);
-    border: 1px solid var(--accent);
-    padding: 15px;
-    min-width: 100px;
+    background: linear-gradient(145deg, rgba(20, 0, 40, 0.6), rgba(10, 0, 20, 0.8));
+    border: 1px solid rgba(217, 70, 239, 0.3);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .time-segment span:first-child {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: var(--accent);
-    font-family: var(--font-mono);
-    text-shadow: 0 0 10px var(--accent);
+    color: #fff;
+    font-family: var(--font-head);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .time-segment .label {
+    font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--accent-cyan);
     margin-top: 5px;
+    letter-spacing: 1px;
 }
 
+/* CTA Buttons */
 .cta-button {
     display: inline-block;
-    padding: 15px 50px;
-    background: var(--accent);
-    color: #000;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, #7e22ce, #3b82f6);
+    color: #fff;
     text-decoration: none;
     font-family: var(--font-head);
-    font-weight: 900;
-    font-size: 1.2rem;
-    border: 2px solid var(--accent);
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 30px;
     transition: 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 0 15px var(--accent);
+    box-shadow: 0 0 20px rgba(126, 34, 206, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    background: #000;
-    color: var(--accent);
-    box-shadow: 0 0 30px var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
 }
 
 /* ========================
@@ -292,9 +324,8 @@ h1.glitch-large {
    ======================== */
 .workshop-section {
     padding: 80px 20px;
-    background: #080000;
-    border-top: 1px solid var(--accent-dim);
-    border-bottom: 1px solid var(--accent-dim);
+    background: #030014;
+    position: relative;
 }
 
 .workshop-container {
@@ -303,51 +334,33 @@ h1.glitch-large {
 }
 
 .workshop-card {
-    background: linear-gradient(135deg, #1a0000 0%, #0a0000 100%);
-    border: 2px solid var(--accent);
+    background: rgba(10, 10, 30, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.3);
     padding: 50px;
+    border-radius: 20px;
     text-align: center;
     position: relative;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(0, 240, 255, 0.05);
+    transition: transform 0.3s;
 }
 
-/* Hazard Stripes */
-.workshop-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    background: repeating-linear-gradient(45deg,
-            var(--accent),
-            var(--accent) 10px,
-            #000 10px,
-            #000 20px);
-}
-
-.workshop-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    background: repeating-linear-gradient(45deg,
-            var(--accent),
-            var(--accent) 10px,
-            #000 10px,
-            #000 20px);
+.workshop-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.2);
 }
 
 .workshop-badge {
-    background: var(--accent);
-    color: #000;
-    padding: 5px 15px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
     font-family: var(--font-head);
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(217, 70, 239, 0.4);
 }
 
 .workshop-title {
@@ -355,19 +368,22 @@ h1.glitch-large {
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 0 var(--accent-dim);
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .workshop-desc {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .workshop-details {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
@@ -375,17 +391,25 @@ h1.glitch-large {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .detail-item i {
-    font-size: 2rem;
-    color: var(--accent);
+    font-size: 2.2rem;
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
+    transition: 0.3s;
+}
+
+.detail-item:hover i {
+    transform: scale(1.1);
+    color: #fff;
 }
 
 .detail-item span {
     font-family: var(--font-mono);
     color: #fff;
+    opacity: 0.8;
 }
 
 /* ========================
@@ -393,7 +417,7 @@ h1.glitch-large {
    ======================== */
 .events-section {
     padding: 80px 50px;
-    background: #050000;
+    background: transparent;
 }
 
 .section-header {
@@ -403,63 +427,100 @@ h1.glitch-large {
 
 .section-title {
     font-family: var(--font-head);
-    font-size: 3rem;
-    color: var(--accent);
+    font-size: 2.8rem;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    border-bottom: 2px solid var(--accent-dim);
+    letter-spacing: 4px;
+    position: relative;
     display: inline-block;
-    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    margin: 15px auto 0;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
 }
 
 .events-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    gap: 30px;
 }
 
 .event-card {
-    background: #100000;
-    border: 1px solid var(--accent-dim);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
     transition: 0.3s;
+    border-radius: 15px;
     position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
 }
 
 .event-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-    background: #1a0000;
+    border-color: var(--accent-purple);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.3s;
+}
+
+.event-card:hover::before {
+    transform: scaleX(1);
 }
 
 .card-icon {
     font-size: 2.5rem;
-    color: var(--accent);
+    color: var(--accent-cyan);
     margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 .card-title {
     font-family: var(--font-head);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #fff;
     margin-bottom: 10px;
 }
 
 .card-desc {
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .read-more {
-    color: var(--highlight);
+    color: var(--accent-purple);
     font-family: var(--font-mono);
     text-transform: uppercase;
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    color: var(--accent-cyan);
+    gap: 12px;
 }
 
 /* ========================
@@ -467,10 +528,8 @@ h1.glitch-large {
    ======================== */
 .protocols-section {
     padding: 80px 50px;
-    background: #0a0000;
-    background-image: linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background: #050510;
+    position: relative;
 }
 
 .protocols-container {
@@ -480,33 +539,42 @@ h1.glitch-large {
 }
 
 .protocol-card {
-    background: #000;
-    border: 1px solid var(--accent-dim);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 30px;
     text-align: center;
     transition: 0.3s;
-    position: relative;
+    border-radius: 10px;
 }
 
 .protocol-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    border-color: var(--accent-cyan);
+    background: rgba(0, 240, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .protocol-card i {
-    font-size: 3rem;
-    color: var(--accent);
+    font-size: 2.5rem;
+    color: #fff;
     margin-bottom: 20px;
+    /* Clean white icons as requested earlier, slightly enhanced */
+}
+
+.protocol-card:hover i {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
 }
 
 .protocol-card h3 {
     font-family: var(--font-head);
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
 }
 
 .protocol-card p {
     color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 /* ========================
@@ -514,7 +582,7 @@ h1.glitch-large {
    ======================== */
 .contact-section {
     padding: 80px 20px;
-    background: #020000;
+    background: #030014;
 }
 
 .hud-grid {
@@ -526,58 +594,67 @@ h1.glitch-large {
 }
 
 .hud-card {
-    background: rgba(20, 0, 0, 0.8);
-    border: 1px solid var(--accent-dim);
-    padding: 0;
+    background: rgba(13, 10, 30, 0.8);
+    border: 1px solid rgba(76, 29, 149, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .hud-header {
-    background: var(--accent-dim);
-    color: #fff;
-    padding: 15px;
+    background: rgba(76, 29, 149, 0.3);
+    color: var(--accent-cyan);
+    padding: 15px 20px;
     font-family: var(--font-mono);
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 10px;
+    border-bottom: 1px solid rgba(76, 29, 149, 0.3);
 }
 
 .hud-body {
-    padding: 20px;
+    padding: 25px;
 }
 
 .hud-label {
-    color: var(--highlight);
-    font-size: 0.8rem;
+    color: var(--accent-purple);
+    font-size: 0.75rem;
     font-family: var(--font-mono);
+    text-transform: uppercase;
     margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 .hud-val {
     color: #fff;
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .hud-btn {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    border: 1px solid var(--accent);
-    color: var(--accent);
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
     text-decoration: none;
     font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
     transition: 0.3s;
 }
 
 .hud-btn:hover {
-    background: var(--accent);
+    background: var(--accent-cyan);
     color: #000;
+    box-shadow: 0 0 15px var(--accent-cyan);
 }
 
 /* ========================
-   LOADER (DOOMSDAY RED)
+   LOADER (CLEAN TITANIUM)
    ======================== */
 .page-loader {
     position: fixed;
@@ -585,7 +662,7 @@ h1.glitch-large {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: #030014;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -599,12 +676,12 @@ h1.glitch-large {
     align-items: center;
 }
 
-/* Hexagon Loader - Red */
+/* Hexagon Loader */
 .hex-border-outer {
     position: absolute;
     width: 250px;
     height: 250px;
-    border: 4px solid var(--accent-dim);
+    border: 2px solid var(--accent-purple);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     animation: rotate-load 4s infinite linear;
 }
@@ -613,7 +690,7 @@ h1.glitch-large {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--accent-cyan);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     animation: rotate-load-reverse 3s infinite linear;
 }
@@ -632,20 +709,22 @@ h1.glitch-large {
 
 .orion-logo-text {
     font-family: var(--font-head);
-    font-size: 4rem;
-    color: var(--accent);
+    font-size: 3.5rem;
     font-weight: 900;
     z-index: 2;
     margin-top: -100px;
     /* Center in hex */
-    text-shadow: 0 0 20px var(--accent);
+
+    background: linear-gradient(180deg, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .year-text {
     font-family: var(--font-mono);
-    color: #fff;
-    font-size: 1.5rem;
-    margin-top: 10px;
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+    margin-top: 5px;
     letter-spacing: 5px;
 }
 
@@ -653,10 +732,10 @@ h1.glitch-large {
    FOOTER
    ======================== */
 footer {
-    background: #000;
-    padding: 30px;
+    background: #02000d;
+    padding: 40px;
     text-align: center;
-    border-top: 2px solid var(--accent-dim);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: var(--text-secondary);
     font-family: var(--font-mono);
 }
@@ -667,15 +746,15 @@ footer {
         font-size: 3rem;
     }
 
-    .hero-content {
-        padding: 10px;
+    h1.glitch-large span.year {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding-top: 100px;
     }
 
     .workshop-card {
-        padding: 20px;
-    }
-
-    .orion-logo-text {
-        font-size: 2.5rem;
+        padding: 30px;
     }
 }
