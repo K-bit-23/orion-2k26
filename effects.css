@@ -237,53 +237,11 @@ button,
     }
 }
 
-/* Moving Gradient Border for Cards - Magical Gold Theme */
+/* Cards base styling */
 .event-card,
 .protocol-card,
 .hud-card {
     position: relative;
-    background-clip: padding-box;
-}
-
-.event-card::before,
-.hud-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg,
-            #ffd700,
-            transparent,
-            #7b2cbf,
-            transparent,
-            #ffd700);
-    background-size: 400% 400%;
-    z-index: -1;
-    border-radius: inherit;
-    opacity: 0;
-    animation: gradientBorder 3s ease infinite;
-    transition: opacity 0.3s ease;
-}
-
-.event-card:hover::before,
-.hud-card:hover::before {
-    opacity: 1;
-}
-
-@keyframes gradientBorder {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 /* Orbiting Dots around Logo */
@@ -296,9 +254,9 @@ button,
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
-    border: 2px dashed rgba(16, 185, 129, 0.3);
+    width: 120%;
+    height: 120%;
+    border: 2px dashed rgba(184, 134, 11, 0.4);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: orbitRotate 10s linear infinite;
@@ -406,24 +364,7 @@ button,
     }
 }
 
-/* Breathing Animation for Protocol Icons */
-.protocol-card i {
-    animation: breathe 3s ease-in-out infinite;
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
+/* Breathing Animation for Protocol Icons - Removed */
 
 /* Glowing Border Animation for CTA Button */
 .cta-button {
@@ -504,31 +445,7 @@ button,
     }
 }
 
-/* HUD Card Data Stream Effect */
-.hud-card .hud-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 30px;
-    height: 100%;
-    background: repeating-linear-gradient(0deg,
-            transparent,
-            transparent 2px,
-            rgba(16, 185, 129, 0.1) 2px,
-            rgba(16, 185, 129, 0.1) 4px);
-    animation: dataStream 1s linear infinite;
-}
-
-@keyframes dataStream {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 0 20px;
-    }
-}
+/* HUD Card Data Stream Effect - Removed */
 
 /* CRT Flicker */
 body {
@@ -596,86 +513,9 @@ body {
     animation: pulse-green 1.5s infinite;
 }
 
-/* Glitch Image Effect (for future use or subtle text) */
+/* Glitch Effect - Removed */
 .glitch-large {
     position: relative;
-}
-
-.glitch-large::before,
-.glitch-large::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-}
-
-.glitch-large::before {
-    left: 2px;
-    text-shadow: -1px 0 #00ff41;
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
-}
-
-.glitch-large::after {
-    left: -2px;
-    text-shadow: -1px 0 #ccff00;
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim-1 {
-    0% {
-        clip: rect(20px, 9999px, 15px, 0);
-    }
-
-    20% {
-        clip: rect(50px, 9999px, 60px, 0);
-    }
-
-    40% {
-        clip: rect(80px, 9999px, 25px, 0);
-    }
-
-    60% {
-        clip: rect(10px, 9999px, 85px, 0);
-    }
-
-    80% {
-        clip: rect(40px, 9999px, 55px, 0);
-    }
-
-    100% {
-        clip: rect(70px, 9999px, 90px, 0);
-    }
-}
-
-@keyframes glitch-anim-2 {
-    0% {
-        clip: rect(60px, 9999px, 90px, 0);
-    }
-
-    20% {
-        clip: rect(10px, 9999px, 20px, 0);
-    }
-
-    40% {
-        clip: rect(30px, 9999px, 60px, 0);
-    }
-
-    60% {
-        clip: rect(80px, 9999px, 10px, 0);
-    }
-
-    80% {
-        clip: rect(50px, 9999px, 30px, 0);
-    }
-
-    100% {
-        clip: rect(20px, 9999px, 70px, 0);
-    }
 }
 
 /* =============================================
@@ -1184,40 +1024,9 @@ body.dark-mode .glitch-large::after {
     height: 300px;
 }
 
-/* =============================================
-   CARD SHIMMER EFFECT
-   ============================================= */
-.event-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg,
-            transparent 40%,
-            rgba(16, 185, 129, 0.1) 50%,
-            transparent 60%);
-    transform: translateX(-100%) rotate(45deg);
-    transition: transform 0.8s ease;
-}
+/* Card hover effects removed */
 
-.event-card:hover::after {
-    transform: translateX(100%) rotate(45deg);
-}
-
-/* =============================================
-   ICON BOUNCE ANIMATION
-   ============================================= */
-.card-icon i,
-.protocol-card i {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.event-card:hover .card-icon i,
-.protocol-card:hover i {
-    transform: scale(1.2) rotate(10deg);
-}
+/* Icon Bounce Animation - Removed */
 
 /* =============================================
    NEON TEXT GLOW ANIMATION
@@ -1303,25 +1112,7 @@ body.dark-mode .glitch-large::after {
     width: 100%;
 }
 
-/* Protocol card corner animation */
-.protocol-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    border-bottom: 2px solid var(--accent);
-    border-right: 2px solid var(--accent);
-    transition: 0.3s;
-    opacity: 0;
-}
-
-.protocol-card:hover::after {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-}
+/* Protocol card corner animation - Removed */
 
 /* =============================================
    LOADING SKELETON FOR CONTENT
@@ -1529,21 +1320,21 @@ body.dark-mode .glitch-large::after {
     animation: fadeInUp 0.6s ease-out 0.8s backwards;
 }
 
-/* Staggered card animations - Protocols (alternating left/right) */
+/* Staggered card animations - Protocols */
 .protocols-section.section-animated .protocol-card:nth-child(1) {
-    animation: fadeInLeft 0.6s ease-out 0.1s backwards;
+    animation: fadeInUp 0.6s ease-out 0.1s backwards;
 }
 
 .protocols-section.section-animated .protocol-card:nth-child(2) {
-    animation: fadeInRight 0.6s ease-out 0.2s backwards;
+    animation: fadeInUp 0.6s ease-out 0.2s backwards;
 }
 
 .protocols-section.section-animated .protocol-card:nth-child(3) {
-    animation: fadeInLeft 0.6s ease-out 0.3s backwards;
+    animation: fadeInUp 0.6s ease-out 0.3s backwards;
 }
 
 .protocols-section.section-animated .protocol-card:nth-child(4) {
-    animation: fadeInRight 0.6s ease-out 0.4s backwards;
+    animation: fadeInUp 0.6s ease-out 0.4s backwards;
 }
 
 /* Staggered card animations - Contact (mixed effects) */

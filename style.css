@@ -1,28 +1,32 @@
 :root {
-    /* Light Mode - Parchment/Hogwarts Letter Theme */
-    --bg-color: #f5ebe0;
-    /* Warm parchment/cream */
-    --card-bg: rgba(255, 248, 235, 0.95);
-    /* Light parchment card */
-    --text-primary: #2c1810;
-    /* Dark brown/burgundy - readable */
-    --text-secondary: #5c3d2e;
-    /* Medium brown */
-    --accent: #b8860b;
-    /* Dark Gold */
-    --accent-dim: #daa520;
-    /* Golden rod */
-    --highlight: #8b0000;
-    /* Dark red - Gryffindor */
+    /* Cyberpunk / Space Theme */
+    --bg-color: #030014;
+    /* Deep dark blue/black */
+    --card-bg: rgba(16, 20, 40, 0.85);
+    /* Glassy dark blue */
+    --text-primary: #e0f2fe;
+    /* Pale cyan text */
+    --text-secondary: #94a3b8;
+    /* Muted blue-grey */
+
+    --accent: #00f0ff;
+    /* Neon Cyan */
+    --accent-dim: #00a0aa;
+    --highlight: #d946ef;
+    /* Neon Purple */
+
+    --border-color: #2e1065;
+    /* Dark purple border */
+
     --font-head: 'Orbitron', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
     --font-body: 'Rajdhani', sans-serif;
-    --border-color: #c4a35a;
-    /* Golden brown border */
-    --magic-purple: #7b2cbf;
-    --magic-blue: #3a86ff;
-    --gryffindor-red: #740001;
-    --slytherin-green: #1a472a;
+
+    /* Effect Colors */
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --neon-pink: #f472b6;
+    --matrix-green: #0aff0a;
 }
 
 * {
@@ -98,7 +102,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(3, 0, 20, 0.95);
     border-bottom: 2px solid var(--accent);
     position: fixed;
     top: 0;
@@ -299,7 +303,7 @@ body {
     align-items: center;
     text-align: center;
     /* Optional: Add a dark, grungy background image here */
-    background: radial-gradient(circle at center, #e0f2fe 0%, #bae6fd 100%);
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
     position: relative;
     padding-top: 120px;
     /* Navbar offset */
@@ -506,7 +510,7 @@ h1.glitch-large {
 }
 
 .modal-content {
-    background: #ffffff;
+    background: #0f172a;
     width: 90%;
     max-width: 700px;
     max-height: 90vh;
@@ -550,9 +554,10 @@ h1.glitch-large {
 /* Protocols Section */
 .protocols-section {
     padding: 80px 50px;
-    background: #f9fafb;
-    background-image: linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, .05) 25%, rgba(16, 185, 129, .05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .05) 75%, rgba(16, 185, 129, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(16, 185, 129, .05) 25%, rgba(16, 185, 129, .05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, .05) 75%, rgba(16, 185, 129, .05) 76%, transparent 77%, transparent);
-    background-size: 50px 50px;
+    background: #030014;
+    background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 .protocols-container {
@@ -614,7 +619,7 @@ h1.glitch-large {
 /* Contact Section (Holographic HUD) */
 .contact-section {
     padding: 80px 20px;
-    background: #ffffff;
+    background: #030014;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -629,7 +634,7 @@ h1.glitch-large {
 }
 
 .hud-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 15, 30, 0.85);
     border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 5px;
     backdrop-filter: blur(5px);
@@ -780,7 +785,7 @@ h1.glitch-large {
 
 /* Footer */
 footer {
-    background: #f9fafb;
+    background: #020617;
     padding: 40px;
     text-align: center;
     border-top: 1px solid var(--border-color);
@@ -914,5 +919,368 @@ footer {
     .close-modal {
         right: 15px;
         top: 15px;
+    }
+}
+
+/* ========================
+   WORKSHOP SECTION (POSTER EFFECT)
+   ======================== */
+.workshop-section {
+    position: relative;
+    padding: 60px 20px;
+    background: #020617;
+    /* Dark background */
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 240, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    overflow: hidden;
+}
+
+.workshop-container {
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.workshop-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(10, 20, 40, 0.9), rgba(5, 10, 20, 0.95));
+    border: 2px solid var(--accent);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.15), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s;
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.3), inset 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+/* Neon Glow Effect behind card */
+.workshop-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.workshop-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffd700, #ffaa00);
+    color: #000;
+    font-family: var(--font-head);
+    font-weight: 900;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        filter: brightness(100%);
+        transform: scale(1);
+    }
+
+    50% {
+        filter: brightness(130%);
+        transform: scale(1.05);
+    }
+
+    100% {
+        filter: brightness(100%);
+        transform: scale(1);
+    }
+}
+
+.workshop-title {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.workshop-desc {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.workshop-desc i {
+    color: var(--highlight);
+    margin-right: 8px;
+}
+
+.workshop-details {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+.detail-item i {
+    font-size: 1.8rem;
+    color: var(--highlight);
+    text-shadow: 0 0 10px var(--highlight);
+}
+
+.detail-item span {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .workshop-title {
+        font-size: 2rem;
+    }
+
+    .workshop-details {
+        gap: 20px;
+    }
+}
+
+/* ============================================= 
+   NEW NEON HEXAGON LOADING SCREEN 
+   ============================================= */
+.loader-content-new {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.stars-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Create dynamic stars via animation/background would be complex in pure CSS class, 
+   using a simple twinkling image or gradient overlay for now */
+.stars-bg::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    /* Simulating stars with box-shadow could be heavy, using simple dots */
+    background-image:
+        radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: star-move 100s linear infinite;
+}
+
+@keyframes star-move {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+.hex-border-outer {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 2px solid #2e1065;
+    /* Dark purple base */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: hex-pulse-outer 3s infinite alternate;
+    /* Neon shadow removed */
+}
+
+.hex-border-inner {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 3px solid #00f0ff;
+    /* Cyan */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    /* Neon shadow removed */
+    animation: hex-pulse-inner 2s infinite alternate;
+}
+
+@keyframes hex-pulse-outer {
+    0% {
+        transform: scale(1);
+        border-color: #5b21b6;
+    }
+
+    100% {
+        transform: scale(1.05);
+        border-color: #d946ef;
+    }
+}
+
+@keyframes hex-pulse-inner {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.orion-logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    display: flex;
+    gap: 5px;
+    z-index: 12;
+    /* Gradient Text */
+    background: linear-gradient(180deg, #fff, #a5f3fc 40%, #00f0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* filter drop-shadow removed */
+}
+
+/* Neon Letters Animation */
+.orion-logo-text span {
+    animation: text-flicker 4s infinite;
+}
+
+.orion-logo-text .neon-o:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.orion-logo-text .neon-r {
+    animation-delay: 0.2s;
+}
+
+.orion-logo-text .neon-i {
+    animation-delay: 2.5s;
+}
+
+/* The 'I' flickers more */
+.orion-logo-text .neon-o:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.orion-logo-text .neon-n {
+    animation-delay: 0.5s;
+}
+
+@keyframes text-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.year-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    color: #4cc9f0;
+    letter-spacing: 8px;
+    margin-top: -5px;
+    /* text-shadow removed */
+    z-index: 12;
+}
+
+.star-shine {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 20px white;
+    animation: rotate-star 6s linear infinite;
+    opacity: 0.8;
+    z-index: 11;
+}
+
+.star-shine::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 2px;
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 20px white;
+}
+
+@keyframes rotate-star {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(0.5);
+        opacity: 0.5;
     }
 }

@@ -22,44 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =============================================
-    // THEME TOGGLE (Dark/Light Mode)
+    // THEME TOGGLE REMOVED (Always Dark)
     // =============================================
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
-
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        if (themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            playClickSound();
-            body.classList.toggle('dark-mode');
-
-            // Update icon with animation
-            if (themeIcon) {
-                if (body.classList.contains('dark-mode')) {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                    localStorage.setItem('theme', 'light');
-                }
-            }
-
-            // Add transition effect
-            body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
-        });
-    }
+    // Code block removed as per user request to remove dark/light change option.
 
     // =============================================
     // MAGICAL CURSOR TRAIL EFFECT
@@ -275,32 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // =============================================
-    // GLITCH TEXT EFFECT (Optional Randomizer)
-    // =============================================
-    const glitchElement = document.querySelector('.glitch-large');
-    setInterval(() => {
-        const original = glitchElement.getAttribute('data-text');
-        const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-        let glitched = '';
-        if (Math.random() > 0.9) {
-            // Briefly glitch text
-            for (let i = 0; i < original.length; i++) {
-                if (Math.random() > 0.7) {
-                    glitched += chars[Math.floor(Math.random() * chars.length)];
-                } else {
-                    glitched += original[i];
-                }
-            }
-            glitched = glitched.substring(0, original.length); // Ensure length match
-            glitched = "SYSTEM_FAIL"; // Force a specific glitch sometimes
-
-            glitchElement.classList.add('active-glitch');
-            setTimeout(() => {
-                glitchElement.classList.remove('active-glitch');
-            }, 100);
-        }
-    }, 2000);
+    // Glitch Text Effect - Removed
 
     // =============================================
     // MATRIX RAIN EFFECT
@@ -328,24 +268,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDarkMode = document.body.classList.contains('dark-mode');
 
         // Background fade - adapts to theme
-        if (isDarkMode) {
-            ctx.fillStyle = 'rgba(26, 10, 46, 0.08)'; // Dark purple for dark mode
-        } else {
-            ctx.fillStyle = 'rgba(245, 235, 224, 0.1)'; // Parchment cream for light mode
-        }
+        // Always dark background for new theme
+        ctx.fillStyle = 'rgba(3, 0, 20, 0.1)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Golden magical text - darker for light mode, brighter for dark
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        if (isDarkMode) {
-            gradient.addColorStop(0, '#ffd700');
-            gradient.addColorStop(0.5, '#ff8c00');
-            gradient.addColorStop(1, '#ff4500');
-        } else {
-            gradient.addColorStop(0, '#b8860b'); // Dark gold for light mode
-            gradient.addColorStop(0.5, '#8b4513'); // Saddle brown
-            gradient.addColorStop(1, '#654321'); // Dark brown
-        }
+        gradient.addColorStop(0, '#00f0ff'); // Neon Cyan
+        gradient.addColorStop(0.5, '#0aff0a'); // Matrix Green
+        gradient.addColorStop(1, '#d946ef'); // Neon Purple
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px serif';
         ctx.shadowColor = isDarkMode ? '#ffd700' : '#b8860b';
@@ -449,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ENHANCED HOVER EFFECTS
     // =============================================
     // Add tilt effect on cards
-    const cards = document.querySelectorAll('.event-card, .protocol-card, .hud-card');
+    const cards = document.querySelectorAll('.event-card, .protocol-card, .hud-card, .workshop-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
