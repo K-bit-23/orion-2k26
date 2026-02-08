@@ -215,10 +215,19 @@ button {
 
 .hero-logo-img {
     max-width: 100%;
-    width: 600px;
+    width: 350px;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 40px rgba(126, 34, 206, 0.3));
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), 0 0 60px rgba(126, 34, 206, 0.2);
+    /* Soft glow border */
+    border: 2px solid rgba(0, 240, 255, 0.1);
     animation: floatingLogo 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.5), 0 0 80px rgba(126, 34, 206, 0.4);
 }
 
 @keyframes floatingLogo {
