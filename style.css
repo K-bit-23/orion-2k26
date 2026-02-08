@@ -206,41 +206,31 @@ button {
     letter-spacing: 2px;
 }
 
-/* LOGO TITLE STYLE (MATCHING IMAGE) */
-h1.glitch-large {
-    font-family: var(--font-head);
-    font-size: 5.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    margin-bottom: 15px;
-
-    /* Metallic Gradient */
-    background: linear-gradient(180deg,
-            #ffffff 10%,
-            #d8b4fe 40%,
-            #a855f7 60%,
-            #7e22ce 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* Glowing Stroke (Simulated) */
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 30px rgba(126, 34, 206, 0.3));
+/* LOGO IMAGE STYLE */
+.hero-logo-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
 }
 
-/* 2K26 Subtitle Style */
-h1.glitch-large span.year {
-    display: block;
-    font-size: 3rem;
-    color: var(--accent-cyan);
-    background: linear-gradient(180deg, #fff 0%, var(--accent-cyan) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 15px;
-    margin-top: -10px;
+.hero-logo-img {
+    max-width: 100%;
+    width: 600px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 40px rgba(126, 34, 206, 0.3));
+    animation: floatingLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatingLogo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .hero-date {
@@ -800,12 +790,27 @@ h1.glitch-large span.year {
     font-weight: 900;
     z-index: 2;
     margin-top: -100px;
-    /* Center in hex */
+}
 
-    background: linear-gradient(180deg, #fff, var(--accent-cyan));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.loader-logo-img {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
+    animation: loaderPulse 2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.8));
+    }
 }
 
 .year-text {
@@ -869,16 +874,8 @@ footer {
         padding-bottom: 50px;
     }
 
-    h1.glitch-large {
-        font-size: 3rem;
-        letter-spacing: 4px;
-        margin-bottom: 10px;
-    }
-
-    h1.glitch-large span.year {
-        font-size: 1.8rem;
-        letter-spacing: 5px;
-        margin-top: 0;
+    .hero-logo-img {
+        width: 400px;
     }
 
     .sub-hero {
@@ -933,12 +930,8 @@ footer {
         font-size: 1.4rem;
     }
 
-    h1.glitch-large {
-        font-size: 2.2rem;
-    }
-
-    h1.glitch-large span.year {
-        font-size: 1.4rem;
+    .hero-logo-img {
+        width: 280px;
     }
 
     .hero-content {
