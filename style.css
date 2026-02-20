@@ -1,21 +1,25 @@
 :root {
-    /* COSMIC / ORION 2K26 THEME */
-    --bg-color: #030014;
-    /* Deep Space */
-    --card-bg: rgba(13, 10, 30, 0.85);
+    /* ☠️ DOOMSDAY — GREEN & BLACK THEME */
+    --bg-color: #000000;
+    --card-bg: rgba(0, 18, 0, 0.9);
 
-    --text-primary: #ffffff;
-    --text-secondary: #a5b4fc;
+    --text-primary: #e0ffe0;
+    --text-secondary: #4dff91;
 
-    /* GRADIENT COLORS */
-    --accent-cyan: #00f0ff;
-    --accent-purple: #d946ef;
-    --accent-blue: #3b82f6;
+    /* DOOMSDAY GREENS */
+    --accent-cyan: #00ff41;
+    /* Matrix toxic green */
+    --accent-purple: #39ff14;
+    /* Neon lime green */
+    --accent-blue: #00c853;
+    /* Deep green */
+    --highlight: #7fff00;
+    /* Chartreuse */
 
     /* BORDERS & GLOWS */
-    --border-color: #4c1d95;
-    --glow-cyan: rgba(0, 240, 255, 0.6);
-    --glow-purple: rgba(217, 70, 239, 0.6);
+    --border-color: #003300;
+    --glow-cyan: rgba(0, 255, 65, 0.7);
+    --glow-purple: rgba(57, 255, 20, 0.6);
 
     --font-head: 'Orbitron', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
