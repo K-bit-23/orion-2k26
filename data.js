@@ -4,6 +4,8 @@ const eventData = [
         title: "Brain Blitz",
         subtitle: "(Quiz)",
         icon: "fa-brain",
+        cartoon: "🧠",
+        cartoonLabel: "BRAIN BOT",
         description: "The Ultimate Quiz Challenge. A fast-paced event testing knowledge in GK, technology, science, and current affairs.",
         teamSize: "1 - 2 Members",
         rules: [
@@ -26,6 +28,8 @@ const eventData = [
         title: "BrandIt",
         subtitle: "(Ad Zap)",
         icon: "fa-bullhorn",
+        cartoon: "📣",
+        cartoonLabel: "AD BLASTER",
         description: "An on-spot advertising event where participants receive a brand/topic instantly and perform a short advertisement. Tests creativity, spontaneity, and acting skills.",
         teamSize: "1 - 3 Members",
         rules: [
@@ -47,6 +51,8 @@ const eventData = [
         title: "Fix and Flex",
         subtitle: "(Code Debugging)",
         icon: "fa-bug",
+        cartoon: "🐛",
+        cartoonLabel: "BUG CRUSHER",
         description: "Project Debugging is a fun-filled technical event where debugging meets web design. Participants will be given a broken website (HTML, CSS, JavaScript) filled with bugs, alignment issues, and missing features. Mission: Find bugs, fix issues, and complete missing features.",
         teamSize: "Individual Participation",
         rules: [
@@ -69,6 +75,8 @@ const eventData = [
         title: "InnoSell",
         subtitle: "(Paper / Ideathon / Marketing)",
         icon: "fa-lightbulb",
+        cartoon: "💡",
+        cartoonLabel: "IDEA TITAN",
         description: "InnoSell consists of three technical sub-events: Paper Presentation, Ideathon, and Marketing. Choose your arena and showcase your technical and business acumen.",
         teamSize: "Varies by Sub-event (2-3 Members)",
         rules: [
@@ -96,6 +104,8 @@ const eventData = [
         title: "Lock & Seek",
         subtitle: "(Treasure Hunt)",
         icon: "fa-lock",
+        cartoon: "🔐",
+        cartoonLabel: "CIPHER GHOST",
         description: "Lock & Seek is a high-energy technical treasure hunt at ORION 2K26 that challenges participants to decode their way to victory. Unlike a traditional hunt, every clue is encrypted with technical puzzles ranging from binary code and bug fixing to data structure traversal and logic gates. Participants must use their technical knowledge to unlock \"digital locks\" and find physical locations. This event tests presence of mind, technical basics, and physical agility.",
         teamSize: "2 - 3 Members",
         rules: [
@@ -117,6 +127,8 @@ const eventData = [
         title: "Reboot The Waste()",
         subtitle: "(Art from Waste)",
         icon: "fa-dumpster-fire",
+        cartoon: "♻️",
+        cartoonLabel: "ECO AVENGER",
         description: "An innovative and awareness-driven event that challenges participants to rethink waste management using creativity and technology. Analyze real-world waste problems and propose smart, sustainable solutions.",
         teamSize: "1 - 3 Members",
         rules: [
@@ -139,6 +151,8 @@ const eventData = [
         title: "Reel Rush",
         subtitle: "(Short Film)",
         icon: "fa-video",
+        cartoon: "🎬",
+        cartoonLabel: "DIRECTOR X",
         description: "Short film competition.<br><br><strong>Themes:</strong><ul style='margin-top: 10px; margin-left: 20px;'><li>Campus Diaries – youth & college life</li><li>Tradition vs Tomorrow – Culture & Change</li><li>Village Dreams, City Rush - Village Life vs City Life</li><li>When Skills Go Silent - Technology & Unemployment</li><li>Chalk to Change – power of education</li></ul>",
         teamSize: "Max 5 Members",
         rules: [
@@ -161,6 +175,8 @@ const eventData = [
         title: "Story To Screen",
         subtitle: "(UseCase to UI)",
         icon: "fa-layer-group",
+        cartoon: "🖥️",
+        cartoonLabel: "UI WIZARD",
         description: "Transform a real-world use case into an intuitive user interface. A design-thinking event focusing on UI/UX, user flow, and creativity.",
         teamSize: "2 - 3 Members",
         rules: [

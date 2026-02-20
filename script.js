@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorTrailContainer.className = 'cursor-trail-container';
     document.body.appendChild(cursorTrailContainer);
 
-    const trailSymbols = ['✦', '✧', '★', '⋆', '✴', '❋', '✵'];
-    const trailColors = ['#ff0000', '#cc0000', '#ff4500', '#800000'];
+    const trailSymbols = ['☠', '💀', '⚡', '☣', '⚠', '✦', '⋆'];
+    const trailColors = ['#00ff41', '#39ff14', '#7fff00', '#00c853'];
     let mouseX = 0;
     let mouseY = 0;
     let lastTrailTime = 0;
@@ -184,14 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = isNonTech ? 'event-card non-tech-card' : 'event-card';
         card.setAttribute('data-id', event.id);
 
-        // Cartoon mascot block (only for non-technical events)
-        const cartoonBlock = isNonTech ? `
+        // ALL events get a cartoon mascot — green for tech, pink for non-tech
+        const mascotClass = isNonTech ? 'cartoon-mascot' : 'cartoon-mascot cartoon-mascot--tech';
+        const cartoonBlock = event.cartoon ? `
             <div class="cartoon-mascot-wrap">
-                <div class="cartoon-mascot" data-label="${event.cartoonLabel || ''}">
+                <div class="${mascotClass}" data-label="${event.cartoonLabel || ''}">
                     <span class="cartoon-emoji">${event.cartoon}</span>
                     <div class="cartoon-spotlight"></div>
                 </div>
-                <div class="non-tech-badge">⭐ NON-TECHNICAL</div>
+                ${isNonTech ? '<div class="non-tech-badge">⭐ NON-TECHNICAL</div>' : '<div class="tech-badge">☠ TECH EVENT</div>'}
             </div>
         ` : '';
 
@@ -199,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${cartoonBlock}
             <div class="card-icon ${isNonTech ? 'non-tech-icon' : ''}"><i class="fas ${event.icon}"></i></div>
             <h3 class="card-title">${event.title}</h3>
-            <div style="color: ${isNonTech ? '#f9a8d4' : 'var(--highlight)'}; font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+            <div style="color: ${isNonTech ? '#f9a8d4' : '#39ff14'}; font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
                 ${event.subtitle || ''}
             </div>
             <p class="card-desc">${event.description}</p>
@@ -208,13 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.addEventListener('click', () => {
             playClickSound();
-            // Increased delay to 400ms to ensure sound is audible
             setTimeout(() => {
                 window.location.href = `rules.html?id=${event.id}`;
             }, 400);
         });
         eventsGrid.appendChild(card);
     });
+
 
     // =============================================
     // COUNTDOWN TIMER

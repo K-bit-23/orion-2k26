@@ -35,17 +35,16 @@
 }
 
 ::selection {
-    background: var(--accent-cyan);
+    background: #00ff41;
     color: #000;
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #000;
     color: var(--text-primary);
     font-family: var(--font-body);
     overflow-x: hidden;
     line-height: 1.6;
-    /* Space Background */
     background: #000;
     position: relative;
 }
@@ -57,16 +56,16 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Minimal Twinkling Stars */
+    /* Doomsday Green Stars */
     background-image:
-        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1.5px 1.5px at 160px 120px, #ffffff, rgba(0, 0, 0, 0));
+        radial-gradient(1px 1px at 20px 30px, #00ff41, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 40px 70px, #39ff14, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 50px 160px, #00ff41, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 90px 40px, #00c853, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 130px 80px, #00ff41, rgba(0, 0, 0, 0)),
+        radial-gradient(1.5px 1.5px at 160px 120px, #39ff14, rgba(0, 0, 0, 0));
     background-size: 200px 200px;
-    opacity: 0.6;
+    opacity: 0.5;
     z-index: -2;
     animation: twinkle 4s infinite alternate;
 }
@@ -78,11 +77,10 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Larger, fainter stars */
     background-image:
-        radial-gradient(2px 2px at 100px 150px, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0)),
-        radial-gradient(2px 2px at 200px 50px, rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0)),
-        radial-gradient(2px 2px at 300px 250px, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+        radial-gradient(2px 2px at 100px 150px, rgba(0, 255, 65, 0.5), rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 200px 50px, rgba(57, 255, 20, 0.4), rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 300px 250px, rgba(0, 200, 83, 0.3), rgba(0, 0, 0, 0));
     background-size: 400px 400px;
     opacity: 0.4;
     z-index: -2;
@@ -99,7 +97,6 @@ body::after {
         transform: scale(1.05);
     }
 }
-}
 
 /* ========================
    UTILITIES
@@ -112,14 +109,14 @@ body::after {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-            rgba(0, 240, 255, 0),
-            rgba(0, 240, 255, 0) 50%,
-            rgba(0, 0, 0, 0.1) 50%,
-            rgba(0, 0, 0, 0.1));
+            rgba(0, 255, 65, 0),
+            rgba(0, 255, 65, 0) 50%,
+            rgba(0, 0, 0, 0.12) 50%,
+            rgba(0, 0, 0, 0.12));
     background-size: 100% 3px;
     pointer-events: none;
     z-index: 999;
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 .noise-overlay {
@@ -141,12 +138,13 @@ body::after {
 }
 
 ::-webkit-scrollbar-track {
-    background: #050510;
+    background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(tb, var(--accent-purple), var(--accent-cyan));
+    background: linear-gradient(to bottom, #00ff41, #39ff14);
     border-radius: 4px;
+    box-shadow: 0 0 8px #00ff41;
 }
 
 button {
@@ -161,15 +159,15 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(3, 0, 20, 0.9);
-    border-bottom: 1px solid rgba(217, 70, 239, 0.3);
+    background: rgba(0, 8, 0, 0.95);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.3);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 30px rgba(0, 255, 65, 0.15);
 }
 
 .logo {
@@ -177,30 +175,43 @@ button {
     font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    background: linear-gradient(90deg, #00ff41, #39ff14, #00ff41);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7));
     display: flex;
     align-items: center;
     gap: 10px;
+    animation: doomLogoGlow 3s ease-in-out infinite;
+}
+
+@keyframes doomLogoGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.6));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 18px rgba(57, 255, 20, 1));
+    }
 }
 
 .logo::before {
-    content: '✦';
-    font-size: 1.5rem;
-    color: var(--accent-purple);
-    -webkit-text-fill-color: initial;
-    /* Reset for symbol */
+    content: '☠';
+    font-size: 1.4rem;
+    color: #00ff41;
+    -webkit-text-fill-color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
 }
 
-/* Register Button (Neon Gradient) */
+/* Register Button (Doomsday Green) */
 .register-btn {
-    background: rgba(0, 0, 0, 0.5);
-    border: 2px solid transparent;
-    border-image: linear-gradient(45deg, var(--accent-purple), var(--accent-cyan)) 1;
-    color: #fff;
+    background: rgba(0, 20, 0, 0.7);
+    border: 2px solid #00ff41;
+    color: #00ff41;
     padding: 10px 30px;
     font-family: var(--font-head);
     font-weight: bold;
@@ -208,13 +219,14 @@ button {
     letter-spacing: 1px;
     transition: 0.3s;
     position: relative;
-    box-shadow: 0 0 10px rgba(217, 70, 239, 0.2);
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.3), inset 0 0 8px rgba(0, 255, 65, 0.05);
 }
 
 .register-btn:hover {
-    background: linear-gradient(45deg, rgba(217, 70, 239, 0.2), rgba(0, 240, 255, 0.2));
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-    text-shadow: 0 0 5px #fff;
+    background: #00ff41;
+    color: #000;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.7);
+    text-shadow: none;
     transform: scale(1.05);
 }
 
@@ -239,12 +251,13 @@ button {
 
 .sub-hero {
     font-family: var(--font-mono);
-    color: var(--accent-cyan);
+    color: #00ff41;
     font-size: 1.1rem;
     margin-bottom: 20px;
     letter-spacing: 4px;
     text-transform: uppercase;
     opacity: 0.9;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
 }
 
 .association {
@@ -270,23 +283,23 @@ h1.glitch-large {
     position: relative;
     z-index: 1;
 
-    /* Vibrant Gradient */
+    /* DOOMSDAY GREEN Gradient */
     background: linear-gradient(to right,
-            #ef4444,
-            #ec4899,
-            #8b5cf6,
-            #3b82f6,
-            #06b6d4,
-            #10b981);
+            #00ff41,
+            #39ff14,
+            #7fff00,
+            #00c853,
+            #00ff41,
+            #39ff14);
     background-size: 300% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* Clean Glow */
-    filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.4));
+    /* Toxic Glow */
+    filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7)) drop-shadow(0 0 40px rgba(57, 255, 20, 0.3));
 
-    animation: colorfulFlow 8s linear infinite;
+    animation: colorfulFlow 6s linear infinite;
 }
 
 @keyframes colorfulFlow {
@@ -306,14 +319,15 @@ h1.glitch-large {
 h1.glitch-large span.year {
     display: block;
     font-size: 4rem;
-    color: var(--accent-cyan);
     letter-spacing: 20px;
     margin-top: -10px;
-    background: linear-gradient(90deg, #22d3ee, #06b6d4, #22d3ee);
+    background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00, #39ff14);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+    filter: drop-shadow(0 0 12px rgba(57, 255, 20, 0.8));
+    animation: colorfulFlow 4s linear infinite;
 }
 
 
@@ -342,25 +356,25 @@ h1.glitch-large span.year {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(145deg, rgba(20, 0, 40, 0.6), rgba(10, 0, 20, 0.8));
-    border: 1px solid rgba(217, 70, 239, 0.3);
+    background: linear-gradient(145deg, rgba(0, 20, 0, 0.7), rgba(0, 8, 0, 0.9));
+    border: 1px solid rgba(0, 255, 65, 0.4);
     padding: 15px 25px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.15), inset 0 0 10px rgba(0, 255, 65, 0.05);
 }
 
 .time-segment span:first-child {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #fff;
+    color: #00ff41;
     font-family: var(--font-head);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
 }
 
 .time-segment .label {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--accent-cyan);
+    color: #39ff14;
     margin-top: 5px;
     letter-spacing: 1px;
 }
@@ -369,17 +383,18 @@ h1.glitch-large span.year {
 .cta-button {
     display: inline-block;
     padding: 15px 40px;
-    background: linear-gradient(90deg, #7e22ce, #3b82f6);
-    color: #fff;
+    background: linear-gradient(90deg, #003300, #006622);
+    color: #00ff41;
     text-decoration: none;
     font-family: var(--font-head);
     font-weight: bold;
     font-size: 1.1rem;
     border-radius: 30px;
+    border: 2px solid #00ff41;
     transition: 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 0 20px rgba(126, 34, 206, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4), inset 0 0 15px rgba(0, 255, 65, 0.05);
     position: relative;
     overflow: hidden;
 }
@@ -391,7 +406,7 @@ h1.glitch-large span.year {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
     transition: 0.5s;
 }
 
@@ -400,8 +415,10 @@ h1.glitch-large span.year {
 }
 
 .cta-button:hover {
+    background: #00ff41;
+    color: #000;
     transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
 }
 
 /* ========================
@@ -409,7 +426,7 @@ h1.glitch-large span.year {
    ======================== */
 .workshop-section {
     padding: 80px 20px;
-    background: #030014;
+    background: #000;
     position: relative;
 }
 
@@ -419,45 +436,47 @@ h1.glitch-large span.year {
 }
 
 .workshop-card {
-    background: rgba(10, 10, 30, 0.6);
-    border: 1px solid rgba(0, 240, 255, 0.3);
+    background: rgba(0, 15, 0, 0.7);
+    border: 1px solid rgba(0, 255, 65, 0.35);
     padding: 50px;
     border-radius: 20px;
     text-align: center;
     position: relative;
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(0, 240, 255, 0.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 255, 65, 0.04);
     transition: transform 0.3s;
 }
 
 .workshop-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 40px rgba(0, 240, 255, 0.2);
+    border-color: #00ff41;
+    box-shadow: 0 0 40px rgba(0, 255, 65, 0.25);
 }
 
 .workshop-badge {
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-    color: #fff;
+    background: linear-gradient(135deg, #003300, #006622);
+    color: #00ff41;
+    border: 1px solid #00ff41;
     padding: 8px 20px;
     border-radius: 20px;
     font-family: var(--font-head);
     font-weight: bold;
     display: inline-block;
     margin-bottom: 25px;
-    box-shadow: 0 0 15px rgba(217, 70, 239, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
 }
 
 .workshop-title {
     font-family: var(--font-head);
     font-size: 2.5rem;
-    color: #fff;
     margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-    background: linear-gradient(90deg, #fff, var(--accent-cyan));
+    background: linear-gradient(90deg, #00ff41, #39ff14, #7fff00, #00ff41);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: colorfulFlow 5s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.5));
 }
 
 .workshop-desc {
@@ -527,7 +546,8 @@ h1.glitch-large span.year {
     width: 60%;
     height: 3px;
     margin: 15px auto 0;
-    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    background: linear-gradient(90deg, transparent, #00ff41, #39ff14, transparent);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .events-grid {
@@ -537,21 +557,22 @@ h1.glitch-large span.year {
 }
 
 .event-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(0, 30, 0, 0.5), rgba(0, 10, 0, 0.7));
+    border: 1px solid rgba(0, 255, 65, 0.15);
     padding: 30px;
     transition: 0.3s;
     border-radius: 15px;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .event-card:hover {
-    border-color: var(--accent-purple);
+    border-color: #00ff41;
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2), 0 0 60px rgba(0, 255, 65, 0.08);
+    background: linear-gradient(135deg, rgba(0, 40, 0, 0.6), rgba(0, 15, 0, 0.8));
 }
 
 .event-card::before {
@@ -561,10 +582,11 @@ h1.glitch-large span.year {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+    background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00);
     transform: scaleX(0);
     transform-origin: left;
     transition: 0.3s;
+    box-shadow: 0 0 10px #00ff41;
 }
 
 .event-card:hover::before {
@@ -573,27 +595,28 @@ h1.glitch-large span.year {
 
 .card-icon {
     font-size: 2.5rem;
-    color: var(--accent-cyan);
+    color: #00ff41;
     margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
 }
 
 .card-title {
     font-family: var(--font-head);
     font-size: 1.4rem;
-    color: #fff;
+    color: #e0ffe0;
     margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
 }
 
 .card-desc {
-    color: var(--text-secondary);
+    color: #4dff91;
     margin-bottom: 25px;
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
 .read-more {
-    color: var(--accent-purple);
+    color: #39ff14;
     font-family: var(--font-mono);
     text-transform: uppercase;
     font-weight: bold;
@@ -602,11 +625,13 @@ h1.glitch-large span.year {
     gap: 8px;
     font-size: 0.9rem;
     transition: 0.3s;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.4);
 }
 
 .read-more:hover {
-    color: var(--accent-cyan);
+    color: #00ff41;
     gap: 12px;
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.8);
 }
 
 /* ========================
@@ -614,7 +639,7 @@ h1.glitch-large span.year {
    ======================== */
 .protocols-section {
     padding: 80px 50px;
-    background: #050510;
+    background: #020802;
     position: relative;
 }
 
@@ -625,8 +650,8 @@ h1.glitch-large span.year {
 }
 
 .protocol-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 20, 0, 0.5);
+    border: 1px solid rgba(0, 255, 65, 0.1);
     padding: 30px;
     text-align: center;
     transition: 0.3s;
@@ -634,32 +659,32 @@ h1.glitch-large span.year {
 }
 
 .protocol-card:hover {
-    border-color: var(--accent-cyan);
-    background: rgba(0, 240, 255, 0.05);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+    border-color: #00ff41;
+    background: rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.15);
 }
 
 .protocol-card i {
     font-size: 2.5rem;
-    color: #fff;
+    color: #39ff14;
     margin-bottom: 20px;
-    /* Clean white icons as requested earlier, slightly enhanced */
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
 }
 
 .protocol-card:hover i {
-    color: var(--accent-cyan);
-    text-shadow: 0 0 10px var(--accent-cyan);
+    color: #00ff41;
+    text-shadow: 0 0 18px #00ff41;
 }
 
 .protocol-card h3 {
     font-family: var(--font-head);
-    color: #fff;
+    color: #e0ffe0;
     margin-bottom: 15px;
     letter-spacing: 1px;
 }
 
 .protocol-card p {
-    color: var(--text-secondary);
+    color: #4dff91;
     font-size: 0.9rem;
 }
 
@@ -668,7 +693,7 @@ h1.glitch-large span.year {
    ======================== */
 .contact-section {
     padding: 80px 20px;
-    background: #030014;
+    background: #000;
 }
 
 .hud-grid {
@@ -680,20 +705,20 @@ h1.glitch-large span.year {
 }
 
 .hud-card {
-    background: linear-gradient(145deg, rgba(13, 10, 30, 0.9), rgba(5, 5, 15, 0.95));
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    background: linear-gradient(145deg, rgba(0, 20, 0, 0.9), rgba(0, 8, 0, 0.95));
+    border: 1px solid rgba(0, 255, 65, 0.2);
     border-radius: 12px;
     overflow: hidden;
     position: relative;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .hud-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+    border-color: #00ff41;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.25);
 }
 
 .hud-card::before {
@@ -703,13 +728,13 @@ h1.glitch-large span.year {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-    opacity: 0.5;
+    background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00);
+    opacity: 0.7;
 }
 
 .hud-header {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--accent-cyan);
+    background: rgba(0, 255, 65, 0.04);
+    color: #00ff41;
     padding: 18px 25px;
     font-family: var(--font-head);
     font-size: 1.1rem;
@@ -718,12 +743,13 @@ h1.glitch-large span.year {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.1);
 }
 
 .hud-header i {
-    color: var(--accent-purple);
+    color: #39ff14;
     font-size: 1.2rem;
+    text-shadow: 0 0 8px #39ff14;
 }
 
 .hud-body {
@@ -731,7 +757,7 @@ h1.glitch-large span.year {
 }
 
 .hud-label {
-    color: var(--text-secondary);
+    color: #4dff91;
     font-size: 0.8rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
@@ -741,13 +767,14 @@ h1.glitch-large span.year {
 }
 
 .hud-val {
-    color: #fff;
+    color: #e0ffe0;
     font-size: 1.05rem;
     margin-bottom: 25px;
     font-family: var(--font-body);
     font-weight: 500;
-    border-left: 2px solid var(--accent-purple);
+    border-left: 2px solid #00ff41;
     padding-left: 15px;
+    text-shadow: 0 0 4px rgba(0, 255, 65, 0.2);
 }
 
 .hud-btn {
@@ -757,14 +784,13 @@ h1.glitch-large span.year {
     gap: 10px;
     width: 100%;
     padding: 14px;
-    background: rgba(0, 240, 255, 0.05);
-    border: 1px solid var(--accent-cyan);
-    color: var(--accent-cyan);
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid #00ff41;
+    color: #00ff41;
     text-decoration: none;
     font-family: var(--font-head);
     text-transform: uppercase;
     font-weight: bold;
-    /* Bold text */
     font-size: 1rem;
     letter-spacing: 1px;
     border-radius: 6px;
@@ -775,9 +801,9 @@ h1.glitch-large span.year {
 }
 
 .hud-btn:hover {
-    background: var(--accent-cyan);
+    background: #00ff41;
     color: #000;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
     transform: translateY(-2px);
 }
 
@@ -798,7 +824,7 @@ h1.glitch-large span.year {
 }
 
 .uplink-email {
-    color: var(--accent-cyan);
+    color: #00ff41;
     font-family: var(--font-mono);
     text-decoration: none;
     font-size: 1.1rem;
@@ -807,11 +833,12 @@ h1.glitch-large span.year {
     align-items: center;
     gap: 10px;
     transition: 0.3s;
+    text-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
 }
 
 .uplink-email:hover {
-    color: #fff;
-    text-shadow: 0 0 10px var(--accent-cyan);
+    color: #39ff14;
+    text-shadow: 0 0 14px #00ff41;
     transform: translateX(5px);
 }
 
@@ -824,7 +851,7 @@ h1.glitch-large span.year {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #030014;
+    background: #000;
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -880,7 +907,7 @@ h1.glitch-large span.year {
 .loader-logo-img {
     width: 250px;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
+    filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7)) drop-shadow(0 0 40px rgba(57, 255, 20, 0.4));
     animation: loaderPulse 2s ease-in-out infinite;
 }
 
@@ -889,12 +916,12 @@ h1.glitch-large span.year {
     0%,
     100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.6));
+        filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7));
     }
 
     50% {
         transform: scale(1.05);
-        filter: drop-shadow(0 0 30px rgba(217, 70, 239, 0.8));
+        filter: drop-shadow(0 0 40px rgba(57, 255, 20, 1)) drop-shadow(0 0 60px rgba(0, 255, 65, 0.5));
     }
 }
 
@@ -912,12 +939,13 @@ h1.glitch-large span.year {
    FOOTER
    ======================== */
 footer {
-    background: #02000d;
+    background: #000;
     padding: 40px;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-secondary);
+    border-top: 1px solid rgba(0, 255, 65, 0.15);
+    color: #4dff91;
     font-family: var(--font-mono);
+    text-shadow: 0 0 6px rgba(0, 255, 65, 0.2);
 }
 
 /* Responsive */
