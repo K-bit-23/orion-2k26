@@ -5,8 +5,7 @@ const eventData = [
         subtitle: "(Quiz)",
         icon: "fa-brain",
         cartoon: "🧠",
-        cartoonLabel: "VISIONARY",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/009drs_ons_crd_02.jpg",
+        cartoonLabel: "BRAIN BOT",
         description: "The Ultimate Quiz Challenge. A fast-paced event testing knowledge in GK, technology, science, and current affairs.",
         teamSize: "1 - 2 Members",
         rules: [
@@ -30,8 +29,7 @@ const eventData = [
         subtitle: "(Ad Zap)",
         icon: "fa-bullhorn",
         cartoon: "📣",
-        cartoonLabel: "STARK_AD",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/002irm_ons_crd_03.jpg",
+        cartoonLabel: "AD BLASTER",
         description: "An on-spot advertising event where participants receive a brand/topic instantly and perform a short advertisement. Tests creativity, spontaneity, and acting skills.",
         teamSize: "1 - 3 Members",
         rules: [
@@ -54,8 +52,7 @@ const eventData = [
         subtitle: "(Code Debugging)",
         icon: "fa-bug",
         cartoon: "🐛",
-        cartoonLabel: "SPIDEY_UI",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/005smp_ons_crd_02.jpg",
+        cartoonLabel: "BUG CRUSHER",
         description: "Project Debugging is a fun-filled technical event where debugging meets web design. Participants will be given a broken website (HTML, CSS, JavaScript) filled with bugs, alignment issues, and missing features. Mission: Find bugs, fix issues, and complete missing features.",
         teamSize: "Individual Participation",
         rules: [
@@ -79,8 +76,7 @@ const eventData = [
         subtitle: "(Paper / Ideathon / Marketing)",
         icon: "fa-lightbulb",
         cartoon: "💡",
-        cartoonLabel: "AVENGER_LEAD",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/003cap_ons_crd_03.jpg",
+        cartoonLabel: "IDEA TITAN",
         description: "InnoSell consists of three technical sub-events: Paper Presentation, Ideathon, and Marketing. Choose your arena and showcase your technical and business acumen.",
         teamSize: "Varies by Sub-event (2-3 Members)",
         rules: [
@@ -109,8 +105,7 @@ const eventData = [
         subtitle: "(Treasure Hunt)",
         icon: "fa-lock",
         cartoon: "🔐",
-        cartoonLabel: "WIDOW_OPS",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/011blw_ons_crd_04.jpg",
+        cartoonLabel: "CIPHER GHOST",
         description: "Lock & Seek is a high-energy technical treasure hunt at ORION 2K26 that challenges participants to decode their way to victory. Unlike a traditional hunt, every clue is encrypted with technical puzzles ranging from binary code and bug fixing to data structure traversal and logic gates. Participants must use their technical knowledge to unlock \"digital locks\" and find physical locations. This event tests presence of mind, technical basics, and physical agility.",
         teamSize: "2 - 3 Members",
         rules: [
@@ -158,8 +153,7 @@ const eventData = [
         subtitle: "(Short Film)",
         icon: "fa-video",
         cartoon: "🎬",
-        cartoonLabel: "CAROL_CAM",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/008cmv_ons_crd_04.jpg",
+        cartoonLabel: "DIRECTOR X",
         description: "Short film competition.<br><br><strong>Themes:</strong><ul style='margin-top: 10px; margin-left: 20px;'><li>Campus Diaries – youth & college life</li><li>Tradition vs Tomorrow – Culture & Change</li><li>Village Dreams, City Rush - Village Life vs City Life</li><li>When Skills Go Silent - Technology & Unemployment</li><li>Chalk to Change – power of education</li></ul>",
         teamSize: "Max 5 Members",
         rules: [
@@ -183,8 +177,7 @@ const eventData = [
         subtitle: "(UseCase to UI)",
         icon: "fa-layer-group",
         cartoon: "🖥️",
-        cartoonLabel: "PANTHER_UX",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/007blp_ons_crd_02.jpg",
+        cartoonLabel: "UI WIZARD",
         description: "Transform a real-world use case into an intuitive user interface. A design-thinking event focusing on UI/UX, user flow, and creativity.",
         teamSize: "2 - 3 Members",
         rules: [
@@ -209,8 +202,7 @@ const eventData = [
         icon: "fa-star",
         type: "non-technical",
         cartoon: "🎭",
-        cartoonLabel: "HAWKEYE_SHOW",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/018hke_ons_crd_03.jpg",
+        cartoonLabel: "STAGE STAR",
         description: "Unleash your inner superstar! Show your talent in Mime (silent storytelling), Mimicry (celeb impressions), Instrumental Playing (live music), or Ramp Walk (fashion catwalk). One stage, many talents — dazzle the crowd!",
         teamSize: "Individual / 1 - 3 Members",
         rules: [
@@ -234,8 +226,7 @@ const eventData = [
         icon: "fa-microphone",
         type: "non-technical",
         cartoon: "🎤",
-        cartoonLabel: "HULK_VOICE",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/006hulk_ons_crd_03.jpg",
+        cartoonLabel: "MELODY MASTER",
         description: "Let your voice echo through the stars! Compete in Solo (single vocalist) or Dual (two vocalists) singing. Any language, any genre — classical, film, folk, or pop. The stage is yours, the mic is live!",
         teamSize: "Solo (1 Member) / Dual (2 Members)",
         rules: [
@@ -260,8 +251,7 @@ const eventData = [
         icon: "fa-music",
         type: "non-technical",
         cartoon: "💃",
-        cartoonLabel: "ANT_GROOVE",
-        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/010ant_ons_crd_04.jpg",
+        cartoonLabel: "DANCE DYNAMO",
         description: "Move to the rhythm, own the floor! Compete in Solo or Dual dance. Classical, contemporary, hip-hop, folk, or fusion — express yourself through every step, spin, and groove. Let the beat take control!",
         teamSize: "Solo (1 Member) / Dual (2 Members)",
         rules: [
