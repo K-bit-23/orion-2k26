@@ -31,7 +31,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     overflow-x: hidden;
-    background: #010801 url('https://w0.peakpx.com/wallpaper/434/945/HD-wallpaper-marvel-comics-doctor-doom-doctor-doom.jpg') no-repeat center top fixed;
+    background: #010801 url('https://wallpapers-clan.com/wp-content/uploads/2025/06/marvel-comics-dr-doom-regal-villain-desktop-wallpaper-preview.jpg') no-repeat center top fixed;
     background-size: cover;
     min-height: 100vh;
 }
@@ -1185,11 +1185,20 @@ footer {
     .cyber-nav {
         padding: 10px 14px;
         flex-direction: column;
-        gap: 12px;
+        gap: 15px;
         text-align: center;
         width: 100%;
         box-sizing: border-box;
         background: rgba(0, 10, 0, 0.95);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
     }
 
     .logo {
