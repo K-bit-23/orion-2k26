@@ -31,6 +31,9 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     overflow-x: hidden;
+    background: #010801 url('https://w0.peakpx.com/wallpaper/434/945/HD-wallpaper-marvel-comics-doctor-doom-doctor-doom.jpg') no-repeat center top fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 * {
@@ -45,22 +48,20 @@ html {
 }
 
 body {
-    background: #000 url('https://images.alphacoders.com/131/1312356.jpg') no-repeat center top;
-    background-size: cover;
-    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
     overflow-x: hidden;
     line-height: 1.6;
     position: relative;
+    background: transparent !important;
+    min-height: 100vh;
 }
 
 /* Mobile specific background fix */
 @media (max-width: 768px) {
     body {
         background-attachment: scroll;
-        /* Fixed backgrounds are broken on mobile */
-        background-position: center center;
+        background-position: center top;
     }
 }
 
@@ -72,8 +73,8 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 5, 0, 0.5);
-    /* Much lighter to show the 4K art */
+    background: rgba(0, 0, 0, 0.25);
+    /* Ultra-light to show the 4K art clearly */
     z-index: -1;
     pointer-events: none;
 }
@@ -96,7 +97,8 @@ body::before {
         radial-gradient(2px 2px at 100px 150px, rgba(0, 255, 65, 0.2), rgba(0, 0, 0, 0)),
         radial-gradient(2px 2px at 300px 250px, rgba(0, 200, 83, 0.15), rgba(0, 0, 0, 0));
     background-size: 200px 200px, 300px 300px, 400px 400px, 500px 500px;
-    opacity: 0.6;
+    opacity: 0.15;
+    /* Minimal opacity to ensure background is the focus */
     z-index: -2;
     animation: driftFog 20s infinite alternate linear;
 }
@@ -606,7 +608,7 @@ h1.glitch-large span.year {
     /* Default tech green */
     overflow: hidden;
     position: relative;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
