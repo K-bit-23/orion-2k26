@@ -24,7 +24,7 @@
 
 section {
     position: relative;
-    background: radial-gradient(circle at 50% -50%, rgba(0, 20, 0, 0.4), transparent 70%);
+    background: transparent;
 }
 
 html {
@@ -44,7 +44,7 @@ html {
 }
 
 body {
-    background: #000 url('https://images2.alphacoders.com/134/1342533.png') no-repeat center center fixed;
+    background: #000 url('https://images.alphacoders.com/131/1312356.jpg') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -62,8 +62,8 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    /* Reduced opacity to reveal Doctor Doom */
+    background: rgba(0, 5, 0, 0.5);
+    /* Much lighter to show the 4K art */
     z-index: -1;
     pointer-events: none;
 }
@@ -240,7 +240,7 @@ button {
     /* Increased to clear nav bar */
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, #001200 0%, #000 100%);
+    background: transparent;
 }
 
 .hero::before {
@@ -421,7 +421,7 @@ h1.glitch-large span.year {
    ======================== */
 .workshop-section {
     padding: 80px 20px;
-    background: #000;
+    background: transparent;
     position: relative;
 }
 
@@ -594,7 +594,7 @@ h1.glitch-large span.year {
     /* Default tech green */
     overflow: hidden;
     position: relative;
-    background: #000;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -650,7 +650,7 @@ h1.glitch-large span.year {
    ======================== */
 .protocols-section {
     padding: 80px 50px;
-    background: #020802;
+    background: transparent;
     position: relative;
 }
 
@@ -701,7 +701,7 @@ h1.glitch-large span.year {
    ======================== */
 .contact-section {
     padding: 80px 20px;
-    background: #000;
+    background: transparent;
 }
 
 .hud-grid {
