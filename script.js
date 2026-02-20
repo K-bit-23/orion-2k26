@@ -167,9 +167,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render Event Cards
+    let nonTechDividerInserted = false;
     eventData.forEach(event => {
-        const card = document.createElement('div');
         const isNonTech = event.type === 'non-technical';
+
+        // Insert a visual divider before the first non-technical event
+        if (isNonTech && !nonTechDividerInserted) {
+            const divider = document.createElement('div');
+            divider.className = 'non-tech-section-label';
+            divider.innerHTML = `<h3>🎭 Non-Technical Events 🎭</h3>`;
+            eventsGrid.appendChild(divider);
+            nonTechDividerInserted = true;
+        }
+
+        const card = document.createElement('div');
         card.className = isNonTech ? 'event-card non-tech-card' : 'event-card';
         card.setAttribute('data-id', event.id);
 
