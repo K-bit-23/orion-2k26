@@ -319,9 +319,7 @@
             function draw() {
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#00ff41'; /* ☠ Doomsday Green */
-                ctx.shadowColor = '#39ff14';
-                ctx.shadowBlur = 8;
+                ctx.fillStyle = '#00ff41';
                 ctx.font = fontSize + 'px monospace';
                 for (let i = 0; i < rainDrops.length; i++) {
                     const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
@@ -329,7 +327,6 @@
                     if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0;
                     rainDrops[i]++;
                 }
-                ctx.shadowBlur = 0;
             }
             setInterval(draw, 30);
             window.addEventListener('resize', () => {

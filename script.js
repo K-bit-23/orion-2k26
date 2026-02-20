@@ -296,13 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ☠ DOOMSDAY GREEN matrix rain
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#00ff41');   /* Matrix toxic green */
-        gradient.addColorStop(0.5, '#39ff14'); /* Neon lime */
-        gradient.addColorStop(1, '#006622');   /* Deep green tail */
+        gradient.addColorStop(0, '#00ff41');
+        gradient.addColorStop(0.5, '#39ff14');
+        gradient.addColorStop(1, '#006622');
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px monospace';
-        ctx.shadowColor = '#00ff41';
-        ctx.shadowBlur = 8;
 
         for (let i = 0; i < rainDrops.length; i++) {
             const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));

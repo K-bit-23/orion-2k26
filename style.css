@@ -159,15 +159,14 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(0, 8, 0, 0.95);
-    border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgba(0, 8, 0, 0.97);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.25);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    box-shadow: 0 5px 30px rgba(0, 255, 65, 0.15);
 }
 
 .logo {
@@ -180,23 +179,10 @@ button {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7));
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: doomLogoGlow 3s ease-in-out infinite;
-}
-
-@keyframes doomLogoGlow {
-
-    0%,
-    100% {
-        filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.6));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 18px rgba(57, 255, 20, 1));
-    }
+    animation: colorfulFlow 6s linear infinite;
 }
 
 .logo::before {
@@ -204,10 +190,9 @@ button {
     font-size: 1.4rem;
     color: #00ff41;
     -webkit-text-fill-color: #00ff41;
-    text-shadow: 0 0 10px #00ff41;
 }
 
-/* Register Button (Doomsday Green) */
+/* Register Button */
 .register-btn {
     background: rgba(0, 20, 0, 0.7);
     border: 2px solid #00ff41;
@@ -219,15 +204,12 @@ button {
     letter-spacing: 1px;
     transition: 0.3s;
     position: relative;
-    box-shadow: 0 0 12px rgba(0, 255, 65, 0.3), inset 0 0 8px rgba(0, 255, 65, 0.05);
 }
 
 .register-btn:hover {
     background: #00ff41;
     color: #000;
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.7);
-    text-shadow: none;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* ========================
@@ -257,7 +239,6 @@ button {
     letter-spacing: 4px;
     text-transform: uppercase;
     opacity: 0.9;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.6);
 }
 
 .association {
@@ -282,23 +263,13 @@ h1.glitch-large {
     margin-bottom: 25px;
     position: relative;
     z-index: 1;
-
-    /* DOOMSDAY GREEN Gradient */
     background: linear-gradient(to right,
-            #00ff41,
-            #39ff14,
-            #7fff00,
-            #00c853,
-            #00ff41,
-            #39ff14);
+            #00ff41, #39ff14, #7fff00,
+            #00c853, #00ff41, #39ff14);
     background-size: 300% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    /* Toxic Glow */
-    filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7)) drop-shadow(0 0 40px rgba(57, 255, 20, 0.3));
-
     animation: colorfulFlow 6s linear infinite;
 }
 
@@ -326,7 +297,6 @@ h1.glitch-large span.year {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 12px rgba(57, 255, 20, 0.8));
     animation: colorfulFlow 4s linear infinite;
 }
 
@@ -356,11 +326,11 @@ h1.glitch-large span.year {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(145deg, rgba(0, 20, 0, 0.7), rgba(0, 8, 0, 0.9));
-    border: 1px solid rgba(0, 255, 65, 0.4);
+    background: rgba(0, 15, 0, 0.8);
+    border: 1px solid rgba(0, 255, 65, 0.3);
     padding: 15px 25px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.15), inset 0 0 10px rgba(0, 255, 65, 0.05);
+    min-width: 80px;
 }
 
 .time-segment span:first-child {
@@ -368,7 +338,6 @@ h1.glitch-large span.year {
     font-weight: bold;
     color: #00ff41;
     font-family: var(--font-head);
-    text-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
 }
 
 .time-segment .label {
@@ -394,7 +363,6 @@ h1.glitch-large span.year {
     transition: 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4), inset 0 0 15px rgba(0, 255, 65, 0.05);
     position: relative;
     overflow: hidden;
 }
@@ -406,7 +374,7 @@ h1.glitch-large span.year {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
     transition: 0.5s;
 }
 
@@ -417,8 +385,7 @@ h1.glitch-large span.year {
 .cta-button:hover {
     background: #00ff41;
     color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
+    transform: translateY(-2px);
 }
 
 /* ========================
@@ -437,24 +404,21 @@ h1.glitch-large span.year {
 
 .workshop-card {
     background: rgba(0, 15, 0, 0.7);
-    border: 1px solid rgba(0, 255, 65, 0.35);
-    padding: 50px;
-    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    padding: 40px;
+    border-radius: 16px;
     text-align: center;
     position: relative;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(0, 255, 65, 0.04);
-    transition: transform 0.3s;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .workshop-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: #00ff41;
-    box-shadow: 0 0 40px rgba(0, 255, 65, 0.25);
 }
 
 .workshop-badge {
-    background: linear-gradient(135deg, #003300, #006622);
+    background: rgba(0, 80, 0, 0.7);
     color: #00ff41;
     border: 1px solid #00ff41;
     padding: 8px 20px;
@@ -463,7 +427,6 @@ h1.glitch-large span.year {
     font-weight: bold;
     display: inline-block;
     margin-bottom: 25px;
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
 }
 
 .workshop-title {
@@ -476,7 +439,6 @@ h1.glitch-large span.year {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: colorfulFlow 5s linear infinite;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.5));
 }
 
 .workshop-desc {
@@ -544,10 +506,9 @@ h1.glitch-large span.year {
     content: '';
     display: block;
     width: 60%;
-    height: 3px;
-    margin: 15px auto 0;
+    height: 2px;
+    margin: 12px auto 0;
     background: linear-gradient(90deg, transparent, #00ff41, #39ff14, transparent);
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .events-grid {
@@ -558,21 +519,18 @@ h1.glitch-large span.year {
 
 .event-card {
     background: linear-gradient(135deg, rgba(0, 30, 0, 0.5), rgba(0, 10, 0, 0.7));
-    border: 1px solid rgba(0, 255, 65, 0.15);
-    padding: 30px;
-    transition: 0.3s;
-    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 65, 0.18);
+    padding: 28px;
+    transition: transform 0.3s, border-color 0.3s;
+    border-radius: 14px;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .event-card:hover {
     border-color: #00ff41;
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2), 0 0 60px rgba(0, 255, 65, 0.08);
-    background: linear-gradient(135deg, rgba(0, 40, 0, 0.6), rgba(0, 15, 0, 0.8));
+    transform: translateY(-6px);
+    background: rgba(0, 35, 0, 0.65);
 }
 
 .event-card::before {
@@ -581,12 +539,11 @@ h1.glitch-large span.year {
     top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00);
     transform: scaleX(0);
     transform-origin: left;
     transition: 0.3s;
-    box-shadow: 0 0 10px #00ff41;
 }
 
 .event-card:hover::before {
@@ -594,24 +551,22 @@ h1.glitch-large span.year {
 }
 
 .card-icon {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #00ff41;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+    margin-bottom: 18px;
 }
 
 .card-title {
     font-family: var(--font-head);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #e0ffe0;
     margin-bottom: 10px;
-    text-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
 }
 
 .card-desc {
     color: #4dff91;
-    margin-bottom: 25px;
-    font-size: 0.95rem;
+    margin-bottom: 22px;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
@@ -623,15 +578,13 @@ h1.glitch-large span.year {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.4);
+    font-size: 0.85rem;
+    transition: gap 0.2s;
 }
 
 .read-more:hover {
     color: #00ff41;
     gap: 12px;
-    text-shadow: 0 0 12px rgba(0, 255, 65, 0.8);
 }
 
 /* ========================
@@ -660,20 +613,17 @@ h1.glitch-large span.year {
 
 .protocol-card:hover {
     border-color: #00ff41;
-    background: rgba(0, 255, 65, 0.05);
-    box-shadow: 0 0 25px rgba(0, 255, 65, 0.15);
+    background: rgba(0, 40, 0, 0.4);
 }
 
 .protocol-card i {
     font-size: 2.5rem;
     color: #39ff14;
     margin-bottom: 20px;
-    text-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
 }
 
 .protocol-card:hover i {
     color: #00ff41;
-    text-shadow: 0 0 18px #00ff41;
 }
 
 .protocol-card h3 {
@@ -705,20 +655,17 @@ h1.glitch-large span.year {
 }
 
 .hud-card {
-    background: linear-gradient(145deg, rgba(0, 20, 0, 0.9), rgba(0, 8, 0, 0.95));
+    background: rgba(0, 15, 0, 0.9);
     border: 1px solid rgba(0, 255, 65, 0.2);
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .hud-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: #00ff41;
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.25);
 }
 
 .hud-card::before {
@@ -729,52 +676,49 @@ h1.glitch-large span.year {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00);
-    opacity: 0.7;
 }
 
 .hud-header {
-    background: rgba(0, 255, 65, 0.04);
+    background: rgba(0, 40, 0, 0.4);
     color: #00ff41;
-    padding: 18px 25px;
+    padding: 16px 22px;
     font-family: var(--font-head);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 1px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     border-bottom: 1px solid rgba(0, 255, 65, 0.1);
 }
 
 .hud-header i {
     color: #39ff14;
-    font-size: 1.2rem;
-    text-shadow: 0 0 8px #39ff14;
+    font-size: 1.1rem;
 }
 
 .hud-body {
-    padding: 25px;
+    padding: 22px;
 }
 
 .hud-label {
     color: #4dff91;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: 2px;
     opacity: 0.8;
 }
 
 .hud-val {
     color: #e0ffe0;
-    font-size: 1.05rem;
-    margin-bottom: 25px;
+    font-size: 1.02rem;
+    margin-bottom: 22px;
     font-family: var(--font-body);
     font-weight: 500;
     border-left: 2px solid #00ff41;
-    padding-left: 15px;
-    text-shadow: 0 0 4px rgba(0, 255, 65, 0.2);
+    padding-left: 14px;
 }
 
 .hud-btn {
@@ -783,7 +727,7 @@ h1.glitch-large span.year {
     align-items: center;
     gap: 10px;
     width: 100%;
-    padding: 14px;
+    padding: 13px;
     background: rgba(0, 255, 65, 0.05);
     border: 1px solid #00ff41;
     color: #00ff41;
@@ -791,20 +735,16 @@ h1.glitch-large span.year {
     font-family: var(--font-head);
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     border-radius: 6px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    transition: background 0.2s, color 0.2s;
     margin-top: 10px;
 }
 
 .hud-btn:hover {
     background: #00ff41;
     color: #000;
-    box-shadow: 0 0 25px rgba(0, 255, 65, 0.6);
-    transform: translateY(-2px);
 }
 
 
@@ -832,14 +772,12 @@ h1.glitch-large span.year {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: 0.3s;
-    text-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
+    transition: color 0.2s, transform 0.2s;
 }
 
 .uplink-email:hover {
     color: #39ff14;
-    text-shadow: 0 0 14px #00ff41;
-    transform: translateX(5px);
+    transform: translateX(4px);
 }
 
 /* ========================
@@ -905,9 +843,8 @@ h1.glitch-large span.year {
 }
 
 .loader-logo-img {
-    width: 250px;
+    width: 220px;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7)) drop-shadow(0 0 40px rgba(57, 255, 20, 0.4));
     animation: loaderPulse 2s ease-in-out infinite;
 }
 
@@ -916,12 +853,10 @@ h1.glitch-large span.year {
     0%,
     100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.7));
     }
 
     50% {
         transform: scale(1.05);
-        filter: drop-shadow(0 0 40px rgba(57, 255, 20, 1)) drop-shadow(0 0 60px rgba(0, 255, 65, 0.5));
     }
 }
 
@@ -948,143 +883,263 @@ footer {
     text-shadow: 0 0 6px rgba(0, 255, 65, 0.2);
 }
 
-/* Responsive */
+/* =========================================
+   RESPONSIVE — TABLET (≤900px)
+   ========================================= */
 @media (max-width: 900px) {
-    .h1.glitch-large {
-        font-size: 4rem;
-    }
-
-    .h1.glitch-large span.year {
-        font-size: 2.5rem;
-        letter-spacing: 10px;
-    }
-
-    .countdown-container {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .cyber-nav {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
-        background: rgba(3, 0, 20, 0.95);
-    }
-
-    .register-btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-
-    .hero {
-        padding-top: 140px;
-        /* Account for taller nav */
-        height: auto;
-        min-height: 100vh;
-        padding-bottom: 50px;
-    }
-
     h1.glitch-large {
-        font-size: 4.5rem;
+        font-size: 5rem;
         letter-spacing: 6px;
-        margin-bottom: 30px;
     }
 
     h1.glitch-large span.year {
-        font-size: 2.2rem;
-        letter-spacing: 10px;
-        margin-top: 0;
-    }
-
-    .sub-hero {
-        font-size: 0.9rem;
-        letter-spacing: 2px;
+        font-size: 2.6rem;
+        letter-spacing: 12px;
     }
 
     .countdown-container {
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 30px;
-    }
-
-    .time-segment {
-        padding: 10px;
-        min-width: 70px;
-    }
-
-    .time-segment span:first-child {
-        font-size: 1.8rem;
-    }
-
-    .time-segment .label {
-        font-size: 0.7rem;
-    }
-
-    .workshop-details {
-        gap: 30px;
-    }
-
-    .section-title {
-        font-size: 2rem;
+        gap: 12px;
     }
 
     .events-section,
-    .protocols-section,
-    .contact-section {
-        padding: 50px 20px;
-    }
-
-    .workshop-title {
-        font-size: 1.8rem;
+    .protocols-section {
+        padding: 60px 30px;
     }
 }
 
-@media (max-width: 480px) {
+/* =========================================
+   RESPONSIVE — MOBILE (≤768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* NAV */
     .cyber-nav {
-        padding: 10px 15px;
+        padding: 12px 18px;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(0, 8, 0, 0.98);
     }
 
     .logo {
         font-size: 1.4rem;
     }
 
+    .register-btn {
+        width: 100%;
+        text-align: center;
+        padding: 11px 16px;
+        font-size: 0.85rem;
+        box-sizing: border-box;
+    }
+
+    /* HERO */
+    .hero {
+        padding-top: 150px;
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 40px;
+    }
+
+    .hero-content {
+        padding: 20px 16px;
+    }
+
     h1.glitch-large {
-        font-size: 3rem;
-        letter-spacing: 3px;
+        font-size: 3.6rem;
+        letter-spacing: 4px;
         margin-bottom: 20px;
     }
 
     h1.glitch-large span.year {
-        font-size: 1.5rem;
-        letter-spacing: 5px;
+        font-size: 2rem;
+        letter-spacing: 8px;
         margin-top: 0;
     }
 
-    .hero-content {
-        padding: 15px;
+    .sub-hero {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
     }
 
+    .association {
+        font-size: 0.82rem;
+        letter-spacing: 1px;
+    }
+
+    /* COUNTDOWN */
+    .countdown-container {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+
+    .time-segment {
+        padding: 10px 14px;
+        min-width: 68px;
+        flex: 1 1 60px;
+    }
+
+    .time-segment span:first-child {
+        font-size: 1.7rem;
+    }
+
+    .time-segment .label {
+        font-size: 0.65rem;
+    }
+
+    /* CTA */
     .cta-button {
-        padding: 12px 30px;
+        padding: 12px 28px;
         font-size: 0.9rem;
-        width: 100%;
-        box-sizing: border-box;
+        letter-spacing: 1px;
+    }
+
+    /* SECTIONS */
+    .events-section,
+    .protocols-section,
+    .contact-section {
+        padding: 50px 16px;
     }
 
     .section-title {
-        font-size: 1.6rem;
+        font-size: 1.9rem;
+        letter-spacing: 2px;
+    }
+
+    /* EVENTS GRID */
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* WORKSHOP */
+    .workshop-section {
+        padding: 50px 16px;
     }
 
     .workshop-card {
-        padding: 25px 15px;
+        padding: 28px 18px;
+    }
+
+    .workshop-title {
+        font-size: 1.7rem;
+    }
+
+    .workshop-details {
+        gap: 24px;
+    }
+
+    /* PROTOCOLS */
+    .protocols-section {
+        padding: 50px 16px;
+    }
+
+    .protocols-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    /* HUD / CONTACT */
+    .hud-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hud-header {
+        font-size: 0.9rem;
+        padding: 12px 16px;
+    }
+
+    .hud-body {
+        padding: 16px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE (≤480px)
+   ========================================= */
+@media (max-width: 480px) {
+
+    /* NAV */
+    .cyber-nav {
+        padding: 10px 14px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* HERO */
+    .hero {
+        padding-top: 160px;
+    }
+
+    h1.glitch-large {
+        font-size: 2.6rem;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+    }
+
+    h1.glitch-large span.year {
+        font-size: 1.4rem;
+        letter-spacing: 4px;
+    }
+
+    /* COUNTDOWN */
+    .countdown-container {
+        gap: 6px;
+    }
+
+    .time-segment {
+        padding: 8px 10px;
+        min-width: 58px;
+    }
+
+    .time-segment span:first-child {
+        font-size: 1.4rem;
+    }
+
+    /* CTA */
+    .cta-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        font-size: 0.82rem;
+        text-align: center;
+    }
+
+    /* SECTIONS */
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    /* CARDS */
+    .event-card {
+        padding: 20px 16px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    /* PROTOCOLS */
+    .protocols-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* WORKSHOP */
+    .workshop-card {
+        padding: 22px 14px;
+    }
+
+    .workshop-title {
+        font-size: 1.4rem;
     }
 
     .workshop-details {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
     }
 
     .detail-item {
@@ -1093,22 +1148,20 @@ footer {
     }
 
     .detail-item i {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
-    .events-grid,
-    .protocols-container,
-    .hud-grid {
-        grid-template-columns: 1fr;
-        /* Force single column */
-    }
-
+    /* HUD */
     .hud-header {
-        font-size: 0.95rem;
-        padding: 12px 15px;
+        font-size: 0.82rem;
+        padding: 10px 14px;
     }
 
     .hud-body {
-        padding: 15px;
+        padding: 14px;
+    }
+
+    .hud-val {
+        font-size: 0.95rem;
     }
 }
