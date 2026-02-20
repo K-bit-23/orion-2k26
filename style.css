@@ -175,7 +175,7 @@ button {
     font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #00ff41, #39ff14, #00ff41);
+    background: linear-gradient(90deg, #00ff41, #00c853, #00ff41);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
@@ -208,9 +208,9 @@ button {
 }
 
 .register-btn:hover {
-    background: #00ff41;
-    color: #000;
-    transform: scale(1.03);
+    background: rgba(0, 255, 65, 0.2);
+    color: #fff;
+    border-color: #00ff41;
 }
 
 /* ========================
@@ -225,6 +225,18 @@ button {
     padding-top: 140px;
     /* Increased to clear nav bar */
     position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #001200 0%, #000 100%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-content {
@@ -266,8 +278,8 @@ h1.glitch-large {
     position: relative;
     z-index: 1;
     background: linear-gradient(to right,
-            #00ff41, #39ff14, #7fff00,
-            #00c853, #00ff41, #39ff14);
+            #00ff41, #00c853, #004411,
+            #006622, #00ff41, #00c853);
     background-size: 300% auto;
     background-clip: text;
     -webkit-background-clip: text;
