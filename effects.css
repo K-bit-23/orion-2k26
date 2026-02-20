@@ -1886,3 +1886,22 @@ footer.section-animated {
     color: #f472b6;
     text-shadow: 0 0 8px #f472b6;
 }
+
+/* =========================================
+   MOBILE OVERRIDES — DISABLE FLOATING EFFECTS
+   ========================================= */
+@media (max-width: 768px) {
+
+    #matrix-rain,
+    .cursor-trail-container,
+    .particles {
+        display: none !important;
+    }
+
+    /* Disable bobbing animations on mobile too */
+    .cartoon-emoji,
+    .cartoon-mascot,
+    .event-card[data-id="story-to-screen"] .cartoon-emoji {
+        animation: none !important;
+    }
+}
