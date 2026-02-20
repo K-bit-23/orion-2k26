@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cursorTrailContainer.className = 'cursor-trail-container';
     document.body.appendChild(cursorTrailContainer);
 
+    const cursorMain = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+
     const trailSymbols = ['☠', '💀', '⚡', '☣', '⚠', '✦', '⋆'];
     const trailColors = ['#00ff41', '#39ff14', '#7fff00', '#00c853'];
     let mouseX = 0;
@@ -77,12 +80,31 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
+        // Update custom cursor positions
+        if (cursorMain && cursorDot) {
+            cursorMain.style.left = mouseX + 'px';
+            cursorMain.style.top = mouseY + 'px';
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        }
+
         const now = Date.now();
         // Create trail particles every 50ms
         if (now - lastTrailTime > 50) {
             createTrailParticle(mouseX, mouseY);
             lastTrailTime = now;
         }
+    });
+
+    // Cursor hover effects
+    const interactiveElements = document.querySelectorAll('a, button, .event-card, .protocol-card, .hud-card, .logo, .cta-button');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (cursorMain) cursorMain.classList.add('active');
+        });
+        el.addEventListener('mouseleave', () => {
+            if (cursorMain) cursorMain.classList.remove('active');
+        });
     });
 
     // Create extra sparkles on click

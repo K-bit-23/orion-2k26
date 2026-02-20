@@ -34,12 +34,16 @@ html {
     background: #010801 url('https://wallpapers-clan.com/wp-content/uploads/2025/06/marvel-comics-dr-doom-regal-villain-desktop-wallpaper-preview.jpg') no-repeat center top fixed;
     background-size: cover;
     min-height: 100vh;
+    cursor: none;
+    /* Hide default cursor */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none !important;
+    /* Force hide default cursor */
 }
 
 ::selection {
@@ -265,13 +269,13 @@ button {
    HERO SECTION
    ======================== */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 140px;
-    /* Increased to clear nav bar */
+    padding: 180px 20px 100px;
+    /* More top padding for nav */
     position: relative;
     overflow: hidden;
     background: transparent;
@@ -289,26 +293,68 @@ button {
 
 .hero-content {
     z-index: 10;
-    max-width: 900px;
-    padding: 30px;
+    max-width: 1000px;
+    padding: 60px 40px;
+    position: relative;
+    background: rgba(0, 15, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 65, 0.1);
+}
+
+.cyber-frame-corners span {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #00ff41;
+    z-index: 2;
+}
+
+.cyber-frame-corners span:nth-child(1) {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+.cyber-frame-corners span:nth-child(2) {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+}
+
+.cyber-frame-corners span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+}
+
+.cyber-frame-corners span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
 }
 
 .sub-hero {
     font-family: var(--font-mono);
     color: #00ff41;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    letter-spacing: 4px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    letter-spacing: 6px;
     text-transform: uppercase;
     opacity: 0.9;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .association {
     font-family: var(--font-mono);
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    opacity: 0.7;
 }
 
 /* LOGO IMAGE STYLE */
@@ -317,22 +363,23 @@ button {
 /* HERO TITLE STYLES - SIMPLE & COLORFUL */
 h1.glitch-large {
     font-family: var(--font-head);
-    font-size: 8rem;
+    font-size: clamp(3rem, 12vw, 7.5rem);
     font-weight: 900;
-    line-height: 1;
+    line-height: 0.9;
     text-transform: uppercase;
-    letter-spacing: 12px;
+    letter-spacing: clamp(4px, 2vw, 15px);
     margin-bottom: 25px;
     position: relative;
     z-index: 1;
     background: linear-gradient(to right,
-            #00ff41, #00c853, #004411,
-            #006622, #00ff41, #00c853);
-    background-size: 300% auto;
+            #00ff41, #00c853, #00ff41,
+            #7fff00, #00ff41);
+    background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: colorfulFlow 6s linear infinite;
+    animation: colorfulFlow 4s linear infinite;
+    text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
 }
 
 @keyframes colorfulFlow {
@@ -1315,5 +1362,75 @@ footer {
 
     .hud-val {
         font-size: 0.95rem;
+    }
+}
+
+/* ========================
+   CUSTOM CURSOR
+   ======================== */
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #00ff41;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+    mix-blend-mode: screen;
+}
+
+.custom-cursor::before,
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    background: #00ff41;
+}
+
+.custom-cursor::before {
+    width: 60%;
+    height: 1px;
+    top: 50%;
+    left: 20%;
+}
+
+.custom-cursor::after {
+    width: 1px;
+    height: 60%;
+    left: 50%;
+    top: 20%;
+}
+
+.custom-cursor.active {
+    width: 50px;
+    height: 50px;
+    border-color: #39ff14;
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.custom-cursor-dot {
+    width: 4px;
+    height: 4px;
+    background: #00ff41;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 100001;
+    transform: translate(-50%, -50%);
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+
+    .custom-cursor,
+    .custom-cursor-dot {
+        display: none !important;
+    }
+
+    html,
+    * {
+        cursor: auto !important;
     }
 }
