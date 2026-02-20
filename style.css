@@ -165,7 +165,7 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 10001;
     backdrop-filter: blur(10px);
 }
 
@@ -1037,6 +1037,43 @@ footer {
     color: #1db954 !important;
 }
 
+/* ========================
+   HERO ROSTER SPECIFICS
+   ======================== */
+.hero-card {
+    border-color: rgba(0, 150, 255, 0.2);
+}
+
+.hero-card .villain-name {
+    color: #00e5ff;
+}
+
+.hero-card .villain-role {
+    color: #81d4fa;
+}
+
+.hero-card::after {
+    background: linear-gradient(90deg, transparent, #00d2ff, transparent);
+}
+
+.hero-card:hover {
+    border-color: #00d2ff;
+}
+
+.hero-featured {
+    border: 2px solid rgba(255, 65, 0, 0.5);
+}
+
+.hero-featured .villain-avatar {
+    filter: none;
+}
+
+.hero-featured .villain-name {
+    background: linear-gradient(90deg, #ff4100, #ff8c00, #ff4100);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 /* =========================================
    RESPONSIVE — TABLET (≤900px)
    ========================================= */
@@ -1309,13 +1346,14 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* VILLAIN CARDS */
+    /* VILLAIN & HERO CARDS */
     .doom-roster-grid {
         grid-template-columns: 1fr;
     }
 
     .doom-villain-card,
-    .featured-villain {
+    .featured-villain,
+    .hero-card {
         transform: scale(1);
     }
 

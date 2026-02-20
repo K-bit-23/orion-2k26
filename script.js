@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.style.left = x + 'px';
         particle.style.top = y + 'px';
         particle.style.color = color;
-        particle.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
 
         // Random size variation
         const size = 12 + Math.random() * 12;

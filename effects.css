@@ -1718,11 +1718,8 @@ footer.section-animated {
 
 /* Override mascot bubble to green for tech events */
 .cartoon-mascot--tech {
-    border: 2px solid rgba(0, 255, 65, 0.6) !important;
-    box-shadow:
-        0 0 0 6px rgba(0, 255, 65, 0.08),
-        0 0 30px rgba(0, 255, 65, 0.3),
-        inset 0 0 20px rgba(57, 255, 20, 0.08) !important;
+    border: 2px solid rgba(0, 255, 65, 0.4) !important;
+    background: rgba(0, 10, 0, 0.9) !important;
 }
 
 /* Green orbit ring for tech mascot */
@@ -1757,7 +1754,6 @@ footer.section-animated {
     padding: 5px 14px;
     border-radius: 20px;
     margin-top: 8px;
-    box-shadow: 0 0 14px rgba(0, 255, 65, 0.7);
     text-transform: uppercase;
 }
 
@@ -1765,49 +1761,49 @@ footer.section-animated {
 /* Brain Blitz: throb like brain waves */
 .event-card[data-id="brain-blitz"] .cartoon-emoji {
     animation: emojiPulse 1s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* BrandIt: shake like a megaphone */
 .event-card[data-id="brandit"] .cartoon-emoji {
     animation: emojiWobble 0.8s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* Fix and Flex: creep left/right like a bug */
 .event-card[data-id="fix-and-flex"] .cartoon-emoji {
     animation: bugCrawl 1.5s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* InnoSell: blink like a lightbulb */
 .event-card[data-id="innosell"] .cartoon-emoji {
     animation: bulbBlink 1.2s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* Lock & Seek: spin like unlocking */
 .event-card[data-id="lock-and-seek"] .cartoon-emoji {
     animation: emojiSpin 2.5s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* Reboot the Waste: spin like recycling */
 .event-card[data-id="reboot-the-waste"] .cartoon-emoji {
     animation: recycleLoop 2s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* Reel Rush: flash like a camera */
 .event-card[data-id="reel-rush"] .cartoon-emoji {
     animation: cameraFlash 1.8s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* Story to Screen: float like a UI element */
 .event-card[data-id="story-to-screen"] .cartoon-emoji {
     animation: cartoonBob 2s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7)) !important;
+    filter: none !important;
 }
 
 /* ─── DOOMSDAY KEYFRAMES ─────────────────────── */
