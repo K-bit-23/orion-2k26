@@ -24,11 +24,10 @@
         .rules-container {
             max-width: 900px;
             margin: 120px auto 60px;
-            /* Offset for fixed nav */
             padding: 40px;
-            background: rgba(13, 10, 30, 0.95);
-            border: 1px solid var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+            background: rgba(0, 12, 0, 0.97);
+            border: 1px solid rgba(0, 255, 65, 0.4);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.1), inset 0 0 60px rgba(0, 255, 65, 0.02);
             position: relative;
             min-height: 60vh;
         }
@@ -178,9 +177,9 @@
 
         .coordinator-card:hover {
             transform: translateX(10px) scale(1.02);
-            background: rgba(0, 240, 255, 0.1);
-            border-left-color: var(--accent-cyan);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 240, 255, 0.1);
+            background: rgba(0, 255, 65, 0.08);
+            border-left-color: #00ff41;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 65, 0.15);
         }
 
         /* Loading Blink */
@@ -318,9 +317,11 @@
             const rainDrops = Array(Math.ceil(columns)).fill(1);
 
             function draw() {
-                ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.05)' : 'rgba(3, 0, 20, 0.05)';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#00f0ff'; /* Cyan for Cosmic Theme */
+                ctx.fillStyle = '#00ff41'; /* ☠ Doomsday Green */
+                ctx.shadowColor = '#39ff14';
+                ctx.shadowBlur = 8;
                 ctx.font = fontSize + 'px monospace';
                 for (let i = 0; i < rainDrops.length; i++) {
                     const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
@@ -328,6 +329,7 @@
                     if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0;
                     rainDrops[i]++;
                 }
+                ctx.shadowBlur = 0;
             }
             setInterval(draw, 30);
             window.addEventListener('resize', () => {

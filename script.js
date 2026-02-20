@@ -290,31 +290,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        const isDarkMode = document.body.classList.contains('dark-mode');
-
-        // Background fade - adapts to theme
-        // Always dark background for new theme
-        ctx.fillStyle = 'rgba(5, 0, 0, 0.15)';
+        // Doomsday black background fade
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Golden magical text - darker for light mode, brighter for dark
+        // ☠ DOOMSDAY GREEN matrix rain
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#ff0000'); // CRITICAL RED
-        gradient.addColorStop(0.5, '#cc0000'); // DARK RED
-        gradient.addColorStop(1, '#800000'); // BLOOD RED
+        gradient.addColorStop(0, '#00ff41');   /* Matrix toxic green */
+        gradient.addColorStop(0.5, '#39ff14'); /* Neon lime */
+        gradient.addColorStop(1, '#006622');   /* Deep green tail */
         ctx.fillStyle = gradient;
-        ctx.font = fontSize + 'px serif';
-        ctx.shadowColor = isDarkMode ? '#ffd700' : '#b8860b';
-        ctx.shadowBlur = isDarkMode ? 10 : 5;
+        ctx.font = fontSize + 'px monospace';
+        ctx.shadowColor = '#00ff41';
+        ctx.shadowBlur = 8;
 
         for (let i = 0; i < rainDrops.length; i++) {
             const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
             ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
 
-            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.98) {
+            if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 rainDrops[i] = 0;
             }
-            rainDrops[i] += 0.5; // Slower, more magical fall
+            rainDrops[i] += 0.5;
         }
         ctx.shadowBlur = 0;
     };
