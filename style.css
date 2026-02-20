@@ -1123,6 +1123,11 @@ footer {
         gap: 16px;
     }
 
+    /* NAV OVERRIDE */
+    .cyber-nav {
+        position: absolute;
+    }
+
     .hud-header {
         font-size: 0.9rem;
         padding: 12px 16px;
