@@ -183,12 +183,12 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = isNonTech ? 'event-card non-tech-card' : 'event-card';
         card.setAttribute('data-id', event.id);
 
-        // ALL events get a cartoon mascot — green for tech, pink for non-tech
+        // ALL events get an Avenger portrait — green for tech, pink for non-tech
         const mascotClass = isNonTech ? 'cartoon-mascot' : 'cartoon-mascot cartoon-mascot--tech';
-        const cartoonBlock = event.cartoon ? `
+        const imageBlock = event.image ? `
             <div class="cartoon-mascot-wrap">
                 <div class="${mascotClass}" data-label="${event.cartoonLabel || ''}">
-                    <span class="cartoon-emoji">${event.cartoon}</span>
+                    <img src="${event.image}" alt="${event.title}" class="avenger-portrait">
                     <div class="cartoon-spotlight"></div>
                 </div>
                 ${isNonTech ? '<div class="non-tech-badge">⭐ NON-TECHNICAL</div>' : '<div class="tech-badge">☠ TECH EVENT</div>'}
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ` : '';
 
         card.innerHTML = `
-            ${cartoonBlock}
+            ${imageBlock}
             <div class="card-icon ${isNonTech ? 'non-tech-icon' : ''}"><i class="fas ${event.icon}"></i></div>
             <h3 class="card-title">${event.title}</h3>
             <div style="color: ${isNonTech ? '#f9a8d4' : '#39ff14'}; font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
