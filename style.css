@@ -303,8 +303,8 @@ button {
 
 .hero-content {
     z-index: 10;
-    max-width: 900px;
-    padding: 80px 50px;
+    max-width: 650px;
+    padding: 100px 40px;
     position: relative;
     background: rgba(4, 25, 4, 0.9);
     backdrop-filter: blur(15px);
