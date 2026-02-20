@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" href="logo.jpg">
     <!-- Fallback inline favicon to prevent 404 -->
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☠</text></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
     <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
     <meta property="og:title" content="ORION 2K26 | Tech Symposium - Kongu Engineering College">
@@ -103,7 +103,14 @@
 
     <!-- Navigation -->
     <nav class="cyber-nav">
-        <div class="logo glitch" data-text="ORION 2K26">ORION 2K26</div>
+        <div class="logo glitch" data-text="ORION 2K26" onclick="window.location.href='index.html'"
+            style="cursor: pointer;">ORION 2K26</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">HOME</a>
+            <a href="events.html">EVENTS</a>
+            <a href="protocols.html">PROTOCOLS</a>
+            <a href="contact.html">COMMUNICATIONS</a>
+        </div>
         <button class="register-btn"
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form', '_blank')">INITIATE
             REGISTRATION</button>
@@ -143,99 +150,11 @@
 
     <!-- Workshop Moved -->
 
-    <!-- Events Section -->
-    <section id="events" class="events-section">
-        <div class="section-header">
-            <h2 class="section-title">ACTIVE OPERATIONS</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="events-grid" id="events-grid">
-            <!-- Events will be injected by JS -->
-        </div>
-    </section>
-
-
-
-
-
-
-
-    <!-- General Protocols Section -->
-    <section id="rules" class="protocols-section">
-        <div class="section-header">
-            <h2 class="section-title">GENERAL PROTOCOLS</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="protocols-container">
-            <div class="protocol-card">
-                <i class="fas fa-id-card"></i>
-                <h3>IDENTIFICATION</h3>
-                <p>Valid College ID Card is mandatory for base entry.</p>
-            </div>
-            <div class="protocol-card">
-                <i class="fas fa-user-tie"></i>
-                <h3>DRESS CODE</h3>
-                <p>Formal attire is required for all operatives.</p>
-            </div>
-            <div class="protocol-card">
-                <i class="fas fa-gavel"></i>
-                <h3>JUDGEMENT</h3>
-                <p>The council's (Judges) decision is final and binding.</p>
-            </div>
-            <div class="protocol-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>DEVICE CONTROL</h3>
-                <p>Mobile usage restricted during technical operations.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workshop Section (Poster Effect) -->
-    <section id="workshop" class="workshop-section">
-        <div class="workshop-container">
-            <div class="workshop-card">
-                <div class="workshop-glow"></div>
-                <div class="workshop-content">
-                    <div class="workshop-badge">FREE WORKSHOP</div>
-                    <h2 class="workshop-title">CYBER SECURITY <br>CAREER BOOTCAMP</h2>
-                    <p class="workshop-desc">
-                        <i class="fas fa-shield-alt"></i> ELITE TRAINING MODULE FOR REGISTERED OPERATIVES
-                    </p>
-                    <div class="workshop-details" style="margin-bottom: 30px;">
-                        <div class="detail-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>CERTIFICATION</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <span>BRING YOUR OWN LAPTOP</span>
-                        </div>
-                    </div>
-
-                    <div class="workshop-coordinators"
-                        style="margin-bottom: 25px; border-top: 1px solid rgba(0, 255, 65, 0.2); padding-top: 20px;">
-                        <h3
-                            style="font-family: var(--font-head); color: #00ff41; font-size: 1.1rem; margin-bottom: 15px;">
-                            WORKSHOP COMMANDERS</h3>
-
-                        <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                            <div class="coord-item">
-                                <p style="color: #fff; font-weight: bold; margin-bottom: 5px;">Karthikeyan P</p>
-                                <a href="tel:9566723397"
-                                    style="color: #00ff41; text-decoration: none; font-family: var(--font-mono);">95667
-                                    23397</a>
-                            </div>
-                            <div class="coord-item">
-                                <p style="color: #fff; font-weight: bold; margin-bottom: 5px;">Elamugil</p>
-                                <a href="tel:8838262412"
-                                    style="color: #00ff41; text-decoration: none; font-family: var(--font-mono);">88382
-                                    62412</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="cyber_security.html" class="cta-button">ACCESS MODULE INTEL</a>
-                </div>
-            </div>
+    <!-- Quick Links / Hero Footer -->
+    <section style="padding: 40px; text-align: center; background: transparent;">
+        <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+            <a href="events.html" class="cta-button">BROWSE EVENTS</a>
+            <a href="protocols.html" class="cta-button" style="background: transparent;">VIEW RULES</a>
         </div>
     </section>
 
