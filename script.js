@@ -353,8 +353,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        // Doomsday black background fade
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.12)';
+        // Doomsday Emerald background fade instead of black
+        ctx.fillStyle = 'rgba(2, 13, 2, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // ☠ DOOMSDAY GREEN matrix rain

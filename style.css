@@ -1,7 +1,8 @@
 :root {
-    /* ☠️ DOOMSDAY — GREEN & BLACK THEME */
-    --bg-color: #000000;
-    --card-bg: rgba(0, 18, 0, 0.9);
+    /* ☠️ DOOMSDAY — ENHANCED VISIBILITY THEME */
+    --bg-color: #020d02;
+    /* Deep Hunter Green instead of Black */
+    --card-bg: rgba(4, 28, 4, 0.94);
 
     --text-primary: #e0ffe0;
     --text-secondary: #4dff91;
@@ -31,7 +32,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     overflow-x: hidden;
-    background: #010801 url('https://wallpapers-clan.com/wp-content/uploads/2025/06/marvel-comics-dr-doom-regal-villain-desktop-wallpaper-preview.jpg') no-repeat center top fixed;
+    background: #020d02 url('https://wallpapers-clan.com/wp-content/uploads/2025/06/marvel-comics-dr-doom-regal-villain-desktop-wallpaper-preview.jpg') no-repeat center top fixed;
     background-size: cover;
     min-height: 100vh;
     cursor: none;
@@ -48,7 +49,7 @@ html {
 
 ::selection {
     background: #00ff41;
-    color: #000;
+    color: #020d02;
 }
 
 body {
@@ -190,8 +191,9 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: rgba(0, 8, 0, 0.97);
-    border-bottom: 1px solid rgba(0, 255, 65, 0.25);
+    background: rgba(6, 26, 6, 0.95);
+    /* Deep Emerald instead of Black */
+    border-bottom: 2px solid rgba(0, 255, 65, 0.4);
     position: fixed;
     top: 0;
     left: 0;
@@ -274,8 +276,8 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 180px 20px 100px;
-    /* More top padding for nav */
+    padding: 160px 20px 80px;
+    /* Refined padding */
     position: relative;
     overflow: hidden;
     background: transparent;
@@ -293,12 +295,16 @@ button {
 
 .hero-content {
     z-index: 10;
-    max-width: 1000px;
-    padding: 60px 40px;
+    max-width: 900px;
+    padding: 80px 50px;
     position: relative;
-    background: rgba(0, 15, 0, 0.4);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 255, 65, 0.1);
+    background: rgba(4, 25, 4, 0.9);
+    /* Solidified Page Background */
+    backdrop-filter: blur(15px);
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 50px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.1);
+    border-radius: 4px;
+    /* Crisp Rectangular feel */
 }
 
 .cyber-frame-corners span {
@@ -378,8 +384,20 @@ h1.glitch-large {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: colorfulFlow 4s linear infinite;
+    animation: colorfulFlow 4s linear infinite, floatTitle 3s ease-in-out infinite;
     text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+}
+
+@keyframes floatTitle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes colorfulFlow {
@@ -1014,7 +1032,7 @@ h1.glitch-large span.year {
    FOOTER
    ======================== */
 footer {
-    background: #000;
+    background: #020d02;
     padding: 40px;
     text-align: center;
     border-top: 1px solid rgba(0, 255, 65, 0.15);
@@ -1071,10 +1089,33 @@ footer {
 
     /* NAV */
     .cyber-nav {
-        padding: 12px 18px;
-        flex-direction: column;
-        gap: 10px;
-        background: rgba(0, 8, 0, 0.98);
+        padding: 15px 20px;
+        flex-direction: row;
+        /* Keep logo and register on same line */
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+        background: rgba(6, 26, 6, 0.98);
+        /* Matching Emerald */
+        border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+    }
+
+    .nav-links {
+        order: 3;
+        /* Push links below logo/btn */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        background: rgba(4, 30, 4, 0.8);
+        padding: 10px 0;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 255, 65, 0.1);
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+        padding: 6px 8px;
     }
 
     .logo {
@@ -1411,14 +1452,38 @@ footer {
 }
 
 .custom-cursor-dot {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background: #00ff41;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 100001;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+}
+
+.custom-cursor::before,
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 255, 65, 0.5);
+}
+
+.custom-cursor::before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.custom-cursor::after {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 /* Hide custom cursor on mobile */
