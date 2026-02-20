@@ -880,7 +880,161 @@ footer {
     border-top: 1px solid rgba(0, 255, 65, 0.15);
     color: #4dff91;
     font-family: var(--font-mono);
-    text-shadow: 0 0 6px rgba(0, 255, 65, 0.2);
+}
+
+/* ========================
+   DOOM ROSTER SECTION
+   ======================== */
+.doom-roster-section {
+    padding: 70px 50px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.doom-roster-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 40px,
+            rgba(0, 255, 65, 0.02) 40px,
+            rgba(0, 255, 65, 0.02) 41px);
+    pointer-events: none;
+}
+
+.doom-roster-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.doom-villain-card {
+    background: rgba(0, 15, 0, 0.85);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 16px;
+    padding: 28px 18px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+}
+
+.doom-villain-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00ff41, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s;
+}
+
+.doom-villain-card:hover {
+    transform: translateY(-8px);
+    border-color: #00ff41;
+}
+
+.doom-villain-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Featured center villain (Doom Core / ORION) */
+.featured-villain {
+    background: rgba(0, 30, 0, 0.95);
+    border: 2px solid rgba(0, 255, 65, 0.5);
+    transform: scale(1.04);
+}
+
+.featured-villain:hover {
+    transform: scale(1.04) translateY(-8px);
+    border-color: #00ff41;
+}
+
+.villain-avatar {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 6px;
+    animation: villainBob 3s ease-in-out infinite;
+}
+
+.featured-villain .villain-avatar {
+    font-size: 4rem;
+    animation: villainBob 2s ease-in-out infinite;
+}
+
+@keyframes villainBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.villain-glyph {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+}
+
+.villain-name {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    color: #00ff41;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.featured-villain .villain-name {
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, #00ff41, #39ff14, #7fff00, #00ff41);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorfulFlow 4s linear infinite;
+}
+
+.villain-role {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: #4dff91;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.villain-line {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #a0c4a0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* ========================
+   WHATSAPP LINK
+   ======================== */
+.whatsapp-link {
+    color: #25d366 !important;
+    border-bottom: 1px dashed rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-link:hover {
+    color: #1db954 !important;
 }
 
 /* =========================================
@@ -904,6 +1058,14 @@ footer {
     .events-section,
     .protocols-section {
         padding: 60px 30px;
+    }
+
+    .doom-roster-section {
+        padding: 50px 20px;
+    }
+
+    .doom-roster-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -1010,6 +1172,25 @@ footer {
     .events-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    /* DOOM ROSTER */
+    .doom-roster-section {
+        padding: 40px 16px;
+    }
+
+    .doom-roster-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .featured-villain {
+        grid-column: 1 / -1;
+        transform: scale(1);
+    }
+
+    .featured-villain:hover {
+        transform: translateY(-6px);
     }
 
     /* WORKSHOP */
@@ -1126,6 +1307,16 @@ footer {
     /* PROTOCOLS */
     .protocols-container {
         grid-template-columns: 1fr;
+    }
+
+    /* VILLAIN CARDS */
+    .doom-roster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doom-villain-card,
+    .featured-villain {
+        transform: scale(1);
     }
 
     /* WORKSHOP */
