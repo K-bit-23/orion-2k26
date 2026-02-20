@@ -343,6 +343,46 @@ button {
     border-top: none;
 }
 
+.page-marker {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: #020d02;
+    background: #00ff41;
+    padding: 2px 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+.top-left {
+    top: -10px;
+    left: 20px;
+}
+
+.top-right {
+    top: -10px;
+    right: 20px;
+}
+
+.page-marker::before {
+    content: '>> ';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
 .sub-hero {
     font-family: var(--font-mono);
     color: #00ff41;
