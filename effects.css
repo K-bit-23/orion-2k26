@@ -516,7 +516,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    background: linear-gradient(135deg, #061a06 0%, #020d02 50%, #061a06 100%);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -554,7 +554,7 @@ body {
     left: 5px;
     right: 5px;
     bottom: 5px;
-    background: #0a0a0a;
+    background: #061a06;
     border-radius: 50%;
 }
 
@@ -1747,7 +1747,7 @@ footer.section-animated {
     font-size: 0.65rem;
     font-weight: 900;
     letter-spacing: 2px;
-    color: #000;
+    color: #020d02;
     background: linear-gradient(90deg, #00ff41, #39ff14, #7fff00, #00ff41);
     background-size: 200% 100%;
     animation: badgeShift 2s linear infinite;

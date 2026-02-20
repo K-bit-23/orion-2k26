@@ -28,8 +28,8 @@
 
         .workshop-hero {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(180deg, rgba(3, 0, 20, 0) 0%, rgba(3, 0, 20, 0.8) 100%);
+            padding: 80px 20px 40px;
+            background: linear-gradient(180deg, rgba(2, 13, 2, 0) 0%, rgba(2, 13, 2, 0.8) 100%);
         }
 
         .content-wrapper {
@@ -39,13 +39,14 @@
         }
 
         .info-card {
-            background: rgba(13, 10, 30, 0.6);
-            border: 1px solid var(--border-color);
+            background: rgba(4, 25, 4, 0.9);
+            border: 2px solid #00ff41;
             padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            /* Rectangular feel */
+            backdrop-filter: blur(15px);
             margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.15);
         }
 
         .info-title {
@@ -138,6 +139,36 @@
     <div class="noise-overlay"></div>
     <div class="scanline"></div>
     <canvas id="matrix-rain"></canvas>
+    <!-- Page Loader (Orion Neon Hexagon) -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+            </div>
+            <div class="loader-logo">ORION</div>
+            <div class="loader-text">
+                <span class="loader-char">I</span>
+                <span class="loader-char">N</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">T</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">A</span>
+                <span class="loader-char">L</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">Z</span>
+                <span class="loader-char">I</span>
+                <span class="loader-char">N</span>
+                <span class="loader-char">G</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+                <span class="loader-char">.</span>
+            </div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
