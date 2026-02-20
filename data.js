@@ -177,5 +177,79 @@ const eventData = [
             "Keerthana M: 97917 49923",
             "Ghautham M: 73390 10563"
         ]
+    },
+    {
+        id: "talent-show",
+        title: "Talent Show",
+        subtitle: "(Mime · Mimicry · Instrumental · Ramp Walk)",
+        icon: "fa-star",
+        type: "non-technical",
+        cartoon: "🎭",
+        cartoonLabel: "STAGE STAR",
+        description: "Unleash your inner superstar! Show your talent in Mime (silent storytelling), Mimicry (celeb impressions), Instrumental Playing (live music), or Ramp Walk (fashion catwalk). One stage, many talents — dazzle the crowd!",
+        teamSize: "Individual / 1 - 3 Members",
+        rules: [
+            "Sub-events: Mime, Mimicry, Instrumental Playing, Ramp Walk.",
+            "Participants may register for ONE sub-event only.",
+            "Mime: Silent act, 3-5 minutes, no dialogue allowed.",
+            "Mimicry: Celebrity/character impressions, 2-3 minutes.",
+            "Instrumental Playing: Any instrument, original or cover, 3-5 minutes.",
+            "Ramp Walk: Solo or team walk, costume judged on theme, style & confidence.",
+            "No vulgarity, offensive content, or politically sensitive material.",
+            "Judges' decision is final and binding."
+        ],
+        coordinators: [
+            "SivaPrasath: 94432 56269"
+        ]
+    },
+    {
+        id: "singing",
+        title: "Singing",
+        subtitle: "(Solo · Dual)",
+        icon: "fa-microphone",
+        type: "non-technical",
+        cartoon: "🎤",
+        cartoonLabel: "MELODY MASTER",
+        description: "Let your voice echo through the stars! Compete in Solo (single vocalist) or Dual (two vocalists) singing. Any language, any genre — classical, film, folk, or pop. The stage is yours, the mic is live!",
+        teamSize: "Solo (1 Member) / Dual (2 Members)",
+        rules: [
+            "Sub-events: Solo and Dual Singing.",
+            "Any language permitted: Tamil, Hindi, English, etc.",
+            "Any genre allowed: Classical, Film, Pop, Folk, etc.",
+            "Solo performance: 3-5 minutes.",
+            "Dual performance: 4-6 minutes.",
+            "Karaoke/background track is allowed; live instruments are a bonus.",
+            "No pre-recorded vocals — live singing only.",
+            "No vulgarity or offensive lyrics.",
+            "Judges' decision is final and binding."
+        ],
+        coordinators: [
+            "SivaPrasath: 94432 56269"
+        ]
+    },
+    {
+        id: "dance",
+        title: "Dance",
+        subtitle: "(Solo · Dual)",
+        icon: "fa-music",
+        type: "non-technical",
+        cartoon: "💃",
+        cartoonLabel: "DANCE DYNAMO",
+        description: "Move to the rhythm, own the floor! Compete in Solo or Dual dance. Classical, contemporary, hip-hop, folk, or fusion — express yourself through every step, spin, and groove. Let the beat take control!",
+        teamSize: "Solo (1 Member) / Dual (2 Members)",
+        rules: [
+            "Sub-events: Solo and Dual Dance.",
+            "Any dance form: Classical, Contemporary, Hip-Hop, Folk, Fusion, etc.",
+            "Solo performance: 3-5 minutes.",
+            "Dual performance: 4-6 minutes.",
+            "Background music must be submitted before the event.",
+            "Props are allowed but must be managed by the participant.",
+            "No vulgarity or offensive gestures.",
+            "Costumes should be appropriate and decent.",
+            "Judges' decision is final and binding."
+        ],
+        coordinators: [
+            "SivaPrasath: 94432 56269"
+        ]
     }
 ];

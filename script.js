@@ -169,17 +169,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Event Cards
     eventData.forEach(event => {
         const card = document.createElement('div');
-        card.className = 'event-card';
+        const isNonTech = event.type === 'non-technical';
+        card.className = isNonTech ? 'event-card non-tech-card' : 'event-card';
         card.setAttribute('data-id', event.id);
 
+        // Cartoon mascot block (only for non-technical events)
+        const cartoonBlock = isNonTech ? `
+            <div class="cartoon-mascot-wrap">
+                <div class="cartoon-mascot" data-label="${event.cartoonLabel || ''}">
+                    <span class="cartoon-emoji">${event.cartoon}</span>
+                    <div class="cartoon-spotlight"></div>
+                </div>
+                <div class="non-tech-badge">⭐ NON-TECHNICAL</div>
+            </div>
+        ` : '';
+
         card.innerHTML = `
-            <div class="card-icon"><i class="fas ${event.icon}"></i></div>
+            ${cartoonBlock}
+            <div class="card-icon ${isNonTech ? 'non-tech-icon' : ''}"><i class="fas ${event.icon}"></i></div>
             <h3 class="card-title">${event.title}</h3>
-            <div style="color: var(--highlight); font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+            <div style="color: ${isNonTech ? '#f9a8d4' : 'var(--highlight)'}; font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
                 ${event.subtitle || ''}
             </div>
             <p class="card-desc">${event.description}</p>
-            <div class="read-more">Access Data <i class="fas fa-chevron-right"></i></div>
+            <div class="read-more ${isNonTech ? 'non-tech-readmore' : ''}">Access Data <i class="fas fa-chevron-right"></i></div>
         `;
 
         card.addEventListener('click', () => {
