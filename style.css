@@ -224,17 +224,13 @@ button {
     content: '';
 }
 
+/* Navigation Menu Links removed as per landscape request */
 .nav-links {
-    display: flex;
-    gap: 30px;
+    display: none !important;
 }
 
 .nav-toggle {
-    display: none;
-    font-size: 1.5rem;
-    color: #00ff41;
-    cursor: pointer;
-    transition: 0.3s;
+    display: none !important;
 }
 
 .nav-links a {
@@ -303,16 +299,31 @@ button {
 
 .hero-content {
     z-index: 10;
-    max-width: 900px;
-    padding: 80px 50px;
+    width: 95%;
+    max-width: 1300px;
+    padding: 60px 80px;
     position: relative;
     background: rgba(4, 25, 4, 0.9);
-    /* Solidified Page Background */
     backdrop-filter: blur(15px);
     border: 2px solid #00ff41;
     box-shadow: 0 0 50px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.1);
     border-radius: 4px;
-    /* Crisp Rectangular feel */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    text-align: left;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .cyber-frame-corners span {
@@ -1130,216 +1141,178 @@ footer {
 
 }
 
+@media (max-width: 1100px) {
+    .hero-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 /* =========================================
    RESPONSIVE — MOBILE (≤768px)
    ========================================= */
 @media (max-width: 768px) {
-
-    /* NAV */
-    .cyber-nav {
-        padding: 15px 25px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(4, 20, 4, 0.98);
-        border-bottom: 2px solid #00ff41;
-    }
-
-    .nav-toggle {
-        display: block;
-        order: 2;
-    }
-
-    .register-btn {
-        order: 3;
-        display: none;
-        /* Hide register btn on mobile to save space, or keep it small */
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(2, 13, 2, 0.98);
-        padding: 20px;
-        gap: 15px;
-        border-bottom: 2px solid #00ff41;
-        box-shadow: 0 10px 30px rgba(2, 13, 2, 0.5);
-        z-index: 1000;
-        animation: slideDownNav 0.3s ease-out;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    @keyframes slideDownNav {
-        from {
-            transform: translateY(-20px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    .nav-links a {
-        font-size: 1rem;
-        padding: 10px;
-        border-bottom: 1px solid rgba(0, 255, 65, 0.1);
-        width: 100%;
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 1.4rem;
-    }
-
-    .register-btn {
-        width: 100%;
-        text-align: center;
-        padding: 11px 16px;
-        font-size: 0.85rem;
-        box-sizing: border-box;
-    }
-
-    /* HERO */
-    .hero {
-        padding-top: 150px;
-        height: auto;
-        min-height: 100vh;
-        padding-bottom: 40px;
-    }
-
     .hero-content {
-        padding: 20px 16px;
+        padding: 60px 20px;
     }
 
-    h1.glitch-large {
-        font-size: 3.6rem;
-        letter-spacing: 4px;
-        margin-bottom: 20px;
-    }
-
-    h1.glitch-large span.year {
-        font-size: 2rem;
-        letter-spacing: 8px;
-        margin-top: 0;
-    }
-
-    .sub-hero {
-        font-size: 0.8rem;
-        letter-spacing: 2px;
-    }
-
-    .association {
-        font-size: 0.82rem;
-        letter-spacing: 1px;
-    }
-
-    /* COUNTDOWN */
-    .countdown-container {
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 28px;
-    }
-
-    .time-segment {
-        padding: 10px 14px;
-        min-width: 68px;
-        flex: 1 1 60px;
-    }
-
-    .time-segment span:first-child {
-        font-size: 1.7rem;
-    }
-
-    .time-segment .label {
-        font-size: 0.65rem;
-    }
-
-    /* CTA */
-    .cta-button {
-        padding: 12px 28px;
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-    }
-
-    /* SECTIONS */
-    .events-section,
-    .protocols-section,
-    .contact-section {
-        padding: 50px 16px;
-    }
-
-    .section-title {
-        font-size: 1.9rem;
-        letter-spacing: 2px;
-    }
-
-    /* EVENTS GRID */
-    .events-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-
-
-    /* WORKSHOP */
-    .workshop-section {
-        padding: 50px 16px;
-    }
-
-    .workshop-card {
-        padding: 28px 18px;
-    }
-
-    .workshop-title {
-        font-size: 1.7rem;
-    }
-
-    .workshop-details {
-        gap: 24px;
-    }
-
-    /* PROTOCOLS */
-    .protocols-section {
-        padding: 50px 16px;
-    }
-
-    .protocols-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-
-    /* HUD / CONTACT */
-    .hud-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* NAV OVERRIDE */
     .cyber-nav {
-        position: relative;
-        /* Changing from absolute to relative to prevent wandering */
-        width: 100% !important;
-        left: 0 !important;
-        transform: none !important;
+        padding: 10px 15px;
     }
+}
 
-    .hud-header {
-        font-size: 0.9rem;
-        padding: 12px 16px;
-    }
+.nav-links a {
+    font-size: 1rem;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+    width: 100%;
+    text-align: center;
+}
 
-    .hud-body {
-        padding: 16px;
-    }
+.logo {
+    font-size: 1.4rem;
+}
+
+.register-btn {
+    width: 100%;
+    text-align: center;
+    padding: 11px 16px;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+}
+
+/* HERO */
+.hero {
+    padding-top: 150px;
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+.hero-content {
+    padding: 20px 16px;
+}
+
+h1.glitch-large {
+    font-size: 3.6rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1.glitch-large span.year {
+    font-size: 2rem;
+    letter-spacing: 8px;
+    margin-top: 0;
+}
+
+.sub-hero {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.association {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+}
+
+/* COUNTDOWN */
+.countdown-container {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.time-segment {
+    padding: 10px 14px;
+    min-width: 68px;
+    flex: 1 1 60px;
+}
+
+.time-segment span:first-child {
+    font-size: 1.7rem;
+}
+
+.time-segment .label {
+    font-size: 0.65rem;
+}
+
+/* CTA */
+.cta-button {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* SECTIONS */
+.events-section,
+.protocols-section,
+.contact-section {
+    padding: 50px 16px;
+}
+
+.section-title {
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+}
+
+/* EVENTS GRID */
+.events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+
+
+/* WORKSHOP */
+.workshop-section {
+    padding: 50px 16px;
+}
+
+.workshop-card {
+    padding: 28px 18px;
+}
+
+.workshop-title {
+    font-size: 1.7rem;
+}
+
+.workshop-details {
+    gap: 24px;
+}
+
+/* PROTOCOLS */
+.protocols-section {
+    padding: 50px 16px;
+}
+
+.protocols-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* HUD / CONTACT */
+.hud-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* NAV OVERRIDE */
+.cyber-nav {
+    position: relative;
+    /* Changing from absolute to relative to prevent wandering */
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+.hud-header {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+}
+
+.hud-body {
+    padding: 16px;
 }
 
 /* =========================================
@@ -1577,4 +1550,3 @@ footer {
         cursor: auto !important;
     }
 }
-
