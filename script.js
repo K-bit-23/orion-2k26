@@ -99,18 +99,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     function triggerScrollAnimations() {
         // Section-level animations
-        const sections = document.querySelectorAll('.events-section, .protocols-section, .contact-section, footer');
+        const sections = document.querySelectorAll('.hero, .events-section, .protocols-section, .workshop-section, .contact-section, footer');
 
         const sectionObserverOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('section-animated');
-                    sectionObserver.unobserve(entry.target);
+
+                    // Update Active Nav Link based on section
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        const navLinks = document.querySelectorAll('.nav-links a');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
                 }
             });
         }, sectionObserverOptions);
@@ -131,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
                     // Add staggered delay for cards
-                    const delay = index * 100;
+                    const delay = index * 50;
                     setTimeout(() => {
                         entry.target.classList.add('animated');
                     }, delay);
@@ -144,6 +155,33 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(el);
         });
     }
+
+    // --- SMOOTH SCROLL FOR NAV LINKS ---
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    document.querySelectorAll('.cta-button[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
     // =============================================
     // RENDER EVENTS
@@ -208,6 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.addEventListener('click', () => {
             playClickSound();
+            // In SPA mode, we can either scroll to a details section or open rules.html
+            // The user asked for SPA but also likes separate rules pages for detail.
+            // Let's keep rules.html for the deep-dive rules to avoid making index.html Gigantic,
+            // but ensure the transition feels like one app.
             setTimeout(() => {
                 window.location.href = `rules.html?id=${event.id}`;
             }, 400);
