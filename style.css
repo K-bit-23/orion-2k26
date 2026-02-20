@@ -1159,6 +1159,18 @@ footer {
 
     .cyber-nav {
         padding: 10px 15px;
+        position: fixed;
+        /* Keep it sticky */
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(2, 13, 2, 0.98);
+        border-bottom: 2px solid #00ff41;
+        z-index: 10001;
     }
 }
 
@@ -1297,14 +1309,7 @@ h1.glitch-large span.year {
     gap: 16px;
 }
 
-/* NAV OVERRIDE */
-.cyber-nav {
-    position: relative;
-    /* Changing from absolute to relative to prevent wandering */
-    width: 100% !important;
-    left: 0 !important;
-    transform: none !important;
-}
+/* NAV OVERRIDE - keeping it consistent with fixed behavior */
 
 .hud-header {
     font-size: 0.9rem;
@@ -1322,13 +1327,11 @@ h1.glitch-large span.year {
 
     /* NAV */
     .cyber-nav {
-        padding: 10px 14px;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-        background: rgba(0, 10, 0, 0.95);
+        padding: 8px 12px;
+        flex-direction: row;
+        /* Keep on one line if possible */
+        justify-content: space-between;
+        gap: 10px;
     }
 
     .nav-links {
@@ -1347,9 +1350,9 @@ h1.glitch-large span.year {
     }
 
     .register-btn {
-        width: 90%;
-        font-size: 0.75rem;
-        padding: 8px 15px;
+        width: auto;
+        font-size: 0.72rem;
+        padding: 8px 14px;
         white-space: nowrap;
     }
 
