@@ -224,13 +224,17 @@ button {
     content: '';
 }
 
-/* Navigation Menu Links removed as per landscape request */
 .nav-links {
-    display: none !important;
+    display: flex;
+    gap: 30px;
 }
 
 .nav-toggle {
-    display: none !important;
+    display: none;
+    font-size: 1.5rem;
+    color: #00ff41;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .nav-links a {
@@ -1129,24 +1133,60 @@ footer {
    RESPONSIVE — MOBILE (≤768px)
    ========================================= */
 @media (max-width: 768px) {
-    .hero-content {
-        padding: 60px 20px;
-    }
-
     .cyber-nav {
-        padding: 10px 15px;
-        position: fixed;
-        /* Keep it sticky */
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
+        padding: 15px 25px;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background: rgba(2, 13, 2, 0.98);
+        background: rgba(4, 20, 4, 0.98);
         border-bottom: 2px solid #00ff41;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
         z-index: 10001;
+    }
+
+    .nav-toggle {
+        display: block;
+        order: 2;
+    }
+
+    .register-btn {
+        order: 3;
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(2, 13, 2, 0.98);
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 2px solid #00ff41;
+        box-shadow: 0 10px 30px rgba(2, 13, 2, 0.5);
+        z-index: 1000;
+        animation: slideDownNav 0.3s ease-out;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    @keyframes slideDownNav {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }
 
