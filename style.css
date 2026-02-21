@@ -303,17 +303,57 @@ button {
 
 .hero-content {
     z-index: 10;
-    max-width: 900px;
-    padding: 80px 50px;
+    /* LANDSCAPE: much wider than tall */
+    width: 90vw;
+    max-width: 1100px;
+    min-height: unset;
+    padding: 48px 56px;
     position: relative;
     background: rgba(4, 25, 4, 0.9);
-    /* Solidified Page Background */
     backdrop-filter: blur(15px);
     border: 2px solid #00ff41;
     box-shadow: 0 0 50px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.1);
     border-radius: 4px;
-    /* Crisp Rectangular feel */
+    /* Two-column landscape layout */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'markers   markers'
+        'corners   corners'
+        'left      right';
+    align-items: center;
+    gap: 0 40px;
+    text-align: left;
 }
+
+/* Left column — college name, title, date */
+.hero-content .sub-hero,
+.hero-content .association,
+.hero-content h1.glitch-large,
+.hero-content h1.glitch,
+.hero-content .hero-date {
+    grid-column: 1;
+}
+
+/* Right column — countdown + CTA */
+.hero-content .countdown-container,
+.hero-content .cta-button {
+    grid-column: 2;
+    justify-self: center;
+}
+
+/* Divider line between columns */
+.hero-content::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.35), transparent);
+    pointer-events: none;
+}
+
 
 .cyber-frame-corners span {
     position: absolute;
@@ -1578,3 +1618,178 @@ footer {
     }
 }
 
+/* ============================================================
+   HIDE NAV BAR
+   ============================================================ */
+.cyber-nav {
+    display: none !important;
+}
+
+/* ============================================================
+   FLOATING REGISTRATION BUTTON
+   ============================================================ */
+.float-reg-btn {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+
+    /* Pill shape */
+    border-radius: 50px;
+    padding: 0;
+    height: 56px;
+    width: 56px;
+    /* collapsed — icon only */
+
+    background: linear-gradient(135deg, #003300, #006622);
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 24px rgba(0, 255, 65, 0.35),
+        0 0 8px rgba(0, 255, 65, 0.20),
+        inset 0 0 16px rgba(0, 255, 65, 0.06);
+
+    transition:
+        width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.45s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* Expand on hover to show full label */
+.float-reg-btn:hover {
+    width: 260px;
+    box-shadow:
+        0 0 40px rgba(0, 255, 65, 0.55),
+        0 0 15px rgba(0, 255, 65, 0.30),
+        inset 0 0 20px rgba(0, 255, 65, 0.10);
+    background: linear-gradient(135deg, #004d00, #00aa44);
+    color: #fff;
+    border-color: #00ff41;
+}
+
+/* Rocket icon */
+.float-reg-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    font-size: 1.25rem;
+    transition: transform 0.4s ease;
+}
+
+.float-reg-btn:hover .float-reg-icon {
+    transform: rotate(-45deg) scale(1.15);
+}
+
+/* Label text — hidden until hovered */
+.float-reg-text {
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+        opacity 0.3s ease 0.1s,
+        transform 0.3s ease 0.1s;
+    pointer-events: none;
+    padding-right: 20px;
+}
+
+.float-reg-btn:hover .float-reg-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animated pulsing ring */
+.float-reg-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50px;
+    border: 2px solid rgba(0, 255, 65, 0.5);
+    animation: floatPulseRing 2s ease-out infinite;
+    pointer-events: none;
+}
+
+.float-reg-btn:hover .float-reg-pulse {
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+@keyframes floatPulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.22);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.22);
+        opacity: 0;
+    }
+}
+
+/* Subtle bounce entrance animation */
+@keyframes floatBounceIn {
+    0% {
+        transform: translateY(80px) scale(0.6);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-8px) scale(1.05);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(4px) scale(0.98);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.float-reg-btn {
+    animation: floatBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .float-reg-btn {
+        bottom: 22px;
+        right: 18px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .float-reg-btn:hover {
+        width: 220px;
+        font-size: 0.65rem;
+    }
+
+    .float-reg-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+}
