@@ -32,19 +32,15 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
     overflow-x: hidden;
-    background: #020d02 url('https://wallpapers-clan.com/wp-content/uploads/2025/06/marvel-comics-dr-doom-regal-villain-desktop-wallpaper-preview.jpg') no-repeat center top fixed;
-    background-size: cover;
+    background: #f8faff;
     min-height: 100vh;
-    cursor: none;
-    /* Hide default cursor */
+    cursor: auto;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none !important;
-    /* Force hide default cursor */
 }
 
 ::selection {
@@ -70,18 +66,9 @@ body {
     }
 }
 
-/* Background darken overlay */
+/* Background darken overlay — replaced by doomsday.css layers */
 body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(2, 13, 2, 0.25);
-    /* Ultra-light to show the 4K art clearly */
-    z-index: -1;
-    pointer-events: none;
+    display: none;
 }
 
 body::before {

@@ -354,15 +354,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        // Doomsday Emerald background fade instead of black
-        ctx.fillStyle = 'rgba(2, 13, 2, 0.12)';
+        // Light theme — cool void fade
+        ctx.fillStyle = 'rgba(248, 250, 255, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // ☠ DOOMSDAY GREEN matrix rain
+        // Indigo/violet soft matrix
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#00ff41');
-        gradient.addColorStop(0.5, '#39ff14');
-        gradient.addColorStop(1, '#006622');
+        gradient.addColorStop(0, '#c7d2fe');
+        gradient.addColorStop(0.5, '#818cf8');
+        gradient.addColorStop(1, '#4338ca');
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px monospace';
 
