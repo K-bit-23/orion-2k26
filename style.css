@@ -275,151 +275,79 @@ button {
     border-color: #00ff41;
 }
 
-/* ========================
+/* ========================================================
    HERO SECTION
-   ======================== */
+   ======================================================== */
 .hero {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 60px 24px;
     position: relative;
     overflow: hidden;
     background: transparent;
 }
 
+/* subtle noise texture overlay */
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
+    opacity: 0.04;
     pointer-events: none;
     z-index: 0;
 }
 
-/* ── LANDSCAPE CARD CONTAINER ── */
+/* ── CARD CONTAINER (landscape) ── */
 .hero-content {
     position: relative;
     z-index: 10;
     width: 92vw;
-    max-width: 1120px;
-    padding: 52px 52px 48px;
-    background: rgba(2, 18, 2, 0.92);
-    backdrop-filter: blur(18px);
-    border: 2px solid rgba(0, 255, 65, 0.6);
-    border-radius: 6px;
-    box-shadow:
-        0 0 60px rgba(0, 255, 65, 0.18),
-        0 0 20px rgba(0, 255, 65, 0.08),
-        inset 0 0 40px rgba(0, 255, 65, 0.05);
-    /* Three columns: left content | thin divider | right content */
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    align-items: center;
-    gap: 0;
-}
+    max-width: 1160px;
 
-/* ── LEFT PANEL: Branding ── */
-.hero-left {
-    padding: 0 40px 0 0;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    /* True landscape: left branding | divider | right countdown */
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-    text-align: left;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0;
+    overflow: visible;
 }
 
-/* ── DIVIDER ── */
-.hero-divider {
-    width: 1px;
-    align-self: stretch;
-    background: linear-gradient(to bottom,
-            transparent 0%,
-            rgba(0, 255, 65, 0.15) 15%,
-            rgba(0, 255, 65, 0.45) 50%,
-            rgba(0, 255, 65, 0.15) 85%,
-            transparent 100%);
-    margin: 8px 0;
+/* Hide card-only decorators */
+.page-marker,
+.cyber-frame-corners {
+    display: none;
 }
 
-/* ── RIGHT PANEL: Countdown + CTA ── */
-.hero-right {
-    padding: 0 0 0 44px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    text-align: center;
-}
-
-/* Countdown section label */
-.countdown-label {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 4px;
-    color: rgba(0, 255, 65, 0.65);
-    text-transform: uppercase;
-    margin: 0;
-}
-
-
-.cyber-frame-corners span {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border: 3px solid #00ff41;
-    z-index: 2;
-}
-
-.cyber-frame-corners span:nth-child(1) {
-    top: 0;
-    left: 0;
-    border-right: none;
-    border-bottom: none;
-}
-
-.cyber-frame-corners span:nth-child(2) {
-    top: 0;
-    right: 0;
-    border-left: none;
-    border-bottom: none;
-}
-
-.cyber-frame-corners span:nth-child(3) {
-    bottom: 0;
-    left: 0;
-    border-right: none;
-    border-top: none;
-}
-
-.cyber-frame-corners span:nth-child(4) {
-    bottom: 0;
-    right: 0;
-    border-left: none;
-    border-top: none;
-}
-
+/* ── ABSOLUTE DECORATORS (don't affect flex flow) ── */
 .page-marker {
     position: absolute;
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     color: #020d02;
     background: #00ff41;
     padding: 2px 8px;
     font-weight: bold;
     letter-spacing: 1px;
-    z-index: 5;
+    z-index: 15;
     text-transform: uppercase;
 }
 
 .top-left {
-    top: -10px;
+    top: -1px;
     left: 20px;
 }
 
 .top-right {
-    top: -10px;
+    top: -1px;
     right: 20px;
 }
 
@@ -440,49 +368,136 @@ button {
     }
 }
 
+.cyber-frame-corners {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 14;
+}
+
+.cyber-frame-corners span {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2.5px solid rgba(0, 255, 65, 0.7);
+}
+
+.cyber-frame-corners span:nth-child(1) {
+    top: 6px;
+    left: 6px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.cyber-frame-corners span:nth-child(2) {
+    top: 6px;
+    right: 6px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.cyber-frame-corners span:nth-child(3) {
+    bottom: 6px;
+    left: 6px;
+    border-right: none;
+    border-top: none;
+}
+
+.cyber-frame-corners span:nth-child(4) {
+    bottom: 6px;
+    right: 6px;
+    border-left: none;
+    border-top: none;
+}
+
+/* ── LEFT PANEL: Branding ── */
+.hero-left {
+    flex: 1.1;
+    padding: 56px 48px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    text-align: left;
+    min-width: 0;
+}
+
+/* ── DIVIDER ── */
+.hero-divider {
+    width: 1px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 255, 65, 0.12) 10%,
+            rgba(0, 255, 65, 0.45) 50%,
+            rgba(0, 255, 65, 0.12) 90%,
+            transparent 100%);
+    margin: 40px 0;
+    flex-shrink: 0;
+}
+
+/* ── RIGHT PANEL: Countdown + CTA ── */
+.hero-right {
+    flex: 0.9;
+    padding: 56px 56px 56px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: center;
+    min-width: 0;
+}
+
+/* ── COLLEGE / SUBTITLE TEXT ── */
 .sub-hero {
     font-family: var(--font-mono);
     color: #00ff41;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    letter-spacing: 6px;
+    font-size: 1rem;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    opacity: 0.9;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.4);
+    margin: 0;
 }
 
 .association {
     font-family: var(--font-mono);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-    opacity: 0.7;
+    color: rgba(77, 255, 145, 0.65);
+    font-size: 0.82rem;
+    letter-spacing: 2.5px;
+    margin: 0;
 }
 
-/* LOGO IMAGE STYLE */
-/* HERO TITLE STYLES */
-/* HERO TITLE STYLES - LIQUID CHROME EFFECT */
-/* HERO TITLE STYLES - SIMPLE & COLORFUL */
+/* ── MAIN TITLE ── */
 h1.glitch-large {
     font-family: var(--font-head);
-    font-size: clamp(3rem, 12vw, 7.5rem);
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
     font-weight: 900;
     line-height: 0.9;
     text-transform: uppercase;
-    letter-spacing: clamp(4px, 2vw, 15px);
-    margin-bottom: 25px;
+    letter-spacing: clamp(4px, 1.5vw, 14px);
+    margin: 8px 0 4px;
     position: relative;
     z-index: 1;
-    background: linear-gradient(to right,
-            #00ff41, #00c853, #00ff41,
-            #7fff00, #00ff41);
+    background: linear-gradient(135deg, #00ff41 0%, #39ff14 40%, #7fff00 70%, #00ff41 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: colorfulFlow 4s linear infinite, floatTitle 3s ease-in-out infinite;
-    text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+    animation: colorfulFlow 5s linear infinite, floatTitle 3.5s ease-in-out infinite;
+}
+
+h1.glitch-large span.year {
+    display: block;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    letter-spacing: clamp(8px, 3vw, 22px);
+    margin-top: -4px;
+    background: linear-gradient(90deg, #39ff14, #00c853, #7fff00, #39ff14);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorfulFlow 5s linear infinite;
 }
 
 @keyframes floatTitle {
@@ -493,7 +508,7 @@ h1.glitch-large {
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }
 
@@ -511,59 +526,55 @@ h1.glitch-large {
     }
 }
 
-h1.glitch-large span.year {
-    display: block;
-    font-size: 4rem;
-    letter-spacing: 20px;
-    margin-top: -10px;
-    background: linear-gradient(90deg, #39ff14, #00ff41, #7fff00, #39ff14);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: colorfulFlow 4s linear infinite;
-}
-
-
-
+/* ── DATE PILL ── */
 .hero-date {
     font-family: var(--font-mono);
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 1rem;
-    margin-top: 8px;
-    margin-bottom: 0;
-    background: rgba(0, 255, 65, 0.06);
-    border: 1px solid rgba(0, 255, 65, 0.22);
-    padding: 8px 18px;
-    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.88rem;
     letter-spacing: 2px;
     display: inline-block;
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
-/* Countdown */
+/* ── COUNTDOWN LABEL ── */
+.countdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    color: rgba(0, 255, 65, 0.55);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ── COUNTDOWN GRID ── */
 .countdown-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 12px;
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
 }
 
 .time-segment {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(0, 20, 0, 0.85);
-    border: 1px solid rgba(0, 255, 65, 0.3);
-    padding: 14px 10px 10px;
+    background: rgba(0, 18, 0, 0.90);
+    border: 1px solid rgba(0, 255, 65, 0.28);
+    padding: 16px 8px 10px;
     border-radius: 10px;
     gap: 4px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .time-segment:hover {
     border-color: #00ff41;
-    box-shadow: 0 0 18px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.22);
+    background: rgba(0, 30, 0, 0.95);
 }
 
 .time-segment span:first-child {
@@ -572,33 +583,37 @@ h1.glitch-large span.year {
     color: #00ff41;
     font-family: var(--font-head);
     line-height: 1;
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.4);
 }
 
 .time-segment .label {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: rgba(57, 255, 20, 0.7);
+    font-size: 0.6rem;
+    color: rgba(57, 255, 20, 0.65);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-/* CTA Buttons */
+/* ── CTA BUTTON ── */
 .cta-button {
     display: inline-block;
-    padding: 15px 40px;
-    background: linear-gradient(90deg, #003300, #006622);
+    padding: 14px 38px;
+    background: linear-gradient(90deg, #003300, #005500);
     color: #00ff41;
     text-decoration: none;
     font-family: var(--font-head);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 30px;
     border: 2px solid #00ff41;
-    transition: 0.3s;
+    transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
 }
 
 .cta-button::before {
@@ -620,7 +635,10 @@ h1.glitch-large span.year {
     background: #00ff41;
     color: #020d02;
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 255, 65, 0.3);
 }
+
+
 
 /* ========================
    WORKSHOP SECTION
@@ -1188,27 +1206,34 @@ footer {
    ========================================= */
 @media (max-width: 900px) {
 
-    /* Hero: stack to single column */
+    /* Hero: stack vertically */
     .hero-content {
-        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
         width: 95vw !important;
-        padding: 44px 28px !important;
+        align-items: stretch !important;
     }
 
     .hero-divider {
-        display: none !important;
+        display: block !important;
+        width: auto !important;
+        height: 1px !important;
+        margin: 0 40px !important;
+        background: linear-gradient(to right,
+                transparent 0%,
+                rgba(0, 255, 65, 0.12) 10%,
+                rgba(0, 255, 65, 0.45) 50%,
+                rgba(0, 255, 65, 0.12) 90%,
+                transparent 100%) !important;
     }
 
     .hero-left {
-        padding: 0 !important;
+        padding: 48px 40px 32px !important;
         text-align: center;
         align-items: center;
     }
 
     .hero-right {
-        padding: 0 !important;
-        border-top: 1px solid rgba(0, 255, 65, 0.18);
-        padding-top: 28px !important;
+        padding: 32px 40px 48px !important;
     }
 
     /* Event grid: 2 columns */
@@ -1229,7 +1254,7 @@ footer {
 
     .countdown-container {
         gap: 10px;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .events-section,
@@ -1244,37 +1269,39 @@ footer {
    ========================================= */
 @media (max-width: 768px) {
 
-    /* Hero card — single column, centered */
+    /* Hero card — single column, vertically stacked */
     .hero {
-        padding: 28px 12px;
+        padding: 20px 12px;
         min-height: 100vh;
         align-items: flex-start;
-        padding-top: 40px;
+        padding-top: 30px;
     }
 
     .hero-content {
-        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
         width: 96vw !important;
-        padding: 32px 20px !important;
-        gap: 0 !important;
     }
 
     .hero-divider {
-        display: none !important;
+        display: block !important;
+        width: auto !important;
+        height: 1px !important;
+        margin: 0 24px !important;
+        background: linear-gradient(to right,
+                transparent 0%,
+                rgba(0, 255, 65, 0.35) 50%,
+                transparent 100%) !important;
     }
 
     .hero-left {
-        padding: 0 !important;
+        padding: 36px 24px 24px !important;
         text-align: center;
         align-items: center;
         gap: 8px;
     }
 
     .hero-right {
-        padding: 0 !important;
-        padding-top: 24px !important;
-        border-top: 1px solid rgba(0, 255, 65, 0.18);
-        margin-top: 20px;
+        padding: 24px 24px 36px !important;
     }
 
     .countdown-label {
