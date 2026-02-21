@@ -354,15 +354,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        // Light theme — cool void fade
-        ctx.fillStyle = 'rgba(248, 250, 255, 0.12)';
+        // Deep dark forest fade
+        ctx.fillStyle = 'rgba(3, 11, 4, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Indigo/violet soft matrix
+        // Neon emerald green matrix
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#c7d2fe');
-        gradient.addColorStop(0.5, '#818cf8');
-        gradient.addColorStop(1, '#4338ca');
+        gradient.addColorStop(0, '#00ff88');
+        gradient.addColorStop(0.5, '#00e676');
+        gradient.addColorStop(1, '#22c55e');
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px monospace';
 
