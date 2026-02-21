@@ -81,69 +81,10 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="effects.css">
-    <link rel="stylesheet" href="doomsday.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- ☠ DOOMSDAY CINEMATIC BACKGROUND LAYERS ☠ -->
-    <div class="doomsday-bg"></div>
-    <div class="doom-vignette"></div>
-    <div class="doom-scanlines"></div>
-    <div class="doom-aberration"></div>
-    <div class="horizon-fire"></div>
-
-    <!-- Meteor Shower -->
-    <div class="meteors-container">
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-    </div>
-
-    <!-- Ember Particles -->
-    <div class="embers-container">
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-    </div>
-
-    <!-- Dark Smoke -->
-    <div class="smoke-layer">
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-    </div>
-
-    <!-- Lightning Flashes -->
-    <div class="lightning-container">
-        <div class="lightning-flash"></div>
-        <div class="lightning-flash"></div>
-        <div class="lightning-flash"></div>
-    </div>
-
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
@@ -164,19 +105,14 @@
 
     <!-- Floating Particles Removed -->
 
+    <!-- Navigation -->
     <nav class="cyber-nav">
         <div class="logo glitch" data-text="ORION 2K26" onclick="window.location.href='index.html'"
             style="cursor: pointer;">ORION 2K26</div>
         <div class="nav-toggle" id="navToggle">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="active">HOME</a>
-            <a href="events.html">EVENTS</a>
-            <a href="protocols.html">PROTOCOLS</a>
-            <a href="contact.html">COMMUNICATIONS</a>
-        </div>
-
+       
         <button class="register-btn"
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form', '_blank')">INITIATE
             REGISTRATION</button>
@@ -236,7 +172,8 @@
             <h2 class="section-title">GENERAL PROTOCOLS</h2>
             <div class="section-line"></div>
         </div>
-        <div class="protocols-container">
+        <div class="protocols-container"
+            style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
             <div class="protocol-card">
                 <i class="fas fa-id-card"></i>
                 <h3>IDENTIFICATION</h3>
@@ -441,3 +378,4 @@
 </body>
 
 </html>
+

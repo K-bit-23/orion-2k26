@@ -138,9 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (id) {
                         const navLinks = document.querySelectorAll('.nav-links a');
                         navLinks.forEach(link => {
-                            const href = link.getAttribute('href');
                             link.classList.remove('active');
-                            if (href === `#${id}` || href.endsWith(`#${id}`)) {
+                            if (link.getAttribute('href') === `#${id}`) {
                                 link.classList.add('active');
                             }
                         });
@@ -354,15 +353,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const draw = () => {
-        // Deep dark forest fade
-        ctx.fillStyle = 'rgba(3, 11, 4, 0.12)';
+        // Doomsday Emerald background fade instead of black
+        ctx.fillStyle = 'rgba(2, 13, 2, 0.12)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Neon emerald green matrix
+        // ☠ DOOMSDAY GREEN matrix rain
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        gradient.addColorStop(0, '#00ff88');
-        gradient.addColorStop(0.5, '#00e676');
-        gradient.addColorStop(1, '#22c55e');
+        gradient.addColorStop(0, '#00ff41');
+        gradient.addColorStop(0.5, '#39ff14');
+        gradient.addColorStop(1, '#006622');
         ctx.fillStyle = gradient;
         ctx.font = fontSize + 'px monospace';
 

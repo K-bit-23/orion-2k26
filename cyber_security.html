@@ -17,7 +17,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="effects.css">
-    <link rel="stylesheet" href="doomsday.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -34,39 +33,36 @@
         }
 
         .content-wrapper {
-            max-width: 750px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .info-card {
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            background: rgba(10, 1, 0, 0.88);
-            border: 1px solid rgba(180, 30, 0, 0.6);
+            background: rgba(4, 25, 4, 0.9);
+            border: 2px solid #00ff41;
             padding: 40px;
             border-radius: 4px;
-            backdrop-filter: blur(20px);
+            /* Rectangular feel */
+            backdrop-filter: blur(15px);
             margin-bottom: 30px;
-            box-shadow: 0 0 40px rgba(150, 0, 0, 0.2), inset 0 0 20px rgba(60, 0, 0, 0.15);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.15);
         }
 
         .info-title {
             font-family: var(--font-head);
             font-size: 2rem;
-            color: #ffcca0;
+            color: #fff;
             margin-bottom: 20px;
-            border-bottom: 2px solid rgba(200, 60, 0, 0.6);
+            border-bottom: 2px solid var(--accent-purple);
             padding-bottom: 10px;
             display: inline-block;
-            text-shadow: 0 0 10px rgba(200, 60, 0, 0.4);
         }
 
         .info-text {
             font-family: var(--font-body);
             font-size: 1.1rem;
-            color: #cc8866;
+            color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 20px;
         }
@@ -79,8 +75,8 @@
         }
 
         .coord-card {
-            background: rgba(15, 2, 0, 0.7);
-            border: 1px solid rgba(150, 25, 0, 0.4);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 240, 255, 0.2);
             padding: 20px;
             text-align: center;
             border-radius: 10px;
@@ -88,37 +84,31 @@
         }
 
         .coord-card:hover {
-            border-color: rgba(255, 80, 0, 0.6);
-            background: rgba(35, 4, 0, 0.75);
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(200, 0, 0, 0.2);
         }
 
         .coord-name {
             font-family: var(--font-head);
-            color: #ffcca0;
+            color: #fff;
             font-size: 1.2rem;
             margin-bottom: 5px;
         }
 
         .coord-role {
             font-family: var(--font-mono);
-            color: #cc6644;
+            color: var(--accent-purple);
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
 
         .coord-contact {
-            color: #ff6633;
+            color: var(--accent-cyan);
             text-decoration: none;
             font-family: var(--font-mono);
             font-weight: bold;
             display: block;
-            transition: color 0.2s;
-        }
-
-        .coord-contact:hover {
-            color: #ffaa00;
         }
 
         .feature-list {
@@ -132,68 +122,19 @@
             position: relative;
             font-family: var(--font-body);
             font-size: 1.1rem;
-            color: #cc9977;
+            color: #ddd;
         }
 
         .feature-list li::before {
             content: '➤';
             position: absolute;
             left: 0;
-            color: #ff4400;
-        }
-
-        .workshop-hero {
-            text-align: center;
-            padding: 80px 20px 40px;
-            background: linear-gradient(180deg, transparent 0%, rgba(5, 0, 0, 0.5) 100%);
+            color: var(--accent-cyan);
         }
     </style>
 </head>
 
 <body>
-    <!-- ☠ DOOMSDAY CINEMATIC BACKGROUND LAYERS ☠ -->
-    <div class="doomsday-bg"></div>
-    <div class="doom-vignette"></div>
-    <div class="doom-scanlines"></div>
-    <div class="doom-aberration"></div>
-    <div class="horizon-fire"></div>
-    <div class="meteors-container">
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-    </div>
-    <div class="embers-container">
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-        <div class="ember"></div>
-    </div>
-    <div class="smoke-layer">
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-        <div class="smoke-cloud"></div>
-    </div>
-    <div class="lightning-container">
-        <div class="lightning-flash"></div>
-        <div class="lightning-flash"></div>
-        <div class="lightning-flash"></div>
-    </div>
     <!-- Background Effects -->
     <div class="noise-overlay"></div>
     <div class="scanline"></div>
@@ -250,16 +191,12 @@
     <nav class="cyber-nav">
         <div class="logo glitch" data-text="ORION 2K26" onclick="window.location.href='index.html'"
             style="cursor: pointer;">ORION 2K26</div>
-        <div class="nav-toggle" id="navToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="nav-links" id="navLinks">
+        <div class="nav-links">
             <a href="index.html">HOME</a>
             <a href="events.html">EVENTS</a>
             <a href="protocols.html">PROTOCOLS</a>
             <a href="contact.html">COMMUNICATIONS</a>
         </div>
-
         <button class="register-btn"
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form', '_blank')">INITIATE
             REGISTRATION</button>
@@ -329,9 +266,7 @@
     </div>
 
     <footer>
-        <p>Presented by: Department of Computer Applications Association, Kongu Engineering College, Perundurai, Erode -
-            638060</p>
-        <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.6;">☠ ORION 2K26 — SYSTEM ONLINE ☠</p>
+        <p>&copy; 2026 ORION 2K26. Department of Computer Applications, Kongu Engineering College.</p>
     </footer>
 
     <script src="script.js"></script>

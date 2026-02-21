@@ -22,16 +22,15 @@
     <style>
         /* Specific overrides for the rules page */
         .rules-container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 120px auto 60px;
             padding: 40px;
-            background: rgba(4, 25, 4, 0.9);
-            border: 2px solid #00ff41;
+            background: rgba(3, 16, 3, 0.88);
+            /* Semi-transparent to show Doom background */
+            border: 1px solid rgba(0, 255, 65, 0.25);
             position: relative;
             min-height: 60vh;
-            backdrop-filter: blur(15px);
-            border-radius: 4px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.15);
+            backdrop-filter: blur(5px);
         }
 
         .back-btn {
@@ -256,10 +255,7 @@
     <nav class="cyber-nav">
         <div class="logo glitch" data-text="ORION 2K26" onclick="window.location.href='index.html'"
             style="cursor: pointer;">ORION 2K26</div>
-        <div class="nav-toggle" id="navToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="nav-links" id="navLinks">
+        <div class="nav-links">
             <a href="index.html">HOME</a>
             <a href="events.html">EVENTS</a>
             <a href="protocols.html">PROTOCOLS</a>
@@ -406,7 +402,7 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 40px; text-align: center; border-top: 2px solid rgba(0, 255, 65, 0.3); padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="margin-top: 40px; text-align: center; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1miQmNmZt3JqvPi3isSw8ejKA5eULTukpJN5lR1YTTKagig/viewform?usp=send_form" target="_blank" class="back-btn" style="border-style: solid; background: rgba(0, 255, 65, 0.1);">
                             <i class="fas fa-file-signature"></i> INITIATE REGISTRATION
                         </a>
