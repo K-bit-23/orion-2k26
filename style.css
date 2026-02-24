@@ -192,6 +192,37 @@ body {
     order: 2;
 }
 
+.nav-item {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    position: relative;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.nav-item:hover::before {
+    width: 100%;
+}
+
 .register-btn {
     background: var(--accent);
     border: 2px solid var(--accent);
