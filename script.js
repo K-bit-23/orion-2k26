@@ -18,30 +18,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render Event Cards
-    eventData.forEach(event => {
-        const card = document.createElement('div');
-        card.className = 'event-card';
-        card.setAttribute('data-id', event.id);
+    const renderCategory = (events, title, containerClass) => {
+        const titleEl = document.createElement('h3');
+        titleEl.className = 'event-category-title';
+        titleEl.textContent = title;
+        eventsGrid.appendChild(titleEl);
 
-        card.innerHTML = `
-            <div class="card-icon"><i class="fas ${event.icon}"></i></div>
-            <h3 class="card-title">${event.title}</h3>
-            <div style="color: var(--highlight); font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
-                ${event.subtitle || ''}
-            </div>
-            <p class="card-desc">${event.description}</p>
-            <div class="read-more">Access Data <i class="fas fa-chevron-right"></i></div>
-        `;
+        const gridEl = document.createElement('div');
+        gridEl.className = 'events-grid ' + containerClass;
+        
+        events.forEach(event => {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            card.setAttribute('data-id', event.id);
 
-        card.addEventListener('click', () => {
-            playClickSound();
-            // Increased delay to 400ms to ensure sound is audible
-            setTimeout(() => {
-                window.location.href = `rules.html?id=${event.id}`;
-            }, 400);
+            card.innerHTML = `
+                <div class="card-gfx">
+                    <div class="card-icon"><i class="fas ${event.icon}"></i></div>
+                    ${event.category ? `<div class="category-tag"><i class="fas fa-star"></i> ${event.category}</div>` : ''}
+                </div>
+                <h3 class="card-title">${event.title}</h3>
+                <div style="color: var(--highlight); font-family: var(--font-mono); margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                    ${event.subtitle || ''}
+                </div>
+                <p class="card-desc">${event.description}</p>
+                <div class="read-more">Access Data <i class="fas fa-chevron-right"></i></div>
+            `;
+
+            card.addEventListener('click', () => {
+                playClickSound();
+                setTimeout(() => {
+                    window.location.href = `rules.html?id=${event.id}`;
+                }, 400);
+            });
+            gridEl.appendChild(card);
         });
-        eventsGrid.appendChild(card);
-    });
+
+        eventsGrid.appendChild(gridEl);
+    };
+
+    const techEvents = eventData.filter(e => e.category !== 'NON-TECHNICAL');
+    const nonTechEvents = eventData.filter(e => e.category === 'NON-TECHNICAL');
+
+    renderCategory(techEvents, 'TECHNICAL EVENTS', 'tech-grid');
+    renderCategory(nonTechEvents, 'NON-TECHNICAL EVENTS', 'non-tech-grid');
 
     // --- Countdown Timer ---
     // Target Date: March 5, 2026, 09:00:00 (Assuming start time)

@@ -177,5 +177,56 @@ const eventData = [
             "Deepsikha K : 95970 96605",
             "Ruchitha T U : 63747 78071"
         ]
+    },
+    {
+        id: "talent-show",
+        title: "Talent Show",
+        subtitle: "(MIME . MIMICRY . INSTRUMENTAL . RAMP WALK)",
+        icon: "fa-masks-theater",
+        category: "NON-TECHNICAL",
+        description: "Unleash your inner superstar! Show your talent in Mime (silent storytelling), Mimicry (celeb impressions), Instrumental Playing (live music), or Ramp Walk (fashion catwalk). One stage, many talents - dazzle the crowd!",
+        teamSize: "Solo . Dual",
+        rules: [
+            "Participant must bring their own requirements (pendrive, instruments, properties) according to their events.",
+            "Judges' decision is final and binding."
+        ],
+        coordinators: [
+            "Lipika S: 88385 84003",
+            "Kaliswary K: 70925 03705"
+        ]
+    },
+    {
+        id: "singing",
+        title: "Singing",
+        subtitle: "(SOLO . DUAL)",
+        icon: "fa-microphone-alt",
+        category: "NON-TECHNICAL",
+        description: "Let your voice echo through the stars! Compete in Solo (single vocalist) or Dual (two vocalists) singing. Any language, any genre – classical, film, folk, or pop. The stage is yours, the mic is live!",
+        teamSize: "1 - 2 Members",
+        rules: [
+            "Karaoke track should be submitted during registration or on pendrive.",
+            "Time limit is 3-5 minutes."
+        ],
+        coordinators: [
+            "Lipika S: 88385 84003",
+            "Kaliswary K: 70925 03705"
+        ]
+    },
+    {
+        id: "dance",
+        title: "Dance",
+        subtitle: "(SOLO . DUAL)",
+        icon: "fa-music",
+        category: "NON-TECHNICAL",
+        description: "Move to the rhythm, own the floor! Compete in Solo or Dual dance. Classical, contemporary, hip-hop, folk, or fusion – express yourself through every step, spin, and groove. Let the beat take control!",
+        teamSize: "1 - 2 Members",
+        rules: [
+            "Audio tracks should be submitted on a pendrive.",
+            "Performance must not exceed 5 minutes."
+        ],
+        coordinators: [
+            "Lipika S: 88385 84003",
+            "Kaliswary K: 70925 03705"
+        ]
     }
 ];
