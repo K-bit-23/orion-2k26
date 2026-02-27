@@ -662,6 +662,55 @@ h1.glitch-large {
     gap: 10px;
 }
 
+/* Spot Registration Badge */
+.spot-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 20, 0, 0.85);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    transform: translateZ(40px);
+}
+
+.spot-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: spot-pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 6px var(--accent);
+}
+
+@keyframes spot-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 6px var(--accent);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.7);
+        box-shadow: 0 0 2px var(--accent);
+    }
+}
+
 /* Modal */
 .modal {
     display: none;
