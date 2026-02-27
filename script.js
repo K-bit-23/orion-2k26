@@ -281,4 +281,60 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
+    // --- Drag & Drop for Spot Registration Float ---
+    const spotFloat = document.querySelector('.spot-float');
+    if (spotFloat) {
+        let isDragging = false;
+        let startX, startY, initialLeft, initialTop;
+
+        const onStart = (e) => {
+            isDragging = true;
+            spotFloat.classList.add('dragging');
+            const touch = e.touches ? e.touches[0] : e;
+            startX = touch.clientX;
+            startY = touch.clientY;
+            const rect = spotFloat.getBoundingClientRect();
+            initialLeft = rect.left;
+            initialTop = rect.top;
+            // Switch to top/left positioning
+            spotFloat.style.bottom = 'auto';
+            spotFloat.style.right = 'auto';
+            spotFloat.style.left = initialLeft + 'px';
+            spotFloat.style.top = initialTop + 'px';
+            e.preventDefault();
+        };
+
+        const onMove = (e) => {
+            if (!isDragging) return;
+            const touch = e.touches ? e.touches[0] : e;
+            const dx = touch.clientX - startX;
+            const dy = touch.clientY - startY;
+            let newLeft = initialLeft + dx;
+            let newTop = initialTop + dy;
+            // Keep within viewport
+            const w = spotFloat.offsetWidth;
+            const h = spotFloat.offsetHeight;
+            newLeft = Math.max(0, Math.min(window.innerWidth - w, newLeft));
+            newTop = Math.max(0, Math.min(window.innerHeight - h, newTop));
+            spotFloat.style.left = newLeft + 'px';
+            spotFloat.style.top = newTop + 'px';
+            e.preventDefault();
+        };
+
+        const onEnd = () => {
+            isDragging = false;
+            spotFloat.classList.remove('dragging');
+        };
+
+        // Mouse events
+        spotFloat.addEventListener('mousedown', onStart);
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onEnd);
+
+        // Touch events
+        spotFloat.addEventListener('touchstart', onStart, { passive: false });
+        document.addEventListener('touchmove', onMove, { passive: false });
+        document.addEventListener('touchend', onEnd);
+    }
+
 });
